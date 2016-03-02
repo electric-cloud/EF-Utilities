@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>3</value>
+        <value>4</value>
       </property>
       <property>
         <propertyName>version</propertyName>
@@ -147,6 +147,21 @@ History:
                   </propertySheet>
                 </property>
                 <property>
+                  <propertyName>projName</propertyName>
+                  <tracked>1</tracked>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
                   <propertyName>snapName</propertyName>
                   <tracked>1</tracked>
                   <propertySheet>
@@ -193,7 +208,7 @@ History:
         <type>entry</type>
       </formalParameter>
       <formalParameter>
-        <formalParameterName>proj</formalParameterName>
+        <formalParameterName>projName</formalParameterName>
         <defaultValue>$[/myParent/projectName]</defaultValue>
         <description>Name of the project</description>
         <expansionDeferred>0</expansionDeferred>
