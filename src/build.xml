@@ -1,0 +1,12 @@
+<project name="EF-Utilities" default="package" basedir=".">
+  <description>
+    Build the EF-Utilities plugin
+  </description>
+
+  <!-- Plugin-specific properties -->
+  <property name="pluginKey" value="EF-Utilities" />
+  <property name="pluginVersion" value="0.1.1" />
+
+  
+  <import file="/opt/electriccloud/CommanderSDK/build/buildTargets.xml" />
+</project>
