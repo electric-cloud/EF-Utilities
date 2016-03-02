@@ -29,14 +29,14 @@
 &lt;head>
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     &lt;title>EF-UtilitiesPlugin&lt;/title>
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.1.2/pluginhelp.css" type="text/css" media= "screen" />
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.1.3/pluginhelp.css" type="text/css" media= "screen" />
 &lt;/head>
 
 &lt;body>
     &lt;div class="help">
 
         &lt;h1>EF-Utilities&lt;/h1>
-        &lt;p>Plugin Version 0.1.2&lt;/p>
+        &lt;p>Plugin Version 0.1.3&lt;/p>
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         &lt;p>EF-Utilities is a collection of common procedures to help you
@@ -61,7 +61,7 @@ what it is now.&lt;/p>
         <description />
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>2</value>
+        <value>3</value>
       </property>
       <property>
         <propertyName>version</propertyName>
@@ -76,8 +76,15 @@ History:
         <value>0.1</value>
       </property>
     <property><propertyName>ec_setup</propertyName><value># Data that drives the create step picker registration for this plugin.
-@::createStepPickerSteps = ();
-</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.1.2</value></property></propertySheet>
+my %createSnapshot = ( 
+  label       => "EF-Utilities - createSnapshot", 
+  procedure   => "createSnapshot", 
+  description => "create an environment snapshot", 
+  category    => "Deploy" 
+);
+
+@::createStepPickerSteps = (\%createSnapshot);
+</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.1.3</value></property></propertySheet>
     <procedure>
       <procedureName>createSnapshot</procedureName>
       <description>create an environment snapshot</description>
@@ -165,6 +172,14 @@ History:
               </propertySheet>
             </property>
           </propertySheet>
+        </property>
+        <property>
+          <propertyName>exposeToPlugin</propertyName>
+          <counter>0</counter>
+          <description />
+          <expandable>1</expandable>
+          <tracked>1</tracked>
+          <value>1</value>
         </property>
       </propertySheet>
       <formalParameter>

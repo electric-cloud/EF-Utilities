@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>2</value>
+        <value>3</value>
       </property>
       <property>
         <propertyName>version</propertyName>
@@ -164,6 +164,14 @@ History:
               </propertySheet>
             </property>
           </propertySheet>
+        </property>
+        <property>
+          <propertyName>exposeToPlugin</propertyName>
+          <counter>0</counter>
+          <description/>
+          <expandable>1</expandable>
+          <tracked>1</tracked>
+          <value>1</value>
         </property>
       </propertySheet>
       <formalParameter>
