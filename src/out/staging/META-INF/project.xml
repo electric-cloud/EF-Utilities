@@ -29,14 +29,14 @@
 &lt;head>
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     &lt;title>EF-UtilitiesPlugin&lt;/title>
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.1.5/pluginhelp.css" type="text/css" media= "screen" />
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.2.0.6/pluginhelp.css" type="text/css" media= "screen" />
 &lt;/head>
 
 &lt;body>
     &lt;div class="help">
 
         &lt;h1>EF-Utilities&lt;/h1>
-        &lt;p>Plugin Version 0.1.5&lt;/p>
+        &lt;p>Plugin Version 0.2.0.6&lt;/p>
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         &lt;p>EF-Utilities is a collection of common procedures to help you
@@ -61,7 +61,15 @@ what it is now.&lt;/p>
         <description />
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>5</value>
+        <value>6</value>
+      </property>
+      <property>
+        <propertyName>pluginDependencies</propertyName>
+        <counter>0</counter>
+        <description />
+        <expandable>1</expandable>
+        <tracked>1</tracked>
+        <value>EC-Admin</value>
       </property>
       <property>
         <propertyName>version</propertyName>
@@ -69,11 +77,13 @@ what it is now.&lt;/p>
         <description>Versions of the EF-Utilities project
 
 History:
-- version 0.1
+- version 0.2.0
+   + add force option
+- version 0.1.0
    + initial version with createSnapshot</description>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>0.1</value>
+        <value>0.2.0</value>
       </property>
     <property><propertyName>ec_setup</propertyName><value># Data that drives the create step picker registration for this plugin.
 my %createSnapshot = ( 
@@ -84,7 +94,7 @@ my %createSnapshot = (
 );
 
 @::createStepPickerSteps = (\%createSnapshot);
-</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.1.5</value></property></propertySheet>
+</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.2.0.6</value></property></propertySheet>
     <procedure>
       <procedureName>createSnapshot</procedureName>
       <description>create an environment snapshot</description>
@@ -136,6 +146,42 @@ my %createSnapshot = (
                       <expandable>1</expandable>
                       <tracked>1</tracked>
                       <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>force</propertyName>
+                  <tracked>1</tracked>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>0</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>false</value>
                     </property>
                   </propertySheet>
                 </property>
@@ -216,6 +262,15 @@ my %createSnapshot = (
         <type>entry</type>
       </formalParameter>
       <formalParameter>
+        <formalParameterName>force</formalParameterName>
+        <defaultValue>false</defaultValue>
+        <description />
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <tracked>1</tracked>
+        <type>checkbox</type>
+      </formalParameter>
+      <formalParameter>
         <formalParameterName>projName</formalParameterName>
         <defaultValue>$[/myParent/projectName]</defaultValue>
         <description>Name of the project</description>
@@ -246,8 +301,18 @@ my $proj  = "$[projName]";
 my $app   = "$[appName]";
 my $snap  = "$[snapName]";
 my $env   = "$[envName]";
+my $force = "$[force]";
 
+# delete a snapshot with the same name if force mode is on
+if ($force eq "true") {
+	my ($ok) = InvokeCommander("IgnoreError", 'getSnapshot', $proj, $app, $snap);
+    if ($ok) {
+    	$ec->deleteSnapshot($proj, $app, $snap);
+    }
+}
 $ec->createSnapshot($proj, $app, $snap);
+
+$[/plugins[EC-Admin]project/scripts/perlLibJSON]
 
 </command>
         <condition />
