@@ -1,0 +1,354 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 43515904 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2627), pid=6467, tid=140425373218560
+#
+# JRE version:  (8.0_66-b17) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.66-b17 mixed mode linux-amd64 compressed oops)
+# Core dump written. Default location: /home/lrochette/GitHub/EF-Utilities/src/core or core.6467
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fb74c00a000):  JavaThread "Unknown thread" [_thread_in_vm, id=6472, stack(0x00007fb7546cf000,0x00007fb7547d0000)]
+
+Stack: [0x00007fb7546cf000,0x00007fb7547d0000],  sp=0x00007fb7547ce340,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xab9a1a]  VMError::report_and_die()+0x2ba
+V  [libjvm.so+0x4f9e0b]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x8b
+V  [libjvm.so+0x91a8a3]  os::Linux::commit_memory_impl(char*, unsigned long, bool)+0x103
+V  [libjvm.so+0x91adf9]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0x29
+V  [libjvm.so+0x91510a]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x2a
+V  [libjvm.so+0x9887a3]  PSVirtualSpace::expand_by(unsigned long)+0x53
+V  [libjvm.so+0x9788e7]  PSOldGen::initialize(ReservedSpace, unsigned long, char const*, int)+0xb7
+V  [libjvm.so+0x2d81ba]  AdjoiningGenerations::AdjoiningGenerations(ReservedSpace, GenerationSizer*, unsigned long)+0x39a
+V  [libjvm.so+0x93dbc6]  ParallelScavengeHeap::initialize()+0x1d6
+V  [libjvm.so+0xa8224b]  Universe::initialize_heap()+0xfb
+V  [libjvm.so+0xa825be]  universe_init()+0x3e
+V  [libjvm.so+0x6388f5]  init_globals()+0x65
+V  [libjvm.so+0xa667be]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x23e
+V  [libjvm.so+0x6cce14]  JNI_CreateJavaVM+0x74
+C  [libjli.so+0x745e]  JavaMain+0x9e
+C  [libpthread.so.0+0x7e9a]  start_thread+0xda
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00007fb74c00a000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=6472, stack(0x00007fb7546cf000,0x00007fb7547d0000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:01 1180299                            /opt/electriccloud/electriccommander/jre/bin/java
+00600000-00601000 rw-p 00000000 08:01 1180299                            /opt/electriccloud/electriccommander/jre/bin/java
+00653000-00674000 rw-p 00000000 00:00 0                                  [heap]
+c4b80000-eb600000 ---p 00000000 00:00 0 
+eb600000-eca80000 rw-p 00000000 00:00 0 
+eca80000-100000000 ---p 00000000 00:00 0 
+7fb73d000000-7fb73d270000 rwxp 00000000 00:00 0 
+7fb73d270000-7fb74c000000 ---p 00000000 00:00 0 
+7fb74c000000-7fb74c031000 rw-p 00000000 00:00 0 
+7fb74c031000-7fb750000000 ---p 00000000 00:00 0 
+7fb751036000-7fb7512bd000 rw-p 00000000 00:00 0 
+7fb7512bd000-7fb751407000 ---p 00000000 00:00 0 
+7fb751407000-7fb751412000 rw-p 00000000 00:00 0 
+7fb751412000-7fb7514ac000 ---p 00000000 00:00 0 
+7fb7514ac000-7fb7514b7000 rw-p 00000000 00:00 0 
+7fb7514b7000-7fb75186d000 ---p 00000000 00:00 0 
+7fb75186d000-7fb751887000 r-xp 00000000 08:01 1180411                    /opt/electriccloud/electriccommander/jre/lib/amd64/libzip.so
+7fb751887000-7fb751a87000 ---p 0001a000 08:01 1180411                    /opt/electriccloud/electriccommander/jre/lib/amd64/libzip.so
+7fb751a87000-7fb751a88000 rw-p 0001a000 08:01 1180411                    /opt/electriccloud/electriccommander/jre/lib/amd64/libzip.so
+7fb751a88000-7fb751a94000 r-xp 00000000 08:01 684316                     /lib/x86_64-linux-gnu/libnss_files-2.15.so
+7fb751a94000-7fb751c93000 ---p 0000c000 08:01 684316                     /lib/x86_64-linux-gnu/libnss_files-2.15.so
+7fb751c93000-7fb751c94000 r--p 0000b000 08:01 684316                     /lib/x86_64-linux-gnu/libnss_files-2.15.so
+7fb751c94000-7fb751c95000 rw-p 0000c000 08:01 684316                     /lib/x86_64-linux-gnu/libnss_files-2.15.so
+7fb751c95000-7fb751c9f000 r-xp 00000000 08:01 684276                     /lib/x86_64-linux-gnu/libnss_nis-2.15.so
+7fb751c9f000-7fb751e9f000 ---p 0000a000 08:01 684276                     /lib/x86_64-linux-gnu/libnss_nis-2.15.so
+7fb751e9f000-7fb751ea0000 r--p 0000a000 08:01 684276                     /lib/x86_64-linux-gnu/libnss_nis-2.15.so
+7fb751ea0000-7fb751ea1000 rw-p 0000b000 08:01 684276                     /lib/x86_64-linux-gnu/libnss_nis-2.15.so
+7fb751ea1000-7fb751eb8000 r-xp 00000000 08:01 684352                     /lib/x86_64-linux-gnu/libnsl-2.15.so
+7fb751eb8000-7fb7520b7000 ---p 00017000 08:01 684352                     /lib/x86_64-linux-gnu/libnsl-2.15.so
+7fb7520b7000-7fb7520b8000 r--p 00016000 08:01 684352                     /lib/x86_64-linux-gnu/libnsl-2.15.so
+7fb7520b8000-7fb7520b9000 rw-p 00017000 08:01 684352                     /lib/x86_64-linux-gnu/libnsl-2.15.so
+7fb7520b9000-7fb7520bb000 rw-p 00000000 00:00 0 
+7fb7520bb000-7fb7520c3000 r-xp 00000000 08:01 684356                     /lib/x86_64-linux-gnu/libnss_compat-2.15.so
+7fb7520c3000-7fb7522c2000 ---p 00008000 08:01 684356                     /lib/x86_64-linux-gnu/libnss_compat-2.15.so
+7fb7522c2000-7fb7522c3000 r--p 00007000 08:01 684356                     /lib/x86_64-linux-gnu/libnss_compat-2.15.so
+7fb7522c3000-7fb7522c4000 rw-p 00008000 08:01 684356                     /lib/x86_64-linux-gnu/libnss_compat-2.15.so
+7fb7522c4000-7fb7522ee000 r-xp 00000000 08:01 1180375                    /opt/electriccloud/electriccommander/jre/lib/amd64/libjava.so
+7fb7522ee000-7fb7524ee000 ---p 0002a000 08:01 1180375                    /opt/electriccloud/electriccommander/jre/lib/amd64/libjava.so
+7fb7524ee000-7fb7524f0000 rw-p 0002a000 08:01 1180375                    /opt/electriccloud/electriccommander/jre/lib/amd64/libjava.so
+7fb7524f0000-7fb7524fd000 r-xp 00000000 08:01 1180410                    /opt/electriccloud/electriccommander/jre/lib/amd64/libverify.so
+7fb7524fd000-7fb7526fd000 ---p 0000d000 08:01 1180410                    /opt/electriccloud/electriccommander/jre/lib/amd64/libverify.so
+7fb7526fd000-7fb7526ff000 rw-p 0000d000 08:01 1180410                    /opt/electriccloud/electriccommander/jre/lib/amd64/libverify.so
+7fb7526ff000-7fb752706000 r-xp 00000000 08:01 684324                     /lib/x86_64-linux-gnu/librt-2.15.so
+7fb752706000-7fb752905000 ---p 00007000 08:01 684324                     /lib/x86_64-linux-gnu/librt-2.15.so
+7fb752905000-7fb752906000 r--p 00006000 08:01 684324                     /lib/x86_64-linux-gnu/librt-2.15.so
+7fb752906000-7fb752907000 rw-p 00007000 08:01 684324                     /lib/x86_64-linux-gnu/librt-2.15.so
+7fb752907000-7fb752a02000 r-xp 00000000 08:01 684304                     /lib/x86_64-linux-gnu/libm-2.15.so
+7fb752a02000-7fb752c01000 ---p 000fb000 08:01 684304                     /lib/x86_64-linux-gnu/libm-2.15.so
+7fb752c01000-7fb752c02000 r--p 000fa000 08:01 684304                     /lib/x86_64-linux-gnu/libm-2.15.so
+7fb752c02000-7fb752c03000 rw-p 000fb000 08:01 684304                     /lib/x86_64-linux-gnu/libm-2.15.so
+7fb752c03000-7fb7538c1000 r-xp 00000000 08:01 1180416                    /opt/electriccloud/electriccommander/jre/lib/amd64/server/libjvm.so
+7fb7538c1000-7fb753ac0000 ---p 00cbe000 08:01 1180416                    /opt/electriccloud/electriccommander/jre/lib/amd64/server/libjvm.so
+7fb753ac0000-7fb753b99000 rw-p 00cbd000 08:01 1180416                    /opt/electriccloud/electriccommander/jre/lib/amd64/server/libjvm.so
+7fb753b99000-7fb753bdd000 rw-p 00000000 00:00 0 
+7fb753bdd000-7fb753d91000 r-xp 00000000 08:01 684348                     /lib/x86_64-linux-gnu/libc-2.15.so
+7fb753d91000-7fb753f90000 ---p 001b4000 08:01 684348                     /lib/x86_64-linux-gnu/libc-2.15.so
+7fb753f90000-7fb753f94000 r--p 001b3000 08:01 684348                     /lib/x86_64-linux-gnu/libc-2.15.so
+7fb753f94000-7fb753f96000 rw-p 001b7000 08:01 684348                     /lib/x86_64-linux-gnu/libc-2.15.so
+7fb753f96000-7fb753f9b000 rw-p 00000000 00:00 0 
+7fb753f9b000-7fb753f9d000 r-xp 00000000 08:01 684364                     /lib/x86_64-linux-gnu/libdl-2.15.so
+7fb753f9d000-7fb75419d000 ---p 00002000 08:01 684364                     /lib/x86_64-linux-gnu/libdl-2.15.so
+7fb75419d000-7fb75419e000 r--p 00002000 08:01 684364                     /lib/x86_64-linux-gnu/libdl-2.15.so
+7fb75419e000-7fb75419f000 rw-p 00003000 08:01 684364                     /lib/x86_64-linux-gnu/libdl-2.15.so
+7fb75419f000-7fb7541b4000 r-xp 00000000 08:01 1180413                    /opt/electriccloud/electriccommander/jre/lib/amd64/jli/libjli.so
+7fb7541b4000-7fb7543b4000 ---p 00015000 08:01 1180413                    /opt/electriccloud/electriccommander/jre/lib/amd64/jli/libjli.so
+7fb7543b4000-7fb7543b5000 rw-p 00015000 08:01 1180413                    /opt/electriccloud/electriccommander/jre/lib/amd64/jli/libjli.so
+7fb7543b5000-7fb7543cd000 r-xp 00000000 08:01 684312                     /lib/x86_64-linux-gnu/libpthread-2.15.so
+7fb7543cd000-7fb7545cc000 ---p 00018000 08:01 684312                     /lib/x86_64-linux-gnu/libpthread-2.15.so
+7fb7545cc000-7fb7545cd000 r--p 00017000 08:01 684312                     /lib/x86_64-linux-gnu/libpthread-2.15.so
+7fb7545cd000-7fb7545ce000 rw-p 00018000 08:01 684312                     /lib/x86_64-linux-gnu/libpthread-2.15.so
+7fb7545ce000-7fb7545d2000 rw-p 00000000 00:00 0 
+7fb7545d2000-7fb7545f4000 r-xp 00000000 08:01 684320                     /lib/x86_64-linux-gnu/ld-2.15.so
+7fb7546cf000-7fb7546d2000 ---p 00000000 00:00 0 
+7fb7546d2000-7fb7547d4000 rw-p 00000000 00:00 0 
+7fb7547e7000-7fb7547e8000 rw-p 00000000 00:00 0 
+7fb7547e8000-7fb7547f0000 rw-s 00000000 08:01 8603                       /tmp/hsperfdata_lrochette/6467
+7fb7547f0000-7fb7547f1000 rw-p 00000000 00:00 0 
+7fb7547f1000-7fb7547f2000 r--p 00000000 00:00 0 
+7fb7547f2000-7fb7547f4000 rw-p 00000000 00:00 0 
+7fb7547f4000-7fb7547f5000 r--p 00022000 08:01 684320                     /lib/x86_64-linux-gnu/ld-2.15.so
+7fb7547f5000-7fb7547f7000 rw-p 00023000 08:01 684320                     /lib/x86_64-linux-gnu/ld-2.15.so
+7ffd62392000-7ffd623b3000 rw-p 00000000 00:00 0                          [stack]
+7ffd623c9000-7ffd623ca000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Dant.home=/opt/electriccloud/CommanderSDK/tools/ant -Dant.library.dir=/opt/electriccloud/CommanderSDK/tools/ant/lib 
+java_command: org.apache.tools.ant.launch.Launcher -cp  build
+java_class_path (initial): /opt/electriccloud/CommanderSDK/tools/ant/lib/ant-launcher.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/opt/electriccloud/electriccommander/jre
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/electriccloud/electriccommander/bin
+SHELL=/bin/bash
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xaba2a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xaba2a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x917710], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x917710], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x917710], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x917710], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x918d40], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=12.04
+DISTRIB_CODENAME=precise
+DISTRIB_DESCRIPTION="Ubuntu 12.04.5 LTS"
+
+uname:Linux 3.2.0-95-generic #135-Ubuntu SMP Tue Nov 10 13:33:29 UTC 2015 x86_64
+libc:glibc 2.15 NPTL 2.15 
+rlimit: STACK 8192k, CORE infinity, NPROC 31449, NOFILE 4096, AS infinity
+load average:2.08 0.95 0.51
+
+/proc/meminfo:
+MemTotal:        4049572 kB
+MemFree:           88580 kB
+Buffers:            1900 kB
+Cached:            50348 kB
+SwapCached:            0 kB
+Active:          3812600 kB
+Inactive:          21436 kB
+Active(anon):    3781616 kB
+Inactive(anon):      712 kB
+Active(file):      30984 kB
+Inactive(file):    20724 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:              1184 kB
+Writeback:             0 kB
+AnonPages:       3781068 kB
+Mapped:            25152 kB
+Shmem:              1264 kB
+Slab:              38296 kB
+SReclaimable:      15800 kB
+SUnreclaim:        22496 kB
+KernelStack:        5160 kB
+PageTables:        24104 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     2024784 kB
+Committed_AS:    5041036 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       23240 kB
+VmallocChunk:   34359712252 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       47040 kB
+DirectMap2M:     4147200 kB
+
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 6 model 70 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, lzcnt, tsc, tscinvbit
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 70
+model name	: Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz
+stepping	: 1
+cpu MHz		: 2294.706
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx rdrand lahf_lm abm
+bogomips	: 4589.41
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 70
+model name	: Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz
+stepping	: 1
+cpu MHz		: 2294.706
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx rdrand lahf_lm abm
+bogomips	: 4569.18
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 70
+model name	: Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz
+stepping	: 1
+cpu MHz		: 2294.706
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx rdrand lahf_lm abm
+bogomips	: 4564.47
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 70
+model name	: Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz
+stepping	: 1
+cpu MHz		: 2294.706
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx rdrand lahf_lm abm
+bogomips	: 4563.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 4049572k(88580k free), swap 0k(0k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.66-b17) for linux-amd64 JRE (1.8.0_66-b17), built on Oct  6 2015 17:28:34 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Thu Mar  3 09:10:02 2016
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

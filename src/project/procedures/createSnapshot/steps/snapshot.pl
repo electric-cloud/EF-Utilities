@@ -10,7 +10,7 @@ my $env   = "$[envName]";
 my $force = "$[force]";
 
 # delete a snapshot with the same name if force mode is on
-if ($force eq "true") {
+if (($force eq "true") || ($force eq "1") {
 	my ($ok) = InvokeCommander("IgnoreError", 'getSnapshot', $proj, $app, $snap);
     if ($ok) {
     	$ec->deleteSnapshot($proj, $app, $snap);
