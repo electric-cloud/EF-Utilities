@@ -1,4 +1,4 @@
-$[plugins[EC-Admin]project/scripts/perlHeaderJSON]
+$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
 
 #
 # Parameters
@@ -8,5 +8,5 @@ my $app   = "$[appName]";
 my $snap  = "$[snapName]";
 my $env   = "$[envName]";
 
-$ec->createSnaphost($proj, $app, $snap);
+$ec->createSnapshot($proj, $app, $snap);
 

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
   <key>EF-Utilities</key>
-  <version>0.1.4</version>
+  <version>0.1.5</version>
   <label>EF-Utilities</label>
-  <description>A set of commone procedures for Deploy projects
-2016-03-02 lrochette initial version</description>
+  <description>A set of commone procedures for Deploy projects</description>
   <help>help.xml</help>
   <author>L. Rochette</author>
   <authorUrl>mailto:lrochette@electric-cloud.com</authorUrl>
