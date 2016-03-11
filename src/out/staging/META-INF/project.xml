@@ -29,14 +29,14 @@
 &lt;head>
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     &lt;title>EF-UtilitiesPlugin&lt;/title>
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.2.0.9/pluginhelp.css" type="text/css" media= "screen" />
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.2.0.10/pluginhelp.css" type="text/css" media= "screen" />
 &lt;/head>
 
 &lt;body>
     &lt;div class="help">
 
         &lt;h1>EF-Utilities&lt;/h1>
-        &lt;p>Plugin Version 0.2.0.9&lt;/p>
+        &lt;p>Plugin Version 0.2.0.10&lt;/p>
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         &lt;p>EF-Utilities is a collection of common procedures to help you
@@ -61,7 +61,7 @@ what it is now.&lt;/p>
         <description />
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>9</value>
+        <value>10</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -94,7 +94,7 @@ my %createSnapshot = (
 );
 
 @::createStepPickerSteps = (\%createSnapshot);
-</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.2.0.9</value></property></propertySheet>
+</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.2.0.10</value></property></propertySheet>
     <procedure>
       <procedureName>createSnapshot</procedureName>
       <description>create an environment snapshot</description>
