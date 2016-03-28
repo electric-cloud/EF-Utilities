@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>10</value>
+        <value>11</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -78,15 +78,86 @@ what it is now.&lt;/p&gt;
         <description>Versions of the EF-Utilities project
 
 History:
+- version 0.3.0
+   + add procedure to create timed PRE gate
 - version 0.2.0
    + add force option
 - version 0.1.0
    + initial version with createSnapshot</description>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>0.2.0</value>
+        <value>0.3.0</value>
       </property>
     <property><propertyName>ec_setup</propertyName><value>PLACEHOLDER</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>@PLUGIN_VERSION@</value></property></propertySheet>
+    <procedure>
+      <procedureName>createScheduleToTriggerGate</procedureName>
+      <description>Create a schedule that trigger a gate at a particular time and date</description>
+      <jobNameTemplate/>
+      <resourceName/>
+      <timeLimit/>
+      <timeLimitUnits>seconds</timeLimitUnits>
+      <tracked>1</tracked>
+      <workspaceName/>
+      <propertySheet>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>date</formalParameterName>
+        <description>Date format: yyyy-mm-dd</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>time</formalParameterName>
+        <description>Time format: hh:mm</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <step>
+        <stepName>Create Schedule</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>PLACEHOLDER</command>
+        <condition/>
+        <description/>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName/>
+        <parallel>0</parallel>
+        <postProcessor/>
+        <precondition/>
+        <releaseMode>none</releaseMode>
+        <resourceName/>
+        <shell>ec-perl</shell>
+        <timeLimit/>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory/>
+        <workspaceName/>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>Create Link</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>PLACEHOLDER</command>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <parallel>0</parallel>
+        <releaseMode>none</releaseMode>
+        <tracked>1</tracked>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+    </procedure>
     <procedure>
       <procedureName>createSnapshot</procedureName>
       <description>create an environment snapshot</description>
@@ -296,6 +367,110 @@ History:
         <releaseMode>none</releaseMode>
         <resourceName/>
         <shell>ec-perl</shell>
+        <timeLimit/>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory/>
+        <workspaceName/>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>triggerPipelineGateOnSchedule</procedureName>
+      <description>Trigger a pipeline gate with a schedule</description>
+      <jobNameTemplate/>
+      <resourceName/>
+      <timeLimit/>
+      <timeLimitUnits>seconds</timeLimitUnits>
+      <tracked>1</tracked>
+      <workspaceName/>
+      <propertySheet>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>action</formalParameterName>
+        <description>approve or reject</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>evidence</formalParameterName>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>flowRuntimeId</formalParameterName>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>gateType</formalParameterName>
+        <description>PRE or POST</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>stageName</formalParameterName>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>taskName</formalParameterName>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <step>
+        <stepName>Trigger</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>PLACEHOLDER</command>
+        <condition/>
+        <description/>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName/>
+        <parallel>0</parallel>
+        <postProcessor/>
+        <precondition/>
+        <releaseMode>none</releaseMode>
+        <resourceName/>
+        <shell/>
+        <timeLimit/>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory/>
+        <workspaceName/>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>Delete Schedule</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>PLACEHOLDER</command>
+        <condition/>
+        <description/>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName/>
+        <parallel>0</parallel>
+        <postProcessor/>
+        <precondition/>
+        <releaseMode>none</releaseMode>
+        <resourceName/>
+        <shell/>
         <timeLimit/>
         <timeLimitUnits>minutes</timeLimitUnits>
         <tracked>1</tracked>

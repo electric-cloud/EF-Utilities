@@ -29,14 +29,14 @@
 &lt;head>
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     &lt;title>EF-UtilitiesPlugin&lt;/title>
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.2.0.10/pluginhelp.css" type="text/css" media= "screen" />
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.0.11/pluginhelp.css" type="text/css" media= "screen" />
 &lt;/head>
 
 &lt;body>
     &lt;div class="help">
 
         &lt;h1>EF-Utilities&lt;/h1>
-        &lt;p>Plugin Version 0.2.0.10&lt;/p>
+        &lt;p>Plugin Version 0.3.0.11&lt;/p>
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         &lt;p>EF-Utilities is a collection of common procedures to help you
@@ -61,7 +61,7 @@ what it is now.&lt;/p>
         <description />
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>10</value>
+        <value>11</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -77,13 +77,15 @@ what it is now.&lt;/p>
         <description>Versions of the EF-Utilities project
 
 History:
+- version 0.3.0
+   + add procedure to create timed PRE gate
 - version 0.2.0
    + add force option
 - version 0.1.0
    + initial version with createSnapshot</description>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>0.2.0</value>
+        <value>0.3.0</value>
       </property>
     <property><propertyName>ec_setup</propertyName><value># Data that drives the create step picker registration for this plugin.
 my %createSnapshot = ( 
@@ -94,7 +96,100 @@ my %createSnapshot = (
 );
 
 @::createStepPickerSteps = (\%createSnapshot);
-</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.2.0.10</value></property></propertySheet>
+</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.0.11</value></property></propertySheet>
+    <procedure>
+      <procedureName>createScheduleToTriggerGate</procedureName>
+      <description>Create a schedule that trigger a gate at a particular time and date</description>
+      <jobNameTemplate />
+      <resourceName />
+      <timeLimit />
+      <timeLimitUnits>seconds</timeLimitUnits>
+      <tracked>1</tracked>
+      <workspaceName />
+      <propertySheet>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>date</formalParameterName>
+        <description>Date format: yyyy-mm-dd</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>time</formalParameterName>
+        <description>Time format: hh:mm</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <step>
+        <stepName>Create Schedule</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
+
+my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
+  'createSchedule', "$[/myProject/projectName]", "$[/myPipelineRuntime]", {
+    'beginDate' => "$[date]",
+    'startTime' => "$[time]",
+    'procedureName' => "triggerPipelineGateOnSchedule",
+    'misfirePolicy' => "runOnce",
+    actualParameter => [
+        {actualParameterName => 'stageName', value => "$[stage]"},
+        {actualParameterName => 'taskName', value => "$[task]"},
+        {actualParameterName => 'gateType', value => "PRE"},
+        {actualParameterName => 'action', value => "approve"},
+        {actualParameterName => 'evidence', value => "$[evidence]"},
+        {actualParameterName => 'flowRuntimeId', value => "$[/myPipelineRuntime/flowRuntimeId]"}
+    ]
+  });
+  
+
+$[/plugins[EC-Admin]project/scripts/perlLibJSON]
+
+</command>
+        <condition />
+        <description />
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName />
+        <parallel>0</parallel>
+        <postProcessor />
+        <precondition />
+        <releaseMode>none</releaseMode>
+        <resourceName />
+        <shell>ec-perl</shell>
+        <timeLimit />
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory />
+        <workspaceName />
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>Create Link</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>				ectool setProperty "/myPipelineStageRuntime/ec_summary/QA Schedule" --value '&lt;html>&lt;pre>$[date] - $[time] UTC
+&lt;a href=" /commander/link/editSchedule/projects/BoA Testing/schedules/$[/myPipelineRuntime]">Definition&lt;/a>&lt;/pre>&lt;/html>'
+			
+</command>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <parallel>0</parallel>
+        <releaseMode>none</releaseMode>
+        <tracked>1</tracked>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+    </procedure>
     <procedure>
       <procedureName>createSnapshot</procedureName>
       <description>create an environment snapshot</description>
@@ -328,6 +423,125 @@ $[/plugins[EC-Admin]project/scripts/perlLibJSON]
         <releaseMode>none</releaseMode>
         <resourceName />
         <shell>ec-perl</shell>
+        <timeLimit />
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory />
+        <workspaceName />
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>triggerPipelineGateOnSchedule</procedureName>
+      <description>Trigger a pipeline gate with a schedule</description>
+      <jobNameTemplate />
+      <resourceName />
+      <timeLimit />
+      <timeLimitUnits>seconds</timeLimitUnits>
+      <tracked>1</tracked>
+      <workspaceName />
+      <propertySheet>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>action</formalParameterName>
+        <description>approve or reject</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>evidence</formalParameterName>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>flowRuntimeId</formalParameterName>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>gateType</formalParameterName>
+        <description>PRE or POST</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>stageName</formalParameterName>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>taskName</formalParameterName>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <step>
+        <stepName>Trigger</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
+
+my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
+  'completeManualTask', "$[flowRuntimeId]", "$[stageName]", "$[taskName]",
+  {actualParameter => [
+  	{actualParameterName => 'action', value => "$[action]"},
+  	{actualParameterName => 'evidence', value => "$[evidence]"},
+  	{actualParameterName => 'gateType', value => "$[gateType]"},
+    ]
+  });
+  
+
+$[/plugins[EC-Admin]project/scripts/perlLibJSON]
+
+</command>
+        <condition />
+        <description />
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName />
+        <parallel>0</parallel>
+        <postProcessor />
+        <precondition />
+        <releaseMode>none</releaseMode>
+        <resourceName />
+        <shell />
+        <timeLimit />
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory />
+        <workspaceName />
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>Delete Schedule</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>ectool deleteSchedule "$[/myProject/projectName]" "$[/mySchedule]" 
+</command>
+        <condition />
+        <description />
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName />
+        <parallel>0</parallel>
+        <postProcessor />
+        <precondition />
+        <releaseMode>none</releaseMode>
+        <resourceName />
+        <shell />
         <timeLimit />
         <timeLimitUnits>minutes</timeLimitUnits>
         <tracked>1</tracked>
