@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>32</value>
+        <value>33</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -118,7 +118,8 @@ History:
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>
-      <jobNameTemplate/>
+      <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]
+</jobNameTemplate>
       <resourceName/>
       <timeLimit/>
       <timeLimitUnits>seconds</timeLimitUnits>
@@ -320,7 +321,7 @@ History:
     <procedure>
       <procedureName>createSnapshot</procedureName>
       <description>create an environment snapshot</description>
-      <jobNameTemplate/>
+      <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]</jobNameTemplate>
       <resourceName/>
       <timeLimit/>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -540,7 +541,7 @@ History:
     <procedure>
       <procedureName>triggerPipelineGateOnSchedule</procedureName>
       <description>Trigger a pipeline gate with a schedule</description>
-      <jobNameTemplate/>
+      <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]</jobNameTemplate>
       <resourceName/>
       <timeLimit/>
       <timeLimitUnits>seconds</timeLimitUnits>
