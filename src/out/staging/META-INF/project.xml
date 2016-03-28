@@ -29,14 +29,14 @@
 &lt;head>
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     &lt;title>EF-UtilitiesPlugin&lt;/title>
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.0.18/pluginhelp.css" type="text/css" media= "screen" />
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.0.20/pluginhelp.css" type="text/css" media= "screen" />
 &lt;/head>
 
 &lt;body>
     &lt;div class="help">
 
         &lt;h1>EF-Utilities&lt;/h1>
-        &lt;p>Plugin Version 0.3.0.18&lt;/p>
+        &lt;p>Plugin Version 0.3.0.20&lt;/p>
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         &lt;p>EF-Utilities is a collection of common procedures to help you
@@ -61,7 +61,7 @@ what it is now.&lt;/p>
         <description />
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>18</value>
+        <value>20</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -152,7 +152,7 @@ my %createSnapshot = (
 );
 
 @::createStepPickerSteps = (\%createScheduleToTriggerGate, \%createSnapshot);
-</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.0.18</value></property></propertySheet>
+</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.0.20</value></property></propertySheet>
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>
@@ -277,7 +277,7 @@ my %createSnapshot = (
         <tracked>1</tracked>
       </formalParameter>
       <step>
-        <stepName>Create Schedule</stepName>
+        <stepName>createSchedule</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
@@ -324,18 +324,69 @@ $[/plugins[EC-Admin]project/scripts/perlLibJSON]
         </propertySheet>
       </step>
       <step>
-        <stepName>Create Link</stepName>
+        <stepName>createLink</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>				ectool setProperty "/myPipelineStageRuntime/ec_summary/QA Schedule" --value '&lt;html>&lt;pre>$[date] - $[time] UTC
+        <command>ectool setProperty "/myPipelineStageRuntime/ec_summary/QA Schedule" --value '&lt;html>&lt;pre>$[date] - $[time] UTC
 &lt;a href=" /commander/link/editSchedule/projects/BoA Testing/schedules/$[/myPipelineRuntime]">Definition&lt;/a>&lt;/pre>&lt;/html>'
 			
 </command>
+        <condition />
+        <description />
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
+        <logFileName />
         <parallel>0</parallel>
+        <postProcessor />
+        <precondition />
         <releaseMode>none</releaseMode>
+        <resourceName />
+        <shell />
+        <timeLimit />
+        <timeLimitUnits>minutes</timeLimitUnits>
         <tracked>1</tracked>
+        <workingDirectory />
+        <workspaceName />
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>addPermission</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
+
+my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
+  'createAclEntry', 'user', "project: $[/myProject/projectName]", 
+  {
+     pipelineName => "$[/myPipelineRuntime]", 
+     readPrivilege    => "allow",
+     executePrivilege => "allow",
+     modifyPrivilege  => "allow",
+     changePermissionsPrivilege => "inherit"
+  });
+
+$[/plugins[EC-Admin]project/scripts/perlLibJSON]
+
+</command>
+        <condition />
+        <description />
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName />
+        <parallel>0</parallel>
+        <postProcessor />
+        <precondition />
+        <releaseMode>none</releaseMode>
+        <resourceName />
+        <shell>ec-perl</shell>
+        <timeLimit />
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory />
+        <workspaceName />
         <propertySheet>
           <credentialProtected>0</credentialProtected>
           <tracked>1</tracked>

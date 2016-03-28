@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>18</value>
+        <value>20</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -240,7 +240,7 @@ History:
         <tracked>1</tracked>
       </formalParameter>
       <step>
-        <stepName>Create Schedule</stepName>
+        <stepName>createSchedule</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -266,15 +266,52 @@ History:
         </propertySheet>
       </step>
       <step>
-        <stepName>Create Link</stepName>
+        <stepName>createLink</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
+        <condition/>
+        <description/>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
+        <logFileName/>
         <parallel>0</parallel>
+        <postProcessor/>
+        <precondition/>
         <releaseMode>none</releaseMode>
+        <resourceName/>
+        <shell/>
+        <timeLimit/>
+        <timeLimitUnits>minutes</timeLimitUnits>
         <tracked>1</tracked>
+        <workingDirectory/>
+        <workspaceName/>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>addPermission</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>PLACEHOLDER</command>
+        <condition/>
+        <description/>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName/>
+        <parallel>0</parallel>
+        <postProcessor/>
+        <precondition/>
+        <releaseMode>none</releaseMode>
+        <resourceName/>
+        <shell>ec-perl</shell>
+        <timeLimit/>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory/>
+        <workspaceName/>
         <propertySheet>
           <credentialProtected>0</credentialProtected>
           <tracked>1</tracked>
