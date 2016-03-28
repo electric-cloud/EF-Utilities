@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>14</value>
+        <value>15</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -114,6 +114,21 @@ History:
                 <credentialProtected>0</credentialProtected>
                 <tracked>1</tracked>
                 <property>
+                  <propertyName>evidence</propertyName>
+                  <tracked>1</tracked>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
                   <propertyName>gate</propertyName>
                   <tracked>1</tracked>
                   <propertySheet>
@@ -164,11 +179,20 @@ History:
         <tracked>1</tracked>
       </formalParameter>
       <formalParameter>
+        <formalParameterName>evidence</formalParameterName>
+        <defaultValue/>
+        <description/>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
         <formalParameterName>gate</formalParameterName>
         <defaultValue/>
         <description/>
         <expansionDeferred>0</expansionDeferred>
-        <required>0</required>
+        <required>1</required>
         <tracked>1</tracked>
         <type>entry</type>
       </formalParameter>
@@ -177,7 +201,7 @@ History:
         <defaultValue/>
         <description/>
         <expansionDeferred>0</expansionDeferred>
-        <required>0</required>
+        <required>1</required>
         <tracked>1</tracked>
         <type>entry</type>
       </formalParameter>

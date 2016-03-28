@@ -29,14 +29,14 @@
 &lt;head>
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     &lt;title>EF-UtilitiesPlugin&lt;/title>
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.0.14/pluginhelp.css" type="text/css" media= "screen" />
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.0.15/pluginhelp.css" type="text/css" media= "screen" />
 &lt;/head>
 
 &lt;body>
     &lt;div class="help">
 
         &lt;h1>EF-Utilities&lt;/h1>
-        &lt;p>Plugin Version 0.3.0.14&lt;/p>
+        &lt;p>Plugin Version 0.3.0.15&lt;/p>
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         &lt;p>EF-Utilities is a collection of common procedures to help you
@@ -61,7 +61,7 @@ what it is now.&lt;/p>
         <description />
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>14</value>
+        <value>15</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -103,7 +103,7 @@ my %createSnapshot = (
 );
 
 @::createStepPickerSteps = (\%createScheduleToTriggerGate, \%createSnapshot);
-</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.0.14</value></property></propertySheet>
+</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.0.15</value></property></propertySheet>
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>
@@ -128,6 +128,21 @@ my %createSnapshot = (
               <propertySheet>
                 <credentialProtected>0</credentialProtected>
                 <tracked>1</tracked>
+                <property>
+                  <propertyName>evidence</propertyName>
+                  <tracked>1</tracked>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
                 <property>
                   <propertyName>gate</propertyName>
                   <tracked>1</tracked>
@@ -179,11 +194,20 @@ my %createSnapshot = (
         <tracked>1</tracked>
       </formalParameter>
       <formalParameter>
+        <formalParameterName>evidence</formalParameterName>
+        <defaultValue />
+        <description />
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
         <formalParameterName>gate</formalParameterName>
         <defaultValue />
         <description />
         <expansionDeferred>0</expansionDeferred>
-        <required>0</required>
+        <required>1</required>
         <tracked>1</tracked>
         <type>entry</type>
       </formalParameter>
@@ -192,7 +216,7 @@ my %createSnapshot = (
         <defaultValue />
         <description />
         <expansionDeferred>0</expansionDeferred>
-        <required>0</required>
+        <required>1</required>
         <tracked>1</tracked>
         <type>entry</type>
       </formalParameter>
