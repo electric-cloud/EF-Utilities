@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>26</value>
+        <value>27</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -78,9 +78,8 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>
-if ($promoteAction eq 'promote') {
-    my @objTypes = ('resources', 'workspaces');
+        <value>if ($promoteAction eq 'promote') {
+    my @objTypes = ('resources', 'workspaces', 'projects');
 
     if ($promoteAction eq "promote") {
         foreach my $type (@objTypes) {

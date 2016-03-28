@@ -1,7 +1,6 @@
 # promote/demote action
-
 if ($promoteAction eq 'promote') {
-    my @objTypes = ('resources', 'workspaces');
+    my @objTypes = ('resources', 'workspaces', 'projects');
 
     if ($promoteAction eq "promote") {
         foreach my $type (@objTypes) {
