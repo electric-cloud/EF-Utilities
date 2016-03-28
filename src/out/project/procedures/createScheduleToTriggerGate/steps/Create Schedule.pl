@@ -8,7 +8,7 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
     'misfirePolicy' => "runOnce",
     actualParameter => [
         {actualParameterName => 'stageName', value => "$[stage]"},
-        {actualParameterName => 'taskName', value => "$[task]"},
+        {actualParameterName => 'taskName', value => "$[gate]"},
         {actualParameterName => 'gateType', value => "PRE"},
         {actualParameterName => 'action', value => "approve"},
         {actualParameterName => 'evidence', value => "$[evidence]"},
