@@ -1,3 +1,25 @@
+# promote/demote action
+
+if ($promoteAction eq 'promote') {
+    my @objTypes = ('resources', 'workspaces');
+
+    if ($promoteAction eq "promote") {
+        foreach my $type (@objTypes) {
+            $batch->createAclEntry(
+                 'user',
+                 "project: $pluginName",
+                 {
+                    systemObjectName => $type,
+                    readPrivilege => 'allow',
+                    modifyPrivilege => 'inherit',
+                    executePrivilege => 'allow',
+                    changePermissionsPrivilege => 'inherit'
+                 }
+                );
+        }
+    }
+}
+
 # Data that drives the create step picker registration for this plugin.
 my %createScheduleToTriggerGate = ( 
   label       => "EF-Utilities - createScheduleToTriggerGate", 

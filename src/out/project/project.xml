@@ -29,14 +29,14 @@
 &lt;head>
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     &lt;title>EF-UtilitiesPlugin&lt;/title>
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.0.15/pluginhelp.css" type="text/css" media= "screen" />
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.0.17/pluginhelp.css" type="text/css" media= "screen" />
 &lt;/head>
 
 &lt;body>
     &lt;div class="help">
 
         &lt;h1>EF-Utilities&lt;/h1>
-        &lt;p>Plugin Version 0.3.0.15&lt;/p>
+        &lt;p>Plugin Version 0.3.0.17&lt;/p>
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         &lt;p>EF-Utilities is a collection of common procedures to help you
@@ -61,7 +61,7 @@ what it is now.&lt;/p>
         <description />
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>15</value>
+        <value>17</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -70,6 +70,33 @@ what it is now.&lt;/p>
         <expandable>1</expandable>
         <tracked>1</tracked>
         <value>EC-Admin</value>
+      </property>
+      <property>
+        <propertyName>promoteAction</propertyName>
+        <counter>0</counter>
+        <description />
+        <expandable>1</expandable>
+        <tracked>1</tracked>
+        <value>
+if ($promoteAction eq 'promote') {
+    my @objTypes = ('resources', 'workspaces');
+
+    if ($promoteAction eq "promote") {
+        foreach my $type (@objTypes) {
+            $batch->createAclEntry(
+                 'user',
+                 "project: $pluginName",
+                 {
+                    systemObjectName => $type,
+                    readPrivilege => 'allow',
+                    modifyPrivilege => 'inherit',
+                    executePrivilege => 'allow',
+                    changePermissionsPrivilege => 'inherit'
+                 }
+                );
+        }
+    }
+}</value>
       </property>
       <property>
         <propertyName>version</propertyName>
@@ -87,7 +114,29 @@ History:
         <tracked>1</tracked>
         <value>0.3.0</value>
       </property>
-    <property><propertyName>ec_setup</propertyName><value># Data that drives the create step picker registration for this plugin.
+    <property><propertyName>ec_setup</propertyName><value># promote/demote action
+
+if ($promoteAction eq 'promote') {
+    my @objTypes = ('resources', 'workspaces');
+
+    if ($promoteAction eq "promote") {
+        foreach my $type (@objTypes) {
+            $batch->createAclEntry(
+                 'user',
+                 "project: $pluginName",
+                 {
+                    systemObjectName => $type,
+                    readPrivilege => 'allow',
+                    modifyPrivilege => 'inherit',
+                    executePrivilege => 'allow',
+                    changePermissionsPrivilege => 'inherit'
+                 }
+                );
+        }
+    }
+}
+
+# Data that drives the create step picker registration for this plugin.
 my %createScheduleToTriggerGate = ( 
   label       => "EF-Utilities - createScheduleToTriggerGate", 
   procedure   => "createScheduleToTriggerGate", 
@@ -103,7 +152,7 @@ my %createSnapshot = (
 );
 
 @::createStepPickerSteps = (\%createScheduleToTriggerGate, \%createSnapshot);
-</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.0.15</value></property></propertySheet>
+</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.0.17</value></property></propertySheet>
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>

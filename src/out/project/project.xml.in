@@ -30,14 +30,14 @@
 &lt;head&gt;
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" /&gt;
     &lt;title&gt;EF-UtilitiesPlugin&lt;/title&gt;
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.0.15/pluginhelp.css" type="text/css" media= "screen" /&gt;
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.0.17/pluginhelp.css" type="text/css" media= "screen" /&gt;
 &lt;/head&gt;
 
 &lt;body&gt;
     &lt;div class="help"&gt;
 
         &lt;h1&gt;EF-Utilities&lt;/h1&gt;
-        &lt;p&gt;Plugin Version 0.3.0.15&lt;/p&gt;
+        &lt;p&gt;Plugin Version 0.3.0.17&lt;/p&gt;
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" /&gt;
 
         &lt;p&gt;EF-Utilities is a collection of common procedures to help you
@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>15</value>
+        <value>17</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -71,6 +71,33 @@ what it is now.&lt;/p&gt;
         <expandable>1</expandable>
         <tracked>1</tracked>
         <value>EC-Admin</value>
+      </property>
+      <property>
+        <propertyName>promoteAction</propertyName>
+        <counter>0</counter>
+        <description/>
+        <expandable>1</expandable>
+        <tracked>1</tracked>
+        <value>
+if ($promoteAction eq 'promote') {
+    my @objTypes = ('resources', 'workspaces');
+
+    if ($promoteAction eq "promote") {
+        foreach my $type (@objTypes) {
+            $batch-&gt;createAclEntry(
+                 'user',
+                 "project: $pluginName",
+                 {
+                    systemObjectName =&gt; $type,
+                    readPrivilege =&gt; 'allow',
+                    modifyPrivilege =&gt; 'inherit',
+                    executePrivilege =&gt; 'allow',
+                    changePermissionsPrivilege =&gt; 'inherit'
+                 }
+                );
+        }
+    }
+}</value>
       </property>
       <property>
         <propertyName>version</propertyName>
@@ -88,7 +115,7 @@ History:
         <tracked>1</tracked>
         <value>0.3.0</value>
       </property>
-    <property><propertyName>ec_setup</propertyName><value>PLACEHOLDER</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.0.15</value></property></propertySheet>
+    <property><propertyName>ec_setup</propertyName><value>PLACEHOLDER</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.0.17</value></property></propertySheet>
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>

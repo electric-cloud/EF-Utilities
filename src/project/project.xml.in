@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>15</value>
+        <value>17</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -71,6 +71,33 @@ what it is now.&lt;/p&gt;
         <expandable>1</expandable>
         <tracked>1</tracked>
         <value>EC-Admin</value>
+      </property>
+      <property>
+        <propertyName>promoteAction</propertyName>
+        <counter>0</counter>
+        <description/>
+        <expandable>1</expandable>
+        <tracked>1</tracked>
+        <value>
+if ($promoteAction eq 'promote') {
+    my @objTypes = ('resources', 'workspaces');
+
+    if ($promoteAction eq "promote") {
+        foreach my $type (@objTypes) {
+            $batch-&gt;createAclEntry(
+                 'user',
+                 "project: $pluginName",
+                 {
+                    systemObjectName =&gt; $type,
+                    readPrivilege =&gt; 'allow',
+                    modifyPrivilege =&gt; 'inherit',
+                    executePrivilege =&gt; 'allow',
+                    changePermissionsPrivilege =&gt; 'inherit'
+                 }
+                );
+        }
+    }
+}</value>
       </property>
       <property>
         <propertyName>version</propertyName>
