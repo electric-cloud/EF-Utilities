@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>11</value>
+        <value>12</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -101,6 +101,14 @@ History:
       <propertySheet>
         <credentialProtected>0</credentialProtected>
         <tracked>1</tracked>
+        <property>
+          <propertyName>exposeToPlugin</propertyName>
+          <counter>0</counter>
+          <description/>
+          <expandable>1</expandable>
+          <tracked>1</tracked>
+          <value>1</value>
+        </property>
       </propertySheet>
       <formalParameter>
         <formalParameterName>date</formalParameterName>
