@@ -4,8 +4,8 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   'createSchedule', "$[/myPipelineRuntime/projectName]", "$[/myPipelineRuntime]", {
     'beginDate' => "$[date]",
     'startTime' => "$[time]",
-    'procedureName' => "triggerPipelineGateOnSchedule",
-    'projectName' => "$[/myProject/projectName]",
+    'procedureName' => "/plugins/EF-Utilities/project/procedures/triggerPipelineGateOnSchedule",
+    'subprojectName' => "$[/myProject/projectName]",
     'misfirePolicy' => "runOnce",
     actualParameter => [
         {actualParameterName => 'stageName', value => "$[stage]"},
