@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>21</value>
+        <value>22</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -566,13 +566,6 @@ History:
       </formalParameter>
       <formalParameter>
         <formalParameterName>flowRuntimeId</formalParameterName>
-        <expansionDeferred>0</expansionDeferred>
-        <required>1</required>
-        <tracked>1</tracked>
-      </formalParameter>
-      <formalParameter>
-        <formalParameterName>gateType</formalParameterName>
-        <description>PRE or POST</description>
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
         <tracked>1</tracked>

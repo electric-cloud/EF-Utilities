@@ -4,7 +4,7 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   'createAclEntry', 'user', "project: $[/myProject/projectName]", 
   {
      projectName => "$[/myPipelineRuntime/projectName]",
-     pipelineName => "$[/myPipelineRuntime]", 
+     flowRuntimeName => "$[/myPipelineRuntime]", 
      readPrivilege    => "allow",
      executePrivilege => "allow",
      modifyPrivilege  => "allow",

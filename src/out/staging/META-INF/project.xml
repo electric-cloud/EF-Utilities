@@ -29,14 +29,14 @@
 &lt;head>
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     &lt;title>EF-UtilitiesPlugin&lt;/title>
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.0.21/pluginhelp.css" type="text/css" media= "screen" />
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.0.22/pluginhelp.css" type="text/css" media= "screen" />
 &lt;/head>
 
 &lt;body>
     &lt;div class="help">
 
         &lt;h1>EF-Utilities&lt;/h1>
-        &lt;p>Plugin Version 0.3.0.21&lt;/p>
+        &lt;p>Plugin Version 0.3.0.22&lt;/p>
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         &lt;p>EF-Utilities is a collection of common procedures to help you
@@ -61,7 +61,7 @@ what it is now.&lt;/p>
         <description />
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>21</value>
+        <value>22</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -152,7 +152,7 @@ my %createSnapshot = (
 );
 
 @::createStepPickerSteps = (\%createScheduleToTriggerGate, \%createSnapshot);
-</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.0.21</value></property></propertySheet>
+</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.0.22</value></property></propertySheet>
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>
@@ -291,7 +291,6 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
     actualParameter => [
         {actualParameterName => 'stageName', value => "$[stage]"},
         {actualParameterName => 'taskName', value => "$[gate]"},
-        {actualParameterName => 'gateType', value => "PRE"},
         {actualParameterName => 'action', value => "approve"},
         {actualParameterName => 'evidence', value => "$[evidence]"},
         {actualParameterName => 'flowRuntimeId', value => "$[/myPipelineRuntime/flowRuntimeId]"}
@@ -362,7 +361,7 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   'createAclEntry', 'user', "project: $[/myProject/projectName]", 
   {
      projectName => "$[/myPipelineRuntime/projectName]",
-     pipelineName => "$[/myPipelineRuntime]", 
+     flowRuntimeName => "$[/myPipelineRuntime]", 
      readPrivilege    => "allow",
      executePrivilege => "allow",
      modifyPrivilege  => "allow",
@@ -671,13 +670,6 @@ $[/plugins[EC-Admin]project/scripts/perlLibJSON]
         <tracked>1</tracked>
       </formalParameter>
       <formalParameter>
-        <formalParameterName>gateType</formalParameterName>
-        <description>PRE or POST</description>
-        <expansionDeferred>0</expansionDeferred>
-        <required>1</required>
-        <tracked>1</tracked>
-      </formalParameter>
-      <formalParameter>
         <formalParameterName>stageName</formalParameterName>
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
@@ -697,10 +689,10 @@ $[/plugins[EC-Admin]project/scripts/perlLibJSON]
 
 my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   'completeManualTask', "$[flowRuntimeId]", "$[stageName]", "$[taskName]",
+  gateType => 'PRE'
   {actualParameter => [
   	{actualParameterName => 'action', value => "$[action]"},
-  	{actualParameterName => 'evidence', value => "$[evidence]"},
-  	{actualParameterName => 'gateType', value => "$[gateType]"},
+  	{actualParameterName => 'evidence', value => "$[evidence]"}
     ]
   });
   

@@ -9,7 +9,6 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
     actualParameter => [
         {actualParameterName => 'stageName', value => "$[stage]"},
         {actualParameterName => 'taskName', value => "$[gate]"},
-        {actualParameterName => 'gateType', value => "PRE"},
         {actualParameterName => 'action', value => "approve"},
         {actualParameterName => 'evidence', value => "$[evidence]"},
         {actualParameterName => 'flowRuntimeId', value => "$[/myPipelineRuntime/flowRuntimeId]"}
