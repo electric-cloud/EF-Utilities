@@ -5,6 +5,7 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
     'beginDate' => "$[date]",
     'startTime' => "$[time]",
     'procedureName' => "triggerPipelineGateOnSchedule",
+    'projectName' => "$[/myPipelineRuntime/projectName]",
     'misfirePolicy' => "runOnce",
     actualParameter => [
         {actualParameterName => 'stageName', value => "$[stage]"},
