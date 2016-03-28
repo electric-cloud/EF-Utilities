@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>29</value>
+        <value>30</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -588,7 +588,7 @@ History:
         <command>PLACEHOLDER</command>
         <condition/>
         <description/>
-        <errorHandling>failProcedure</errorHandling>
+        <errorHandling>abortProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName/>
         <parallel>0</parallel>
