@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>37</value>
+        <value>38</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -104,6 +104,8 @@ what it is now.&lt;/p&gt;
         <description>Versions of the EF-Utilities project
 
 History:
+- version 0.3.2
+   + Fix #7: add stageName to the scheduleName to avoid conflict
 - version 0.3.1
    + Fix #6: createLink does not work on Windows
 - version 0.3.0
@@ -116,7 +118,7 @@ History:
    + initial version with createSnapshot</description>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>0.3.1</value>
+        <value>0.3.2</value>
       </property>
     <property><propertyName>ec_setup</propertyName><value>PLACEHOLDER</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>@PLUGIN_VERSION@</value></property></propertySheet>
     <procedure>
