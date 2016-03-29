@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>34</value>
+        <value>35</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -284,7 +284,7 @@ History:
         <precondition/>
         <releaseMode>none</releaseMode>
         <resourceName/>
-        <shell/>
+        <shell>ec-perl</shell>
         <timeLimit/>
         <timeLimitUnits>minutes</timeLimitUnits>
         <tracked>1</tracked>

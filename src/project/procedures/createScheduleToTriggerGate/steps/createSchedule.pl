@@ -1,7 +1,7 @@
 $[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
 
 my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
-  'createSchedule', "$[/myPipelineRuntime/projectName]", "$[/myPipelineRuntime]", {
+  'createSchedule', "$[stage]_$[/myPipelineRuntime/projectName]", "$[/myPipelineRuntime]", {
     'beginDate' => "$[date]",
     'startTime' => "$[time]",
     'procedureName' => "/plugins/EF-Utilities/project/procedures/triggerPipelineGateOnSchedule",
@@ -14,8 +14,7 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
         {actualParameterName => 'flowRuntimeId', value => "$[/myPipelineRuntime/flowRuntimeId]"}
     ]
   });
-  
+
 
 $[/plugins[EC-Admin]project/scripts/perlLibJSON]
-
 
