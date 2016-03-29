@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
   <key>EF-Utilities</key>
-  <version>0.3.2.38</version>
+  <version>0.3.2.39</version>
   <label>EF-Utilities</label>
-  <description>A set of commone procedures for Deploy projects
-2016-03-29 lrochette Fix #7 add stageName to the scheduleName to avoid conflict</description>
+  <description>A set of commone procedures for Deploy projects</description>
   <help>help.xml</help>
   <author>L. Rochette</author>
   <authorUrl>mailto:lrochette@electric-cloud.com</authorUrl>

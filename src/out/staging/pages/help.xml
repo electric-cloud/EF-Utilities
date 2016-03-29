@@ -5,14 +5,14 @@
 <head>
     <meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     <title>EF-UtilitiesPlugin</title>
-    <link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.2.38/pluginhelp.css" type="text/css" media= "screen" />
+    <link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.2.39/pluginhelp.css" type="text/css" media= "screen" />
 </head>
 
 <body>
     <div class="help">
 
         <h1>EF-Utilities</h1>
-        <p>Plugin Version 0.3.2.38</p>
+        <p>Plugin Version 0.3.2.39</p>
         <hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         <p>EF-Utilities is a collection of common procedures to help you

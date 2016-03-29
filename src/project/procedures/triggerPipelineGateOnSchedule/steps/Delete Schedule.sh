@@ -1,2 +1,2 @@
-ectool deleteSchedule "$[/myProject/projectName]" "$[/mySchedule]" 
+ectool deleteSchedule "$[/mySchedule/projectName]" "$[/mySchedule]" 
 
