@@ -1,7 +1,8 @@
 2016-03-29 Laurent Rochette <lrochette@electric-cloud.com>
-  * 0.3.2.40: Fix #5
+  * 0.3.3.41: Fix #4 stage link is hardcoded
 
 2016-03-29 Laurent Rochette <lrochette@electric-cloud.com>
+  * 0.3.3.40: Fix #5 delete schedule from wrong project
   * 0.3.2.38: Fix #7 add stageName to the scheduleName to avoid conflict
   * 0.3.1.37: Fix #6 createLink does not work on Windows
 
