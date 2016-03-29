@@ -29,14 +29,14 @@
 &lt;head>
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     &lt;title>EF-UtilitiesPlugin&lt;/title>
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.0.33/pluginhelp.css" type="text/css" media= "screen" />
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.1.34/pluginhelp.css" type="text/css" media= "screen" />
 &lt;/head>
 
 &lt;body>
     &lt;div class="help">
 
         &lt;h1>EF-Utilities&lt;/h1>
-        &lt;p>Plugin Version 0.3.0.33&lt;/p>
+        &lt;p>Plugin Version 0.3.1.34&lt;/p>
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         &lt;p>EF-Utilities is a collection of common procedures to help you
@@ -61,7 +61,7 @@ what it is now.&lt;/p>
         <description />
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>33</value>
+        <value>34</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -103,15 +103,19 @@ what it is now.&lt;/p>
         <description>Versions of the EF-Utilities project
 
 History:
+- version 0.3.1
+   + Fix #6: createLink does not work on Windows
 - version 0.3.0
    + add procedure to create timed PRE gate
+
 - version 0.2.0
    + add force option
+
 - version 0.1.0
    + initial version with createSnapshot</description>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>0.3.0</value>
+        <value>0.3.1</value>
       </property>
     <property><propertyName>ec_setup</propertyName><value># promote/demote action
 if ($promoteAction eq 'promote') {
@@ -150,7 +154,7 @@ my %createSnapshot = (
 );
 
 @::createStepPickerSteps = (\%createScheduleToTriggerGate, \%createSnapshot);
-</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.0.33</value></property></propertySheet>
+</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.1.34</value></property></propertySheet>
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>
@@ -299,6 +303,7 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
 
 $[/plugins[EC-Admin]project/scripts/perlLibJSON]
 
+
 </command>
         <condition />
         <description />
@@ -328,6 +333,7 @@ $[/plugins[EC-Admin]project/scripts/perlLibJSON]
         <command>ectool setProperty "/myPipelineStageRuntime/ec_summary/QA Schedule" --value '&lt;html>&lt;pre>$[date] - $[time] UTC
 &lt;a href=" /commander/link/editSchedule/projects/BoA Testing/schedules/$[/myPipelineRuntime]">Definition&lt;/a>&lt;/pre>&lt;/html>'
 			
+
 </command>
         <condition />
         <description />
@@ -382,6 +388,7 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
 #  });
   
 $[/plugins[EC-Admin]project/scripts/perlLibJSON]
+
 
 </command>
         <condition />
@@ -627,6 +634,7 @@ printf("Created snapshot $snap\n");
 
 $[/plugins[EC-Admin]project/scripts/perlLibJSON]
 
+
 </command>
         <condition />
         <description />
@@ -713,6 +721,7 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
 
 $[/plugins[EC-Admin]project/scripts/perlLibJSON]
 
+
 </command>
         <condition />
         <description />
@@ -740,6 +749,7 @@ $[/plugins[EC-Admin]project/scripts/perlLibJSON]
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>ectool deleteSchedule "$[/myProject/projectName]" "$[/mySchedule]" 
+
 </command>
         <condition />
         <description />
