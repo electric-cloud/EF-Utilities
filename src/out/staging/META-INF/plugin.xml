@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
   <key>EF-Utilities</key>
-  <version>0.3.3.42</version>
+  <version>0.3.3.43</version>
   <label>EF-Utilities</label>
-  <description>A set of commone procedures for Deploy projects
-2016-03-29 lrochette Fix #3 stage link is hardcoded</description>
+  <description>A set of commone procedures for Deploy projects</description>
   <help>help.xml</help>
   <author>L. Rochette</author>
   <authorUrl>mailto:lrochette@electric-cloud.com</authorUrl>
