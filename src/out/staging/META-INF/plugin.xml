@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
   <key>EF-Utilities</key>
-  <version>0.3.1.36</version>
+  <version>0.3.1.37</version>
   <label>EF-Utilities</label>
   <description>A set of commone procedures for Deploy projects
-2016-03-29 lrochette Add procedure to add time gate capability</description>
+2016-03-29 lrochette Fix #6 createLink does not work on Windows</description>
   <help>help.xml</help>
   <author>L. Rochette</author>
   <authorUrl>mailto:lrochette@electric-cloud.com</authorUrl>
