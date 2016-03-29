@@ -1,4 +1,7 @@
 2016-03-29 Laurent Rochette <lrochette@electric-cloud.com>
+  * 0.3.3.42: Fix #3 stage link is hardcoded
+
+2016-03-29 Laurent Rochette <lrochette@electric-cloud.com>
   * 0.3.3.41: Fix #4 stage link is hardcoded
 
 2016-03-29 Laurent Rochette <lrochette@electric-cloud.com>
