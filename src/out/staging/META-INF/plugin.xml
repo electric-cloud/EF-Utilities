@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
   <key>EF-Utilities</key>
-  <version>0.3.6.51</version>
+  <version>0.3.6.52</version>
   <label>EF-Utilities</label>
   <description>A set of commone procedures for Deploy projects
 2016-04-06 lrochette Fix #9 ignore duplicateAclEntry</description>
