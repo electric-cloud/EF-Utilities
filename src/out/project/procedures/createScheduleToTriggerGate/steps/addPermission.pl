@@ -1,6 +1,6 @@
 $[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
 
-my ($ok, $json, $errCode, $errMsg) = InvokeCommander("IgnoreError SuppressLog",
+my ($ok, $json, $errCode, $errMsg) = InvokeCommander("IgnoreError",
   'createAclEntry', 'user', "project: $[/myProject/projectName]", 
   {
      projectName => "$[/myPipelineRuntime/projectName]",
@@ -14,6 +14,8 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("IgnoreError SuppressLog",
 # check for error
 if (! $ok) {
   # ignore duplicate entry: Issue #9
+  printf("errCode: $errCode\n");
+  printf("errMsg: $errMsg\n");
   exit(0) if ($errCode eq 'DuplicateAclEntry');
   
   printf("Error($errCode): $errMsg\n");
