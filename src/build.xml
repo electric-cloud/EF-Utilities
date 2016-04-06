@@ -5,7 +5,7 @@
 
   <!-- Plugin-specific properties -->
   <property name="pluginKey" value="EF-Utilities" />
-  <property name="pluginVersion" value="0.3.6.50" />
+  <property name="pluginVersion" value="0.3.6.51" />
 
   
   <import file="/opt/electriccloud/CommanderSDK/build/buildTargets.xml" />

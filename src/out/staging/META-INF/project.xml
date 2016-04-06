@@ -29,14 +29,14 @@
 &lt;head>
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     &lt;title>EF-UtilitiesPlugin&lt;/title>
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.6.50/pluginhelp.css" type="text/css" media= "screen" />
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.6.51/pluginhelp.css" type="text/css" media= "screen" />
 &lt;/head>
 
 &lt;body>
     &lt;div class="help">
 
         &lt;h1>EF-Utilities&lt;/h1>
-        &lt;p>Plugin Version 0.3.6.50&lt;/p>
+        &lt;p>Plugin Version 0.3.6.51&lt;/p>
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         &lt;p>EF-Utilities is a collection of common procedures to help you
@@ -61,7 +61,7 @@ what it is now.&lt;/p>
         <description />
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>50</value>
+        <value>51</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -178,7 +178,7 @@ my %createSnapshot = (
 );
 
 @::createStepPickerSteps = (\%createScheduleToTriggerGate, \%createSnapshot);
-</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.6.50</value></property></propertySheet>
+</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.6.51</value></property></propertySheet>
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>
@@ -407,9 +407,7 @@ my ($ok, $json, $errMsg, $errCode) = InvokeCommander("IgnoreError",
 # check for error
 if (! $ok) {
   # ignore duplicate entry: Issue #9
-  printf("errCode: $errCode\n");
-  printf("errMsg: $errMsg\n");
-  exit(0) if ($errCode eq 'DuplicateAclEntry');
+`  exit(0) if ($errCode eq 'DuplicateAclEntry');
   
   printf("Error($errCode): $errMsg\n");
   exit(1);

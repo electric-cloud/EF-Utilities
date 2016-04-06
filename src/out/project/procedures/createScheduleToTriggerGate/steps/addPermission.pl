@@ -14,9 +14,7 @@ my ($ok, $json, $errMsg, $errCode) = InvokeCommander("IgnoreError",
 # check for error
 if (! $ok) {
   # ignore duplicate entry: Issue #9
-  printf("errCode: $errCode\n");
-  printf("errMsg: $errMsg\n");
-  exit(0) if ($errCode eq 'DuplicateAclEntry');
+`  exit(0) if ($errCode eq 'DuplicateAclEntry');
   
   printf("Error($errCode): $errMsg\n");
   exit(1);

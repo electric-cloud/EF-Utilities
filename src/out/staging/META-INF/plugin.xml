@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
   <key>EF-Utilities</key>
-  <version>0.3.6.50</version>
+  <version>0.3.6.51</version>
   <label>EF-Utilities</label>
-  <description>A set of commone procedures for Deploy projects</description>
+  <description>A set of commone procedures for Deploy projects
+2016-04-06 lrochette Fix #9 ignore duplicateAclEntry</description>
   <help>help.xml</help>
   <author>L. Rochette</author>
   <authorUrl>mailto:lrochette@electric-cloud.com</authorUrl>
