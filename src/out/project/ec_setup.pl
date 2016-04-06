@@ -1,12 +1,8 @@
 # promote/demote action
 if ($promoteAction eq 'promote') {
-    my @objTypes = ('resources', 'workspaces', 'projects');
-
-    if ($promoteAction eq "promote") {
-        foreach my $type (@objTypes) {
-            $batch->createAclEntry(
-                 'user',
-                 "project: $pluginName",
+    my @objTypes = ('resources', 'workspaces');
+    foreach my $type (@objTypes) {
+           $batch->createAclEntry('user', "project: $pluginName",
                  {
                     systemObjectName => $type,
                     readPrivilege => 'allow',
@@ -16,7 +12,18 @@ if ($promoteAction eq 'promote') {
                  }
                 );
         }
-    }
+    @objTypes = ('projects');
+    foreach my $type (@objTypes) {
+         $batch->createAclEntry('user', "project: $pluginName",
+                 {
+                    systemObjectName => $type,
+                    readPrivilege => 'allow',
+                    modifyPrivilege => 'allow',
+                    executePrivilege => 'allow',
+                    changePermissionsPrivilege => 'inherit'
+                 }
+                );
+        }
 }
 
 # Data that drives the create step picker registration for this plugin.

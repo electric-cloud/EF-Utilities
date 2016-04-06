@@ -29,14 +29,14 @@
 &lt;head>
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     &lt;title>EF-UtilitiesPlugin&lt;/title>
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.4.44/pluginhelp.css" type="text/css" media= "screen" />
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.5.45/pluginhelp.css" type="text/css" media= "screen" />
 &lt;/head>
 
 &lt;body>
     &lt;div class="help">
 
         &lt;h1>EF-Utilities&lt;/h1>
-        &lt;p>Plugin Version 0.3.4.44&lt;/p>
+        &lt;p>Plugin Version 0.3.5.45&lt;/p>
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         &lt;p>EF-Utilities is a collection of common procedures to help you
@@ -61,7 +61,7 @@ what it is now.&lt;/p>
         <description />
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>44</value>
+        <value>45</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -78,13 +78,9 @@ what it is now.&lt;/p>
         <expandable>1</expandable>
         <tracked>1</tracked>
         <value>if ($promoteAction eq 'promote') {
-    my @objTypes = ('resources', 'workspaces', 'projects');
-
-    if ($promoteAction eq "promote") {
-        foreach my $type (@objTypes) {
-            $batch->createAclEntry(
-                 'user',
-                 "project: $pluginName",
+    my @objTypes = ('resources', 'workspaces');
+    foreach my $type (@objTypes) {
+           $batch->createAclEntry('user', "project: $pluginName",
                  {
                     systemObjectName => $type,
                     readPrivilege => 'allow',
@@ -94,7 +90,18 @@ what it is now.&lt;/p>
                  }
                 );
         }
-    }
+    @objTypes = ('projects');
+    foreach my $type (@objTypes) {
+         $batch->createAclEntry('user', "project: $pluginName",
+                 {
+                    systemObjectName => $type,
+                    readPrivilege => 'allow',
+                    modifyPrivilege => 'allow',
+                    executePrivilege => 'allow',
+                    changePermissionsPrivilege => 'inherit'
+                 }
+                );
+        }
 }</value>
       </property>
       <property>
@@ -103,6 +110,8 @@ what it is now.&lt;/p>
         <description>Versions of the EF-Utilities project
 
 History
+-version 0.3.5
+  + Fix #10: need project modification permission to create schedule
 - version 0.3.4
    + Fix #4: Link is hardcoded. Use stage name instead
 - version 0.3.3
@@ -121,17 +130,13 @@ History
    + initial version with createSnapshot</description>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>0.3.4</value>
+        <value>0.3.5</value>
       </property>
     <property><propertyName>ec_setup</propertyName><value># promote/demote action
 if ($promoteAction eq 'promote') {
-    my @objTypes = ('resources', 'workspaces', 'projects');
-
-    if ($promoteAction eq "promote") {
-        foreach my $type (@objTypes) {
-            $batch->createAclEntry(
-                 'user',
-                 "project: $pluginName",
+    my @objTypes = ('resources', 'workspaces');
+    foreach my $type (@objTypes) {
+           $batch->createAclEntry('user', "project: $pluginName",
                  {
                     systemObjectName => $type,
                     readPrivilege => 'allow',
@@ -141,7 +146,18 @@ if ($promoteAction eq 'promote') {
                  }
                 );
         }
-    }
+    @objTypes = ('projects');
+    foreach my $type (@objTypes) {
+         $batch->createAclEntry('user', "project: $pluginName",
+                 {
+                    systemObjectName => $type,
+                    readPrivilege => 'allow',
+                    modifyPrivilege => 'allow',
+                    executePrivilege => 'allow',
+                    changePermissionsPrivilege => 'inherit'
+                 }
+                );
+        }
 }
 
 # Data that drives the create step picker registration for this plugin.
@@ -160,7 +176,7 @@ my %createSnapshot = (
 );
 
 @::createStepPickerSteps = (\%createScheduleToTriggerGate, \%createSnapshot);
-</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.4.44</value></property></propertySheet>
+</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.5.45</value></property></propertySheet>
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>
@@ -309,6 +325,7 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
 
 $[/plugins[EC-Admin]project/scripts/perlLibJSON]
 
+
 </command>
         <condition />
         <description />
@@ -344,6 +361,7 @@ my ($ok, $json, $errCode, $errMSg) = InvokeCommander("",
    });
 
 $[/plugins[EC-Admin]project/scripts/perlLibJSON]
+
 
 </command>
         <condition />
@@ -399,6 +417,7 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
 #  });
   
 $[/plugins[EC-Admin]project/scripts/perlLibJSON]
+
 
 
 </command>
@@ -646,6 +665,7 @@ printf("Created snapshot $snap\n");
 $[/plugins[EC-Admin]project/scripts/perlLibJSON]
 
 
+
 </command>
         <condition />
         <description />
@@ -733,6 +753,7 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
 $[/plugins[EC-Admin]project/scripts/perlLibJSON]
 
 
+
 </command>
         <condition />
         <description />
@@ -760,6 +781,7 @@ $[/plugins[EC-Admin]project/scripts/perlLibJSON]
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>ectool deleteSchedule "$[/mySchedule/projectName]" "$[/mySchedule]" 
+
 
 </command>
         <condition />

@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>44</value>
+        <value>45</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -79,13 +79,9 @@ what it is now.&lt;/p&gt;
         <expandable>1</expandable>
         <tracked>1</tracked>
         <value>if ($promoteAction eq 'promote') {
-    my @objTypes = ('resources', 'workspaces', 'projects');
-
-    if ($promoteAction eq "promote") {
-        foreach my $type (@objTypes) {
-            $batch-&gt;createAclEntry(
-                 'user',
-                 "project: $pluginName",
+    my @objTypes = ('resources', 'workspaces');
+    foreach my $type (@objTypes) {
+           $batch-&gt;createAclEntry('user', "project: $pluginName",
                  {
                     systemObjectName =&gt; $type,
                     readPrivilege =&gt; 'allow',
@@ -95,7 +91,18 @@ what it is now.&lt;/p&gt;
                  }
                 );
         }
-    }
+    @objTypes = ('projects');
+    foreach my $type (@objTypes) {
+         $batch-&gt;createAclEntry('user', "project: $pluginName",
+                 {
+                    systemObjectName =&gt; $type,
+                    readPrivilege =&gt; 'allow',
+                    modifyPrivilege =&gt; 'allow',
+                    executePrivilege =&gt; 'allow',
+                    changePermissionsPrivilege =&gt; 'inherit'
+                 }
+                );
+        }
 }</value>
       </property>
       <property>
@@ -104,6 +111,8 @@ what it is now.&lt;/p&gt;
         <description>Versions of the EF-Utilities project
 
 History
+-version 0.3.5
+  + Fix #10: need project modification permission to create schedule
 - version 0.3.4
    + Fix #4: Link is hardcoded. Use stage name instead
 - version 0.3.3
@@ -122,7 +131,7 @@ History
    + initial version with createSnapshot</description>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>0.3.4</value>
+        <value>0.3.5</value>
       </property>
     <property><propertyName>ec_setup</propertyName><value>PLACEHOLDER</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>@PLUGIN_VERSION@</value></property></propertySheet>
     <procedure>
