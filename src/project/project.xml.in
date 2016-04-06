@@ -62,7 +62,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>49</value>
+        <value>50</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>

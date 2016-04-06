@@ -1,6 +1,6 @@
 $[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
 
-my ($ok, $json, $errCode, $errMsg) = InvokeCommander("IgnoreError",
+my ($ok, $json, $errMsg, $errCode) = InvokeCommander("IgnoreError",
   'createAclEntry', 'user', "project: $[/myProject/projectName]", 
   {
      projectName => "$[/myPipelineRuntime/projectName]",
