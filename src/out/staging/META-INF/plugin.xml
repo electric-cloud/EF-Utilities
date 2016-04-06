@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
   <key>EF-Utilities</key>
-  <version>0.3.5.45</version>
+  <version>0.3.6.47</version>
   <label>EF-Utilities</label>
   <description>A set of commone procedures for Deploy projects
-2016-04-05 lrochette Fix #10 need project modification permission to create schedule</description>
+2016-04-05 lrochette Fix #9 ignore duplicateAclEntry</description>
   <help>help.xml</help>
   <author>L. Rochette</author>
   <authorUrl>mailto:lrochette@electric-cloud.com</authorUrl>

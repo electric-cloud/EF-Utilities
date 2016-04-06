@@ -1,4 +1,7 @@
 2016-04-05 Laurent Rochette <lrochette@electric-cloud.com>
+  * 0.3.6.47: Fix #9 ignore duplicateAclEntry
+
+2016-04-05 Laurent Rochette <lrochette@electric-cloud.com>
   * 0.3.5.45: Fix #10 need project modification permission to create schedule
 
 2016-03-29 Laurent Rochette <lrochette@electric-cloud.com>

@@ -1,6 +1,6 @@
 $[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
 
-my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
+my ($ok, $json, $errCode, $errMsg) = InvokeCommander("IgnoreError SuppressLog",
   'createAclEntry', 'user', "project: $[/myProject/projectName]", 
   {
      projectName => "$[/myPipelineRuntime/projectName]",
@@ -11,19 +11,15 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
      changePermissionsPrivilege => "inherit"
   });
 
+# check for error
+if (! $ok) {
+  # ignore duplicate entry: Issue #9
+  exit(0) if ($errCode eq 'DuplicateAclEntry');
+  
+  printf("Error($errCode): $errMsg\n");
+  exit(1);
+}
 
-#($ok, $json, $errCode, $errMsg) = InvokeCommander("",
-#  'createAclEntry', 'user', "project: $[/myProject/projectName]", 
-#  {
-#     projectName => "$[/myPipelineRuntime/projectName]",
-#     pipelineName => "$[/myPipelineRuntime/pipelineName]", 
-#     taskName => "$[gate]",
-#     stageName => "$[stage]",
-#     readPrivilege    => "allow",
-#     executePrivilege => "allow",
-#     modifyPrivilege  => "allow",
-#     changePermissionsPrivilege => "inherit"
-#  });
   
 $[/plugins[EC-Admin]project/scripts/perlLibJSON]
 
