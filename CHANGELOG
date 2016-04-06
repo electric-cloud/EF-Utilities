@@ -1,4 +1,7 @@
 2016-04-05 Laurent Rochette <lrochette@electric-cloud.com>
+  * 0.3.6.48: Fix #9 ignore duplicateAclEntry
+
+2016-04-05 Laurent Rochette <lrochette@electric-cloud.com>
   * 0.3.6.47: Fix #9 ignore duplicateAclEntry
 
 2016-04-05 Laurent Rochette <lrochette@electric-cloud.com>
