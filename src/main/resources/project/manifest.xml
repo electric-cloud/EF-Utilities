@@ -1,0 +1,48 @@
+<?xml version='1.0' standalone='yes'?>
+<!--
+
+     Copyright 2016 Electric Cloud, Inc.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+-->
+<fileset>
+  <file>
+    <path>ec_setup.pl</path>
+    <xpath>//project/propertySheet/property[propertyName=&quot;ec_setup&quot;]/value</xpath>
+  </file>
+  <file>
+    <path>procedures/createScheduleToTriggerGate/steps/createSchedule.pl</path>
+    <xpath>//project/procedure[procedureName=&quot;createScheduleToTriggerGate&quot;]/step[stepName=&quot;createSchedule&quot;]/command</xpath>
+  </file>
+  <file>
+    <path>procedures/createScheduleToTriggerGate/steps/createLink.pl</path>
+    <xpath>//project/procedure[procedureName=&quot;createScheduleToTriggerGate&quot;]/step[stepName=&quot;createLink&quot;]/command</xpath>
+  </file>
+  <file>
+    <path>procedures/createScheduleToTriggerGate/steps/addPermission.pl</path>
+    <xpath>//project/procedure[procedureName=&quot;createScheduleToTriggerGate&quot;]/step[stepName=&quot;addPermission&quot;]/command</xpath>
+  </file>
+  <file>
+    <path>procedures/createSnapshot/steps/snapshot.pl</path>
+    <xpath>//project/procedure[procedureName=&quot;createSnapshot&quot;]/step[stepName=&quot;snapshot&quot;]/command</xpath>
+  </file>
+  <file>
+    <path>procedures/triggerPipelineGateOnSchedule/steps/Trigger.pl</path>
+    <xpath>//project/procedure[procedureName=&quot;triggerPipelineGateOnSchedule&quot;]/step[stepName=&quot;Trigger&quot;]/command</xpath>
+  </file>
+  <file>
+    <path>procedures/triggerPipelineGateOnSchedule/steps/Delete Schedule.sh</path>
+    <xpath>//project/procedure[procedureName=&quot;triggerPipelineGateOnSchedule&quot;]/step[stepName=&quot;Delete Schedule&quot;]/command</xpath>
+  </file>
+</fileset>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+     Copyright 2016 Electric Cloud, Inc.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+-->
+<plugin>
+  <key>@PLUGIN_KEY@</key>
+  <version>@PLUGIN_VERSION@</version>
+  <label>@PLUGIN_KEY@</label>
+  <description>A set of common procedures for Deploy projects</description>
+  <help>help.xml</help>
+  <author>L. Rochette</author>
+  <authorUrl>mailto:lrochette@electric-cloud.com</authorUrl>
+
+  <commander-version min="6.2"/>
+  <depends min="">EC-Admin</depends>
+
+    <!-- Specify a category for this plugin; this is used in filtered lists in the Plugin Manager.
+         Typically, it is set to System or Step.
+     -->
+  <category>Deploy</category>
+  <depends>EC-Core</depends>
+</plugin>
