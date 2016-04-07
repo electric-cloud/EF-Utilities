@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
   <key>EF-Utilities</key>
-  <version>0.3.7.53</version>
+  <version>0.3.7.54</version>
   <label>EF-Utilities</label>
   <description>A set of commone procedures for Deploy projects
 2016-04-07 lrochette Fix #11 project is hardcoded in the link</description>

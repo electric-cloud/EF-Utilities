@@ -1,4 +1,7 @@
 2016-04-07 Laurent Rochette <lrochette@electric-cloud.com>
+  * 0.3.7.54: Fix #11 project is hardcoded in the link
+
+2016-04-07 Laurent Rochette <lrochette@electric-cloud.com>
   * 0.3.7.53: Fix #11 project is hardcoded in the link
 
 2016-04-06 Laurent Rochette <lrochette@electric-cloud.com>
