@@ -11,6 +11,31 @@
       <credentialProtected>0</credentialProtected>
       <tracked>1</tracked>
       <property>
+        <propertyName>scripts</propertyName>
+        <description/>
+        <tracked>1</tracked>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+          <property>
+            <propertyName>perlHeaderJSON</propertyName>
+            <counter>0</counter>
+            <description>Default Perl Header to use the API with JSON format</description>
+            <expandable>1</expandable>
+            <tracked>1</tracked>
+            <value>PLACEHOLDER</value>
+          </property>
+          <property>
+            <propertyName>perlLibJSON</propertyName>
+            <counter>0</counter>
+            <description/>
+            <expandable>1</expandable>
+            <tracked>1</tracked>
+            <value>PLACEHOLDER</value>
+          </property>
+        </propertySheet>
+      </property>
+      <property>
         <propertyName>ec_visibility</propertyName>
         <counter>0</counter>
         <expandable>1</expandable>
@@ -62,7 +87,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>54</value>
+        <value>55</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>

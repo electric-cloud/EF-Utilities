@@ -10,6 +10,95 @@
       <credentialProtected>0</credentialProtected>
       <tracked>1</tracked>
       <property>
+        <propertyName>scripts</propertyName>
+        <description />
+        <tracked>1</tracked>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+          <property>
+            <propertyName>perlHeaderJSON</propertyName>
+            <counter>0</counter>
+            <description>Default Perl Header to use the API with JSON format</description>
+            <expandable>1</expandable>
+            <tracked>1</tracked>
+            <value>#############################################################################
+#
+# Copyright 2013 Electric-Cloud Inc.
+#
+#############################################################################
+use strict;
+use English;
+use ElectricCommander;
+use Data::Dumper;
+$| = 1;
+
+my $DEBUG=0;
+
+# Create a single instance of the Perl access to ElectricCommander
+my $ec = new ElectricCommander({'format' => "json"});
+
+# Check for the OS Type
+my $osIsWindows = $^O =~ /MSWin/;
+
+
+#### Line 20 ####
+</value>
+          </property>
+          <property>
+            <propertyName>perlLibJSON</propertyName>
+            <counter>0</counter>
+            <description />
+            <expandable>1</expandable>
+            <tracked>1</tracked>
+            <value>#############################################################################
+#
+# Invoke a API call
+#
+#############################################################################
+sub InvokeCommander {
+
+    my $optionFlags = shift;
+    my $commanderFunction = shift;
+    my $result;
+    my $success = 1;
+    my $errMsg;
+    my $errCode;
+
+    my $bSuppressLog = $optionFlags =~ /SuppressLog/i;
+    my $bSuppressResult = $bSuppressLog || $optionFlags =~ /SuppressResult/i;
+    my $bIgnoreError = $optionFlags =~ /IgnoreError/i;
+
+    # Run the command
+    # print "Request to Commander: $commanderFunction\n" unless ($bSuppressLog);
+
+    $ec->abortOnError(0) if $bIgnoreError;
+    $result = $ec->$commanderFunction(@_);
+    $ec->abortOnError(1) if $bIgnoreError;
+
+    # Check for error return
+    if (defined ($result->{responses}->[0]->{error})) {
+        $errCode=$result->{responses}->[0]->{error}->{code};
+        $errMsg=$result->{responses}->[0]->{error}->{message};
+    }
+
+    if ($errMsg ne "") {
+        $success = 0;
+    }
+    if ($result) {
+        print "Return data from Commander:\n" .
+               Dumper($result) . "\n"
+            unless $bSuppressResult;
+    }
+
+    # Return the result
+    return ($success, $result, $errMsg, $errCode);
+}
+</value>
+          </property>
+        </propertySheet>
+      </property>
+      <property>
         <propertyName>ec_visibility</propertyName>
         <counter>0</counter>
         <expandable>1</expandable>
@@ -29,14 +118,14 @@
 &lt;head>
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     &lt;title>EF-UtilitiesPlugin&lt;/title>
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.7.54/pluginhelp.css" type="text/css" media= "screen" />
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.7.55/pluginhelp.css" type="text/css" media= "screen" />
 &lt;/head>
 
 &lt;body>
     &lt;div class="help">
 
         &lt;h1>EF-Utilities&lt;/h1>
-        &lt;p>Plugin Version 0.3.7.54&lt;/p>
+        &lt;p>Plugin Version 0.3.7.55&lt;/p>
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         &lt;p>EF-Utilities is a collection of common procedures to help you
@@ -61,7 +150,7 @@ what it is now.&lt;/p>
         <description />
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>54</value>
+        <value>55</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -180,7 +269,7 @@ my %createSnapshot = (
 );
 
 @::createStepPickerSteps = (\%createScheduleToTriggerGate, \%createSnapshot);
-</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.7.54</value></property></propertySheet>
+</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.7.55</value></property></propertySheet>
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>
@@ -362,7 +451,6 @@ my ($ok, $json, $errCode, $errMSg) = InvokeCommander("",
   'setProperty', "/myPipelineStageRuntime/ec_summary/$[stage] Schedule $[date] $[time]",
   {
 		value =>  '&lt;html>&lt;a href="/commander/link/editSchedule/projects/$[/myPipelineRuntime/projectName]">Definition&lt;/a>&lt;/html>'
-   });]/schedules/$[stage]_$[/myPipelineRuntime]">Definition&lt;/a>&lt;/html>'
    });
 
 $[/plugins[EC-Admin]project/scripts/perlLibJSON]

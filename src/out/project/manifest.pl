@@ -1,4 +1,6 @@
 @files = (
+	['//project/propertySheet/property[propertyName="scripts"]/propertySheet/property[propertyName="perlHeaderJSON"]/value', "properties/scripts/perlHeaderJSON.txt"],
+	['//project/propertySheet/property[propertyName="scripts"]/propertySheet/property[propertyName="perlLibJSON"]/value', "properties/scripts/perlLibJSON.txt"],
 	['//project/propertySheet/property[propertyName="ec_setup"]/value', 'ec_setup.pl'],
 	['//project/procedure[procedureName="createScheduleToTriggerGate"]/step[stepName="createSchedule"]/command', 'procedures/createScheduleToTriggerGate/steps/createSchedule.pl'],
 	['//project/procedure[procedureName="createScheduleToTriggerGate"]/step[stepName="createLink"]/command', 'procedures/createScheduleToTriggerGate/steps/createLink.pl'],
