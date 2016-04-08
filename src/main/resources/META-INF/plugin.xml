@@ -20,7 +20,8 @@
   <key>@PLUGIN_KEY@</key>
   <version>@PLUGIN_VERSION@</version>
   <label>@PLUGIN_KEY@</label>
-  <description>A set of common procedures for Deploy projects</description>
+  <description>A set of common procedures for Deploy projects
+    2016-04-07 lrochette Fix #11 project is hardcoded in the link</description>
   <help>help.xml</help>
   <author>L. Rochette</author>
   <authorUrl>mailto:lrochette@electric-cloud.com</authorUrl>

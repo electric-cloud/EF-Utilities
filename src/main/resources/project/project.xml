@@ -11,6 +11,31 @@
       <credentialProtected>0</credentialProtected>
       <tracked>1</tracked>
       <property>
+        <propertyName>scripts</propertyName>
+        <description/>
+        <tracked>1</tracked>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+          <property>
+            <propertyName>perlHeaderJSON</propertyName>
+            <counter>0</counter>
+            <description>Default Perl Header to use the API with JSON format</description>
+            <expandable>1</expandable>
+            <tracked>1</tracked>
+            <value>PLACEHOLDER</value>
+          </property>
+          <property>
+            <propertyName>perlLibJSON</propertyName>
+            <counter>0</counter>
+            <description/>
+            <expandable>1</expandable>
+            <tracked>1</tracked>
+            <value>PLACEHOLDER</value>
+          </property>
+        </propertySheet>
+      </property>
+      <property>
         <propertyName>ec_visibility</propertyName>
         <counter>0</counter>
         <expandable>1</expandable>
@@ -24,37 +49,37 @@
         <expandable>1</expandable>
         <tracked>1</tracked>
         <value>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
 
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
-&lt;head&gt;
-    &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" /&gt;
-    &lt;title&gt;EF-UtilitiesPlugin&lt;/title&gt;
-    &lt;link rel="stylesheet" href= "../../plugins/@PLUGIN_NAME@/pluginhelp.css" type="text/css" media= "screen" /&gt;
-&lt;/head&gt;
+          &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+          &lt;head&gt;
+          &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" /&gt;
+          &lt;title&gt;EF-UtilitiesPlugin&lt;/title&gt;
+          &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.7.55/pluginhelp.css" type="text/css" media= "screen" /&gt;
+          &lt;/head&gt;
 
-&lt;body&gt;
-    &lt;div class="help"&gt;
+          &lt;body&gt;
+          &lt;div class="help"&gt;
 
-        &lt;h1&gt;EF-Utilities&lt;/h1&gt;
-        &lt;p&gt;Plugin Version @PLUGIN_VERSION@&lt;/p&gt;
-        &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" /&gt;
+          &lt;h1&gt;EF-Utilities&lt;/h1&gt;
+          &lt;p&gt;Plugin Version 0.3.7.55&lt;/p&gt;
+          &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" /&gt;
 
-        &lt;p&gt;EF-Utilities is a collection of common procedures to help you
-with your deploy projects. Its inception was sparked by repetitive actions required  
-during my Professional Services engagements. It has grown over the years to
-what it is now.&lt;/p&gt;
+          &lt;p&gt;EF-Utilities is a collection of common procedures to help you
+          with your deploy projects. Its inception was sparked by repetitive actions required
+          during my Professional Services engagements. It has grown over the years to
+          what it is now.&lt;/p&gt;
 
-&lt;h2&gt;Content&lt;/h2&gt;
+          &lt;h2&gt;Content&lt;/h2&gt;
 
-&lt;p&gt;It contains the following modules:&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;createSnapshot&lt;/li&gt;
-  &lt;/ul&gt;
+          &lt;p&gt;It contains the following modules:&lt;/p&gt;
+          &lt;ul&gt;
+          &lt;li&gt;createSnapshot&lt;/li&gt;
+          &lt;/ul&gt;
 
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</value>
+          &lt;/div&gt;
+          &lt;/body&gt;
+          &lt;/html&gt;</value>
       </property>
       <property>
         <propertyName>pluginBuildNumber</propertyName>
@@ -62,7 +87,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>52</value>
+        <value>55</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -79,68 +104,70 @@ what it is now.&lt;/p&gt;
         <expandable>1</expandable>
         <tracked>1</tracked>
         <value>if ($promoteAction eq 'promote') {
-    my @objTypes = ('resources', 'workspaces');
-    foreach my $type (@objTypes) {
-           $batch-&gt;createAclEntry('user', "project: $pluginName",
-                 {
-                    systemObjectName =&gt; $type,
-                    readPrivilege =&gt; 'allow',
-                    modifyPrivilege =&gt; 'inherit',
-                    executePrivilege =&gt; 'allow',
-                    changePermissionsPrivilege =&gt; 'inherit'
-                 }
-                );
-        }
-    @objTypes = ('projects');
-    foreach my $type (@objTypes) {
-         $batch-&gt;createAclEntry('user', "project: $pluginName",
-                 {
-                    systemObjectName =&gt; $type,
-                    readPrivilege =&gt; 'allow',
-                    modifyPrivilege =&gt; 'allow',
-                    executePrivilege =&gt; 'allow',
-                    changePermissionsPrivilege =&gt; 'inherit'
-                 }
-                );
-        }
-}</value>
+          my @objTypes = ('resources', 'workspaces');
+          foreach my $type (@objTypes) {
+          $batch-&gt;createAclEntry('user', "project: $pluginName",
+          {
+          systemObjectName =&gt; $type,
+          readPrivilege =&gt; 'allow',
+          modifyPrivilege =&gt; 'inherit',
+          executePrivilege =&gt; 'allow',
+          changePermissionsPrivilege =&gt; 'inherit'
+          }
+          );
+          }
+          @objTypes = ('projects');
+          foreach my $type (@objTypes) {
+          $batch-&gt;createAclEntry('user', "project: $pluginName",
+          {
+          systemObjectName =&gt; $type,
+          readPrivilege =&gt; 'allow',
+          modifyPrivilege =&gt; 'allow',
+          executePrivilege =&gt; 'allow',
+          changePermissionsPrivilege =&gt; 'inherit'
+          }
+          );
+          }
+          }</value>
       </property>
       <property>
         <propertyName>version</propertyName>
         <counter>0</counter>
         <description>Versions of the EF-Utilities project
 
-History
--version 0.3.6
-  + Fix #9: ignore duplicateAclEntry
--version 0.3.5
-  + Fix #10: need project modification permission to create schedule
-- version 0.3.4
-   + Fix #4: Link is hardcoded. Use stage name instead
-- version 0.3.3
-   + Fix #5: schedule is deleted from wrong project
-- version 0.3.2
-   + Fix #7: add stageName to the scheduleName to avoid conflict
-- version 0.3.1
-   + Fix #6: createLink does not work on Windows
-- version 0.3.0
-   + add procedure to create timed PRE gate
+          History
+          -version 0.3.7
+          + Fix #11: project is hardcoded in the link
+          -version 0.3.6
+          + Fix #9: ignore duplicateAclEntry
+          -version 0.3.5
+          + Fix #10: need project modification permission to create schedule
+          - version 0.3.4
+          + Fix #4: Link is hardcoded. Use stage name instead
+          - version 0.3.3
+          + Fix #5: schedule is deleted from wrong project
+          - version 0.3.2
+          + Fix #7: add stageName to the scheduleName to avoid conflict
+          - version 0.3.1
+          + Fix #6: createLink does not work on Windows
+          - version 0.3.0
+          + add procedure to create timed PRE gate
 
-- version 0.2.0
-   + add force option
+          - version 0.2.0
+          + add force option
 
-- version 0.1.0
-   + initial version with createSnapshot</description>
+          - version 0.1.0
+          + initial version with createSnapshot</description>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>0.3.6</value>
+        <value>0.3.7</value>
       </property>
-    <property><propertyName>ec_setup</propertyName><value>PLACEHOLDER</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>@PLUGIN_VERSION@</value></property></propertySheet>
+      <property><propertyName>ec_setup</propertyName><value>PLACEHOLDER</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.7.55</value></property></propertySheet>
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>
       <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]
-</jobNameTemplate>
+      </jobNameTemplate>
       <resourceName/>
       <timeLimit/>
       <timeLimitUnits>seconds</timeLimitUnits>
