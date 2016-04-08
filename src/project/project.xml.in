@@ -87,7 +87,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>55</value>
+        <value>56</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -136,6 +136,9 @@ what it is now.&lt;/p&gt;
         <description>Versions of the EF-Utilities project
 
 History
+-version 1.0.0
+  + Fix #12: remove EC-Admin dependency for inclusion in the catalog
+
 -version 0.3.7
   + Fix #11: project is hardcoded in the link
 -version 0.3.6
@@ -160,7 +163,7 @@ History
    + initial version with createSnapshot</description>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>0.3.7</value>
+        <value>1.0.0</value>
       </property>
     <property><propertyName>ec_setup</propertyName><value>PLACEHOLDER</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>@PLUGIN_VERSION@</value></property></propertySheet>
     <procedure>

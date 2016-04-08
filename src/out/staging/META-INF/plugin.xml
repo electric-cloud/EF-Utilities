@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
   <key>EF-Utilities</key>
-  <version>0.3.7.55</version>
+  <version>1.0.0.56</version>
   <label>EF-Utilities</label>
-  <description>A set of commone procedures for Deploy projects
-2016-04-07 lrochette Fix #11 project is hardcoded in the link</description>
+  <description>A set of common procedures for Deploy use-cases</description>
   <help>help.xml</help>
-  <author>L. Rochette</author>
-  <authorUrl>mailto:lrochette@electric-cloud.com</authorUrl>
+  <author>Electric Cloud</author>
+  <authorUrl>mailto:http://electric-cloud.com/support</authorUrl>
 
   <commander-version min="6.2"/>
   <depends min="">EC-Admin</depends>

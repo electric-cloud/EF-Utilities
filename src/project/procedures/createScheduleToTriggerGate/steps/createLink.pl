@@ -1,4 +1,4 @@
-$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
+$[/myProject/scripts/perlHeaderJSON]
 
 my ($ok, $json, $errCode, $errMSg) = InvokeCommander("",
   'setProperty', "/myPipelineStageRuntime/ec_summary/$[stage] Schedule $[date] $[time]",
@@ -6,6 +6,5 @@ my ($ok, $json, $errCode, $errMSg) = InvokeCommander("",
 		value =>  '<html><a href="/commander/link/editSchedule/projects/$[/myPipelineRuntime/projectName]">Definition</a></html>'
    });
 
-$[/plugins[EC-Admin]project/scripts/perlLibJSON]
-
+$[/myProject/scripts/perlLibJSON]
 

@@ -55,14 +55,14 @@
 &lt;head&gt;
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" /&gt;
     &lt;title&gt;EF-UtilitiesPlugin&lt;/title&gt;
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.7.55/pluginhelp.css" type="text/css" media= "screen" /&gt;
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-1.0.0.56/pluginhelp.css" type="text/css" media= "screen" /&gt;
 &lt;/head&gt;
 
 &lt;body&gt;
     &lt;div class="help"&gt;
 
         &lt;h1&gt;EF-Utilities&lt;/h1&gt;
-        &lt;p&gt;Plugin Version 0.3.7.55&lt;/p&gt;
+        &lt;p&gt;Plugin Version 1.0.0.56&lt;/p&gt;
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" /&gt;
 
         &lt;p&gt;EF-Utilities is a collection of common procedures to help you
@@ -87,7 +87,7 @@ what it is now.&lt;/p&gt;
         <description/>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>55</value>
+        <value>56</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -136,6 +136,9 @@ what it is now.&lt;/p&gt;
         <description>Versions of the EF-Utilities project
 
 History
+-version 1.0.0
+  + Fix #12: remove EC-Admin dependency for inclusion in the catalog
+
 -version 0.3.7
   + Fix #11: project is hardcoded in the link
 -version 0.3.6
@@ -160,9 +163,9 @@ History
    + initial version with createSnapshot</description>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>0.3.7</value>
+        <value>1.0.0</value>
       </property>
-    <property><propertyName>ec_setup</propertyName><value>PLACEHOLDER</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.7.55</value></property></propertySheet>
+    <property><propertyName>ec_setup</propertyName><value>PLACEHOLDER</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>1.0.0.56</value></property></propertySheet>
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>

@@ -1,4 +1,4 @@
-$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
+$[/myProject/scripts/perlHeaderJSON]
 
 #
 # Parameters
@@ -20,7 +20,5 @@ if (($force eq "true") || ($force eq "1")) {
 $ec->createSnapshot($proj, $app, $snap);
 printf("Created snapshot $snap\n");
 
-$[/plugins[EC-Admin]project/scripts/perlLibJSON]
-
-
+$[/myProject/scripts/perlLibJSON]
 

@@ -1,4 +1,4 @@
-$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
+$[/myProject/scripts/perlHeaderJSON]
 
 my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   'createSchedule', "$[/myPipelineRuntime/projectName]", "$[stage]_$[/myPipelineRuntime]", {
@@ -16,6 +16,5 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   });
 
 
-$[/plugins[EC-Admin]project/scripts/perlLibJSON]
-
+$[/pmyProject/scripts/perlLibJSON]
 

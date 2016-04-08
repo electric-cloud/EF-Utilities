@@ -118,14 +118,14 @@ sub InvokeCommander {
 &lt;head>
     &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" />
     &lt;title>EF-UtilitiesPlugin&lt;/title>
-    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-0.3.7.55/pluginhelp.css" type="text/css" media= "screen" />
+    &lt;link rel="stylesheet" href= "../../plugins/EF-Utilities-1.0.0.56/pluginhelp.css" type="text/css" media= "screen" />
 &lt;/head>
 
 &lt;body>
     &lt;div class="help">
 
         &lt;h1>EF-Utilities&lt;/h1>
-        &lt;p>Plugin Version 0.3.7.55&lt;/p>
+        &lt;p>Plugin Version 1.0.0.56&lt;/p>
         &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
 
         &lt;p>EF-Utilities is a collection of common procedures to help you
@@ -150,7 +150,7 @@ what it is now.&lt;/p>
         <description />
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>55</value>
+        <value>56</value>
       </property>
       <property>
         <propertyName>pluginDependencies</propertyName>
@@ -199,6 +199,9 @@ what it is now.&lt;/p>
         <description>Versions of the EF-Utilities project
 
 History
+-version 1.0.0
+  + Fix #12: remove EC-Admin dependency for inclusion in the catalog
+
 -version 0.3.7
   + Fix #11: project is hardcoded in the link
 -version 0.3.6
@@ -223,7 +226,7 @@ History
    + initial version with createSnapshot</description>
         <expandable>1</expandable>
         <tracked>1</tracked>
-        <value>0.3.7</value>
+        <value>1.0.0</value>
       </property>
     <property><propertyName>ec_setup</propertyName><value># promote/demote action
 if ($promoteAction eq 'promote') {
@@ -269,7 +272,7 @@ my %createSnapshot = (
 );
 
 @::createStepPickerSteps = (\%createScheduleToTriggerGate, \%createSnapshot);
-</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>0.3.7.55</value></property></propertySheet>
+</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>1.0.0.56</value></property></propertySheet>
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>
@@ -398,7 +401,7 @@ my %createSnapshot = (
         <stepName>createSchedule</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
+        <command>$[/myProject/scripts/perlHeaderJSON]
 
 my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   'createSchedule', "$[/myPipelineRuntime/projectName]", "$[stage]_$[/myPipelineRuntime]", {
@@ -416,8 +419,7 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   });
 
 
-$[/plugins[EC-Admin]project/scripts/perlLibJSON]
-
+$[/pmyProject/scripts/perlLibJSON]
 
 </command>
         <condition />
@@ -445,7 +447,7 @@ $[/plugins[EC-Admin]project/scripts/perlLibJSON]
         <stepName>createLink</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
+        <command>$[/myProject/scripts/perlHeaderJSON]
 
 my ($ok, $json, $errCode, $errMSg) = InvokeCommander("",
   'setProperty', "/myPipelineStageRuntime/ec_summary/$[stage] Schedule $[date] $[time]",
@@ -453,8 +455,7 @@ my ($ok, $json, $errCode, $errMSg) = InvokeCommander("",
 		value =>  '&lt;html>&lt;a href="/commander/link/editSchedule/projects/$[/myPipelineRuntime/projectName]">Definition&lt;/a>&lt;/html>'
    });
 
-$[/plugins[EC-Admin]project/scripts/perlLibJSON]
-
+$[/myProject/scripts/perlLibJSON]
 
 </command>
         <condition />
@@ -482,13 +483,13 @@ $[/plugins[EC-Admin]project/scripts/perlLibJSON]
         <stepName>addPermission</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
+        <command>$[/myProject/scripts/perlHeaderJSON]
 
 my ($ok, $json, $errMsg, $errCode) = InvokeCommander("IgnoreError",
-  'createAclEntry', 'user', "project: $[/myProject/projectName]", 
+  'createAclEntry', 'user', "project: $[/myProject/projectName]",
   {
      projectName => "$[/myPipelineRuntime/projectName]",
-     flowRuntimeName => "$[/myPipelineRuntime]", 
+     flowRuntimeName => "$[/myPipelineRuntime]",
      readPrivilege    => "allow",
      executePrivilege => "allow",
      modifyPrivilege  => "allow",
@@ -499,15 +500,13 @@ my ($ok, $json, $errMsg, $errCode) = InvokeCommander("IgnoreError",
 if (! $ok) {
   # ignore duplicate entry: Issue #9
   exit(0) if ($errCode eq 'DuplicateAclEntry');
-  
+
   printf("Error($errCode): $errMsg\n");
   exit(1);
 }
 
-  
-$[/plugins[EC-Admin]project/scripts/perlLibJSON]
 
-
+$[/myProject/scripts/perlLibJSON]
 
 </command>
         <condition />
@@ -729,7 +728,7 @@ $[/plugins[EC-Admin]project/scripts/perlLibJSON]
         <stepName>snapshot</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
+        <command>$[/myProject/scripts/perlHeaderJSON]
 
 #
 # Parameters
@@ -751,9 +750,7 @@ if (($force eq "true") || ($force eq "1")) {
 $ec->createSnapshot($proj, $app, $snap);
 printf("Created snapshot $snap\n");
 
-$[/plugins[EC-Admin]project/scripts/perlLibJSON]
-
-
+$[/myProject/scripts/perlLibJSON]
 
 </command>
         <condition />
@@ -826,7 +823,7 @@ $[/plugins[EC-Admin]project/scripts/perlLibJSON]
         <stepName>Trigger</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
+        <command>$[/myProject/scripts/perlHeaderJSON]
 
 my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   'completeManualTask', "$[flowRuntimeId]", "$[stageName]", "$[taskName]",
@@ -837,11 +834,9 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   	  {actualParameterName => 'evidence', value => "$[evidence]"}
     ]
   });
-  
-
-$[/plugins[EC-Admin]project/scripts/perlLibJSON]
 
 
+$[/myProject/scripts/perlLibJSON]
 
 </command>
         <condition />
