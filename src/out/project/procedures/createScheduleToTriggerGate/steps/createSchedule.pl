@@ -16,5 +16,5 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   });
 
 
-$[/pmyProject/scripts/perlLibJSON]
+$[/myProject/scripts/perlLibJSON]
 

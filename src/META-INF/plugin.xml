@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
   <key>EF-Utilities</key>
-  <version>1.0.0.56</version>
+  <version>1.0.0.57</version>
   <label>EF-Utilities</label>
   <description>A set of common procedures for Deploy use-cases</description>
   <help>help.xml</help>

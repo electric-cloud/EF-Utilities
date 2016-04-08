@@ -1,4 +1,7 @@
 2016-04-07 Laurent Rochette <lrochette@electric-cloud.com>
+  * 1.0.0.57: Fix #12 remove EC-Admin dependency
+
+2016-04-07 Laurent Rochette <lrochette@electric-cloud.com>
   * 1.0.0.56: Fix #12 remove EC-Admin dependency
 
 2016-04-07 Laurent Rochette <lrochette@electric-cloud.com>
