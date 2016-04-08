@@ -19,11 +19,11 @@
 <fileset>
   <file>
     <path>properties/scripts/perlHeaderJSON.txt</path>
-    <xpath>//project/propertySheet/property[propertyName=&quot;scripts&quot;]/propertySheet/property[propertyName=&quot;perlHeaderJSON&quot;]value</xpath>
+    <xpath>//project/propertySheet/property[propertyName=&quot;scripts&quot;]/propertySheet/property[propertyName=&quot;perlHeaderJSON&quot;]/value</xpath>
   </file>
   <file>
     <path>properties/scripts/perlLibJSON.txt</path>
-    <xpath>//project/propertySheet/property[propertyName=&quot;scripts&quot;]/propertySheet/property[propertyName=&quot;perlLibJSON&quot;]value</xpath>
+    <xpath>//project/propertySheet/property[propertyName=&quot;scripts&quot;]/propertySheet/property[propertyName=&quot;perlLibJSON&quot;]/value</xpath>
   </file>
   <file>
     <path>ec_setup.pl</path>
