@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exportedData version="72" buildLabel="build_main_103337_2016.02.20_07:10:07" buildVersion="6.2.0.103337" passkey="1405deeab17b2f5b1a2665ce211b40facd6eaf5f">
+  <exportPath>/projects/@PLUGIN_KEY@</exportPath>
+  <project>
+    <projectName>@PLUGIN_KEY@</projectName>
+    <description>A set of common procedures used in Deploy project</description>
+    <resourceName/>
+    <tracked>1</tracked>
+    <workspaceName/>
+    <propertySheet>
+      <credentialProtected>0</credentialProtected>
+      <tracked>1</tracked>
+      <property>
+        <propertyName>scripts</propertyName>
+        <description/>
+        <tracked>1</tracked>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+          <property>
+            <propertyName>perlHeaderJSON</propertyName>
+            <counter>0</counter>
+            <description>Default Perl Header to use the API with JSON format</description>
+            <expandable>1</expandable>
+            <tracked>1</tracked>
+            <value>PLACEHOLDER</value>
+          </property>
+          <property>
+            <propertyName>perlLibJSON</propertyName>
+            <counter>0</counter>
+            <description/>
+            <expandable>1</expandable>
+            <tracked>1</tracked>
+            <value>PLACEHOLDER</value>
+          </property>
+        </propertySheet>
+      </property>
+      <property>
+        <propertyName>ec_visibility</propertyName>
+        <counter>0</counter>
+        <expandable>1</expandable>
+        <tracked>1</tracked>
+        <value>pickListOnly</value>
+      </property>
+      <property>
+        <propertyName>help</propertyName>
+        <counter>0</counter>
+        <description/>
+        <expandable>1</expandable>
+        <tracked>1</tracked>
+        <value>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+
+          &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+          &lt;head&gt;
+          &lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" /&gt;
+          &lt;title&gt;EF-UtilitiesPlugin&lt;/title&gt;
+    &lt;link rel="stylesheet" href= "../../plugins/@PLUGIN_NAME@/pluginhelp.css" type="text/css" media= "screen" /&gt;
+          &lt;/head&gt;
+
+          &lt;body&gt;
+          &lt;div class="help"&gt;
+
+          &lt;h1&gt;EF-Utilities&lt;/h1&gt;
+        &lt;p&gt;Plugin Version @PLUGIN_VERSION@&lt;/p&gt;
+          &lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" /&gt;
+
+          &lt;p&gt;EF-Utilities is a collection of common procedures to help you
+          with your deploy projects. Its inception was sparked by repetitive actions required
+          during my Professional Services engagements. It has grown over the years to
+          what it is now.&lt;/p&gt;
+
+          &lt;h2&gt;Content&lt;/h2&gt;
+
+          &lt;p&gt;It contains the following modules:&lt;/p&gt;
+          &lt;ul&gt;
+          &lt;li&gt;createSnapshot&lt;/li&gt;
+          &lt;/ul&gt;
+
+          &lt;/div&gt;
+          &lt;/body&gt;
+          &lt;/html&gt;</value>
+      </property>
+      <property>
+        <propertyName>pluginBuildNumber</propertyName>
+        <counter>0</counter>
+        <description/>
+        <expandable>1</expandable>
+        <tracked>1</tracked>
+        <value>58</value>
+      </property>
+      <property>
+        <propertyName>promoteAction</propertyName>
+        <counter>0</counter>
+        <description/>
+        <expandable>1</expandable>
+        <tracked>1</tracked>
+        <value>if ($promoteAction eq 'promote') {
+          my @objTypes = ('resources', 'workspaces');
+          foreach my $type (@objTypes) {
+          $batch-&gt;createAclEntry('user', "project: $pluginName",
+          {
+          systemObjectName =&gt; $type,
+          readPrivilege =&gt; 'allow',
+          modifyPrivilege =&gt; 'inherit',
+          executePrivilege =&gt; 'allow',
+          changePermissionsPrivilege =&gt; 'inherit'
+          }
+          );
+          }
+          @objTypes = ('projects');
+          foreach my $type (@objTypes) {
+          $batch-&gt;createAclEntry('user', "project: $pluginName",
+          {
+          systemObjectName =&gt; $type,
+          readPrivilege =&gt; 'allow',
+          modifyPrivilege =&gt; 'allow',
+          executePrivilege =&gt; 'allow',
+          changePermissionsPrivilege =&gt; 'inherit'
+          }
+          );
+          }
+          }</value>
+      </property>
+      <property>
+        <propertyName>version</propertyName>
+        <counter>0</counter>
+        <description>Versions of the EF-Utilities project
+
+History
+-version 1.0.0
+  + Fix #12: remove EC-Admin dependency for inclusion in the catalog
+
+-version 0.3.7
+  + Fix #11: project is hardcoded in the link
+-version 0.3.6
+  + Fix #9: ignore duplicateAclEntry
+-version 0.3.5
+  + Fix #10: need project modification permission to create schedule
+- version 0.3.4
+   + Fix #4: Link is hardcoded. Use stage name instead
+- version 0.3.3
+   + Fix #5: schedule is deleted from wrong project
+- version 0.3.2
+   + Fix #7: add stageName to the scheduleName to avoid conflict
+- version 0.3.1
+   + Fix #6: createLink does not work on Windows
+- version 0.3.0
+   + add procedure to create timed PRE gate
+
+          - version 0.2.0
+          + add force option
+
+          - version 0.1.0
+          + initial version with createSnapshot</description>
+        <expandable>1</expandable>
+        <tracked>1</tracked>
+        <value>1.0.0</value>
+      </property>
+    <property><propertyName>ec_setup</propertyName><value>PLACEHOLDER</value><expandable>0</expandable></property><property><propertyName>project_version</propertyName><value>@PLUGIN_VERSION@</value></property></propertySheet>
+    <procedure>
+      <procedureName>createScheduleToTriggerGate</procedureName>
+      <description>Create a schedule that trigger a gate at a particular time and date</description>
+      <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]
+      </jobNameTemplate>
+      <resourceName/>
+      <timeLimit/>
+      <timeLimitUnits>seconds</timeLimitUnits>
+      <tracked>1</tracked>
+      <workspaceName/>
+      <propertySheet>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <tracked>1</tracked>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <property>
+              <propertyName>parameters</propertyName>
+              <tracked>1</tracked>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <property>
+                  <propertyName>evidence</propertyName>
+                  <tracked>1</tracked>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>gate</propertyName>
+                  <tracked>1</tracked>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>stage</propertyName>
+                  <tracked>1</tracked>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+              </propertySheet>
+            </property>
+          </propertySheet>
+        </property>
+        <property>
+          <propertyName>exposeToPlugin</propertyName>
+          <counter>0</counter>
+          <description/>
+          <expandable>1</expandable>
+          <tracked>1</tracked>
+          <value>1</value>
+        </property>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>date</formalParameterName>
+        <description>Date format: yyyy-mm-dd</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>evidence</formalParameterName>
+        <defaultValue/>
+        <description/>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>gate</formalParameterName>
+        <defaultValue/>
+        <description/>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>stage</formalParameterName>
+        <defaultValue/>
+        <description/>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>time</formalParameterName>
+        <description>Time format: hh:mm</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <step>
+        <stepName>createSchedule</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>PLACEHOLDER</command>
+        <condition/>
+        <description/>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName/>
+        <parallel>0</parallel>
+        <postProcessor/>
+        <precondition/>
+        <releaseMode>none</releaseMode>
+        <resourceName/>
+        <shell>ec-perl</shell>
+        <timeLimit/>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory/>
+        <workspaceName/>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>createLink</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>PLACEHOLDER</command>
+        <condition/>
+        <description/>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName/>
+        <parallel>0</parallel>
+        <postProcessor/>
+        <precondition/>
+        <releaseMode>none</releaseMode>
+        <resourceName/>
+        <shell>ec-perl</shell>
+        <timeLimit/>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory/>
+        <workspaceName/>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>addPermission</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>PLACEHOLDER</command>
+        <condition/>
+        <description/>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName/>
+        <parallel>0</parallel>
+        <postProcessor/>
+        <precondition/>
+        <releaseMode>none</releaseMode>
+        <resourceName/>
+        <shell>ec-perl</shell>
+        <timeLimit/>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory/>
+        <workspaceName/>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>createSnapshot</procedureName>
+      <description>create an environment snapshot</description>
+      <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]</jobNameTemplate>
+      <resourceName/>
+      <timeLimit/>
+      <timeLimitUnits>minutes</timeLimitUnits>
+      <tracked>1</tracked>
+      <workspaceName/>
+      <propertySheet>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <tracked>1</tracked>
+          <propertySheet>
+            <credentialProtected>0</credentialProtected>
+            <tracked>1</tracked>
+            <property>
+              <propertyName>parameters</propertyName>
+              <tracked>1</tracked>
+              <propertySheet>
+                <credentialProtected>0</credentialProtected>
+                <tracked>1</tracked>
+                <property>
+                  <propertyName>appName</propertyName>
+                  <tracked>1</tracked>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>envName</propertyName>
+                  <tracked>1</tracked>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>force</propertyName>
+                  <tracked>1</tracked>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>0</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>false</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>proj</propertyName>
+                  <tracked>1</tracked>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>projName</propertyName>
+                  <tracked>1</tracked>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>snapName</propertyName>
+                  <tracked>1</tracked>
+                  <propertySheet>
+                    <credentialProtected>0</credentialProtected>
+                    <tracked>1</tracked>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <counter>0</counter>
+                      <expandable>1</expandable>
+                      <tracked>1</tracked>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+              </propertySheet>
+            </property>
+          </propertySheet>
+        </property>
+        <property>
+          <propertyName>exposeToPlugin</propertyName>
+          <counter>0</counter>
+          <description/>
+          <expandable>1</expandable>
+          <tracked>1</tracked>
+          <value>1</value>
+        </property>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>appName</formalParameterName>
+        <defaultValue>$[/myApplication/applicationName]</defaultValue>
+        <description>Name of the application</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>envName</formalParameterName>
+        <defaultValue>$[/myEnvironment/environmentName]</defaultValue>
+        <description/>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>force</formalParameterName>
+        <defaultValue>false</defaultValue>
+        <description/>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <tracked>1</tracked>
+        <type>checkbox</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>projName</formalParameterName>
+        <defaultValue>$[/myParent/projectName]</defaultValue>
+        <description>Name of the project</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>snapName</formalParameterName>
+        <defaultValue/>
+        <description>Name of the snapshot to create</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <tracked>1</tracked>
+        <type>entry</type>
+      </formalParameter>
+      <step>
+        <stepName>snapshot</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>PLACEHOLDER</command>
+        <condition/>
+        <description/>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName/>
+        <parallel>0</parallel>
+        <postProcessor/>
+        <precondition/>
+        <releaseMode>none</releaseMode>
+        <resourceName/>
+        <shell>ec-perl</shell>
+        <timeLimit/>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory/>
+        <workspaceName/>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>triggerPipelineGateOnSchedule</procedureName>
+      <description>Trigger a pipeline gate with a schedule</description>
+      <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]</jobNameTemplate>
+      <resourceName/>
+      <timeLimit/>
+      <timeLimitUnits>seconds</timeLimitUnits>
+      <tracked>1</tracked>
+      <workspaceName/>
+      <propertySheet>
+        <credentialProtected>0</credentialProtected>
+        <tracked>1</tracked>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>action</formalParameterName>
+        <description>approve or reject</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>evidence</formalParameterName>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>flowRuntimeId</formalParameterName>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>stageName</formalParameterName>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>taskName</formalParameterName>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <tracked>1</tracked>
+      </formalParameter>
+      <step>
+        <stepName>Trigger</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>PLACEHOLDER</command>
+        <condition/>
+        <description/>
+        <errorHandling>abortProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName/>
+        <parallel>0</parallel>
+        <postProcessor/>
+        <precondition/>
+        <releaseMode>none</releaseMode>
+        <resourceName/>
+        <shell>ec-perl</shell>
+        <timeLimit/>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory/>
+        <workspaceName/>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>Delete Schedule</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>PLACEHOLDER</command>
+        <condition/>
+        <description/>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName/>
+        <parallel>0</parallel>
+        <postProcessor/>
+        <precondition/>
+        <releaseMode>none</releaseMode>
+        <resourceName/>
+        <shell/>
+        <timeLimit/>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <tracked>1</tracked>
+        <workingDirectory/>
+        <workspaceName/>
+        <propertySheet>
+          <credentialProtected>0</credentialProtected>
+          <tracked>1</tracked>
+        </propertySheet>
+      </step>
+    </procedure>
+  </project>
+</exportedData>

@@ -1,5 +1,5 @@
 2016-04-07 Laurent Rochette <lrochette@electric-cloud.com>
-  * 1.0.0.58: Fix #12 remove EC-Admin dependency
+  * 1.0.0: Fix #12 remove EC-Admin dependency
   * 0.3.7.55: Fix #11 project is hardcoded in the link
 
 2016-04-06 Laurent Rochette <lrochette@electric-cloud.com>
