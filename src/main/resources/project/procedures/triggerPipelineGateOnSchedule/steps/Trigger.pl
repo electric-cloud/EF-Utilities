@@ -14,7 +14,7 @@
 #  limitations under the License.
 #
 
-$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
+$[/myProject/scripts/perlHeaderJSON]
 
 my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   'completeManualTask', "$[flowRuntimeId]", "$[stageName]", "$[taskName]",
@@ -25,9 +25,8 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   	  {actualParameterName => 'evidence', value => "$[evidence]"}
     ]
   });
-  
 
-$[/plugins[EC-Admin]project/scripts/perlLibJSON]
+$[/myProject/scripts/perlLibJSON]
 
 
 
