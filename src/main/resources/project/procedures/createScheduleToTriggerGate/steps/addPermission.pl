@@ -14,13 +14,13 @@
 #  limitations under the License.
 #
 
-$[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
+$[/myProject/scripts/perlHeaderJSON]
 
 my ($ok, $json, $errMsg, $errCode) = InvokeCommander("IgnoreError",
-  'createAclEntry', 'user', "project: $[/myProject/projectName]", 
+  'createAclEntry', 'user', "project: $[/myProject/projectName]",
   {
      projectName => "$[/myPipelineRuntime/projectName]",
-     flowRuntimeName => "$[/myPipelineRuntime]", 
+     flowRuntimeName => "$[/myPipelineRuntime]",
      readPrivilege    => "allow",
      executePrivilege => "allow",
      modifyPrivilege  => "allow",
@@ -31,13 +31,11 @@ my ($ok, $json, $errMsg, $errCode) = InvokeCommander("IgnoreError",
 if (! $ok) {
   # ignore duplicate entry: Issue #9
   exit(0) if ($errCode eq 'DuplicateAclEntry');
-  
+
   printf("Error($errCode): $errMsg\n");
   exit(1);
 }
 
-  
-$[/plugins[EC-Admin]project/scripts/perlLibJSON]
 
-
+$[/myProject/scripts/perlLibJSON]
 
