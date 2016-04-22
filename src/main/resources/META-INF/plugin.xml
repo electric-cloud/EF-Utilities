@@ -23,7 +23,7 @@
   <description>A set of common procedures for Deploy use-cases</description>
   <help>help.xml</help>
   <author>Electric Cloud</author>
-  <authorUrl>mailto:http://electric-cloud.com/support</authorUrl>
+  <authorUrl>http://electric-cloud.com/support</authorUrl>
 
   <commander-version min="6.2"/>
 

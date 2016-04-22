@@ -53,4 +53,8 @@
     <path>procedures/triggerPipelineGateOnSchedule/steps/Delete Schedule.sh</path>
     <xpath>//project/procedure[procedureName=&quot;triggerPipelineGateOnSchedule&quot;]/step[stepName=&quot;Delete Schedule&quot;]/command</xpath>
   </file>
+  <file>
+    <path>procedures/decommissionEnvironments/tearDownEnvironments.pl</path>
+    <xpath>//project/procedure[procedureName=&quot;Decommission Environments&quot;]/step[stepName=&quot;Tear Down Environments&quot;]/command</xpath>
+  </file>
 </fileset>

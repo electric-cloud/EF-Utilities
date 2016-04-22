@@ -1,3 +1,7 @@
+2016-04-22 Vitaliy Batichko <vbatichko@electric-cloud.com>
+  * 1.0.0: Project cleanup, added Decommission Environments
+              Temporarily disabled other procedures from plugin's step pickers
+
 2016-04-07 Laurent Rochette <lrochette@electric-cloud.com>
   * 1.0.0: Fix #12 remove EC-Admin dependency
   * 0.3.7.55: Fix #11 project is hardcoded in the link
