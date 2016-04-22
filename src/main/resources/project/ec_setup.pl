@@ -15,46 +15,84 @@
 #
 
 # promote/demote action
-if ($promoteAction eq 'promote') {
-    my @objTypes = ('resources', 'workspaces');
-    foreach my $type (@objTypes) {
-           $batch->createAclEntry('user', "project: $pluginName",
-                 {
-                    systemObjectName => $type,
-                    readPrivilege => 'allow',
-                    modifyPrivilege => 'inherit',
-                    executePrivilege => 'allow',
-                    changePermissionsPrivilege => 'inherit'
-                 }
-                );
-        }
-    @objTypes = ('projects');
-    foreach my $type (@objTypes) {
-         $batch->createAclEntry('user', "project: $pluginName",
-                 {
-                    systemObjectName => $type,
-                    readPrivilege => 'allow',
-                    modifyPrivilege => 'allow',
-                    executePrivilege => 'allow',
-                    changePermissionsPrivilege => 'inherit'
-                 }
-                );
-        }
+if ( $promoteAction ne '' ) {
+	my @objTypes = ( 'projects', 'resources', 'workspaces' );
+	my $query    = $commander->newBatch();
+
+	my @reqs     = map {
+		$query->getAclEntry(
+			'user',
+			"project: $pluginName",
+			{ systemObjectName => $_ }
+		  )
+	} @objTypes;
+	
+	push @reqs, $query->getProperty('/server/ec_hooks/promote');
+	$query->submit();
+
+	foreach my $type (@objTypes) {
+		if ( $query->findvalue( shift @reqs, 'code' ) ne 'NoSuchAclEntry' ) {
+			$batch->deleteAclEntry(
+				'user',
+				"project: $pluginName",
+				{ systemObjectName => $type }
+			);
+		}
+	}
+
+	if ( $promoteAction eq 'promote' ) {
+		@objTypes = ( 'resources', 'workspaces' );
+		foreach my $type (@objTypes) {
+			$batch->createAclEntry(
+				'user',
+				"project: $pluginName",
+				{
+					systemObjectName           => $type,
+					readPrivilege              => 'allow',
+					modifyPrivilege            => 'inherit',
+					executePrivilege           => 'allow',
+					changePermissionsPrivilege => 'inherit'
+				}
+			);
+		}
+		
+		@objTypes = ('projects');
+		foreach my $type (@objTypes) {
+			$batch->createAclEntry(
+				'user',
+				"project: $pluginName",
+				{
+					systemObjectName           => $type,
+					readPrivilege              => 'allow',
+					modifyPrivilege            => 'allow',
+					executePrivilege           => 'allow',
+					changePermissionsPrivilege => 'inherit'
+				}
+			);
+		}
+	}
 }
 
 # Data that drives the create step picker registration for this plugin.
-my %createScheduleToTriggerGate = ( 
-  label       => "EF-Utilities - createScheduleToTriggerGate", 
-  procedure   => "createScheduleToTriggerGate", 
-  description => "Create a schedule that trigger a gate at a particular time and date", 
-  category    => "Deploy" 
+my %decommissionEnvironments = (
+	label     => "EF-Utilities - Decommission Environments",
+	procedure => "Decommission Environments",
+	description => "Decommission dynamic environments provisioned from pipeline, applications process or procedure",
+	category => "Deploy"
 );
 
-my %createSnapshot = ( 
-  label       => "EF-Utilities - createSnapshot", 
-  procedure   => "createSnapshot", 
-  description => "create an environment snapshot", 
-  category    => "Deploy" 
-);
+#my %createScheduleToTriggerGate = (
+#  label       => "EF-Utilities - createScheduleToTriggerGate",
+#  procedure   => "createScheduleToTriggerGate",
+#  description => "Create a schedule that trigger a gate at a particular time and date",
+#  category    => "Deploy"
+#);
 
-@::createStepPickerSteps = (\%createScheduleToTriggerGate, \%createSnapshot);
+#my %createSnapshot = (
+#  label       => "EF-Utilities - createSnapshot",
+#  procedure   => "createSnapshot",
+#  description => "create an environment snapshot",
+#  category    => "Deploy"
+#);
+
+@::createStepPickerSteps = ( \%decommissionEnvironments );
