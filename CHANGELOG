@@ -1,5 +1,5 @@
 2016-04-22 Vitaliy Batichko <vbatichko@electric-cloud.com>
-  * 1.0.0: Project cleanup, added Decommission Environments
+  * 1.0.1: Project cleanup, added Decommission Environments
               Temporarily disabled other procedures from plugin's step pickers
 
 2016-04-07 Laurent Rochette <lrochette@electric-cloud.com>
