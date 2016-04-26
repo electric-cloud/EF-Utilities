@@ -41,6 +41,7 @@
             <expandable>0</expandable>
         </property>
     </propertySheet>
+<!-- Temporarily disabled, see CEV-10864
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>
@@ -219,7 +220,7 @@
     </procedure>
     <procedure>
       <procedureName>createSnapshot</procedureName>
-      <description>create an environment snapshot</description>
+      <description>Create an environment snapshot</description>
       <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]</jobNameTemplate>
       <resourceName/>
       <timeLimit/>
@@ -487,7 +488,7 @@
           <credentialProtected>0</credentialProtected>
         </propertySheet>
       </step>
-    </procedure>
+    </procedure> -->
     <procedure>
         <procedureName>Decommission Environments</procedureName>
         <description>Decommission dynamic environments provisioned from pipeline, applications process or procedure</description>
@@ -500,7 +501,7 @@
                         <propertyName>parameters</propertyName>
                         <propertySheet>
                             <property>
-                                <propertyName>Environment List</propertyName>
+                                <propertyName>EnvironmentList</propertyName>
                                 <propertySheet>
                                     <property>
                                         <propertyName>formType</propertyName>
@@ -522,8 +523,8 @@
             </property>
         </propertySheet>
         <formalParameter>
-            <formalParameterName>Environment List</formalParameterName>
-            <description>Comma separated list of environments to teardown, in a form of 'EnvironmentName/ProjectName'</description>
+            <formalParameterName>EnvironmentList</formalParameterName>
+            <description>Comma separated list of environments to teardown, in a form of '/projects/[Project Name]/environments/[Environment Name]'</description>
             <expansionDeferred>0</expansionDeferred>
             <required>0</required>
             <type>entry</type>

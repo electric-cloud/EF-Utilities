@@ -10,25 +10,14 @@
 #
 # Copyright (c) 2006-2016 Electric Cloud, Inc.
 # All rights reserved
-# Version 1.0.0 (April 2, 2014)
+# Version 1.0.1 (April 26, 2016)
 #-------------------------------------------------------------------------
 use strict;
 use ElectricCommander;
 use XML::XPath;
-use strict;
-use Data::Dumper;
-
-# Set to 0 for quit; 1 for informative messages
-my $verbose = 0;
-my $msg;
-my $myPipelineRuntimeId;
 
 my $ec = ElectricCommander->new();
-
 $ec->abortOnError(0);
-
-# Check for the OS Type
-my $osIsWindows = $^O =~ /MSWin/;
 
 # Utility function to trim the string
 #
@@ -38,71 +27,76 @@ sub trim {
 	return $s;
 }
 
-# Get the 'Environment List' parameter and see whether user has explictly specified
-# any dynamic environments to decomission
+# Utility function to get property value
 #
-# my $envList = "ENV 1/TEST1, ENV 2/TEST 2";
-#
-my $envList = $ec->getActualParameter('Environment List', {jobStepId => '$[/myParent/jobStepId]'})->findvalue('//value');
+sub getPropertyValue {
+	my ($ec, $propertyName) = @_;
+	return $ec->getProperty($propertyName)->findvalue("//value")->value();
+}
 
-if ( $envList ne "" ) {
-	print "Environments are passed in:\n";
+my $envList = trim("$[EnvironmentList]");
+
+#Check to see EnvironmentList is passed in
+if ( $envList ne '' ) {
+    print "Environment list: $envList\n";
 	
-	my @environments = split( ',', $envList );
-	foreach my $environment (@environments) {
-		my ( $envName, $envProjectName ) = split( '/', $environment );
-		$envName = trim($envName);
-		$envProjectName = trim($envProjectName);
-		
-		print "Environment Name: $envName, Project Name: $envProjectName";
-		$ec->tearDown(
-			{
-				environmentName => $envName,
-				projectName => $envProjectName
-			}
-		);
-	}
-	
+	foreach my $environment (split /,/, $envList) {
+        $environment = trim($environment);
+        $environment =~ /\/projects\/(.+)\/environments\/(.+)/;
+        my ($envProjectName, $envName) = (trim($1), trim($2));
+
+        if($envProjectName eq '' or $envName eq '') {
+            printf "Skipping incorrect environment path: '$environment'\n";
+        }
+
+        print "Tearing down environment: '$envName' in project: '$envProjectName'\n";
+        $ec->tearDown(
+            {
+                environmentName => $envName,
+                projectName => $envProjectName
+            }
+        );
+    }
+
 	exit 0;
 }
 
-# Overall logic is pretty staright forward
-#
 # Collect all the jobId for the currentJob or jobId's for the current pipelineRun.
 # The for each jobId check whether the propertySheet 'ProvisionedResources' exists.
-# If it exists then check whether the 'environmnetName' and 'environmnetProjectName'
-# property exists. If the environmentName, environmnetProjectName proerties exist then
+# If it exists then check whether the 'environmentName' and 'environmentProjectName'
+# property exists. If the environmentName, environmentProjectName properties exist then
 # we should call the tearDown
 
-# Check to see whether the scriptis running in the context of pipeline or job
+# Check to see whether the scripts running in the context of pipeline or job
 #
 my $myEnvs;
-my $flowRuntimeId =  $ec->getProperty("/myPipelineRuntime/id")->findvalue("//value")->value();
+my $flowRuntimeId = getPropertyValue($ec, '/myPipelineRuntime/id');
 
 if ( $flowRuntimeId ne '' ) {
-    print "Flowruntime id $flowRuntimeId\n";
-	print "Inside the pipeline use case\n";
+    print "Pipeline flowruntime id $flowRuntimeId\n";
 
 	#Get the stage name
-	my $stageName =
-	  $ec->getProperty("/myStage/name")->findvalue("//value")->value();
+	my $stageName = getPropertyValue($ec, '/myStage/name');
 
+ 	print "Inside the pipeline use case  $flowRuntimeId $stageName\n";
 	$myEnvs = $ec->getProvisionedEnvironments(
 		{
 			flowRuntimeId => $flowRuntimeId,
 			stageName     => $stageName
 		}
 	);
-}
-else {
-	my $myJobId = $ec->getProperty("/myJob/id")->findvalue("//value")->value();
+} else {
+	my $myJobId = getPropertyValue($ec, '/myJob/id');
 	print "Inside the jobId $myJobId\n";
 
 	#If the procedure is running outside the context of a pipeline
 	$myEnvs = $ec->getProvisionedEnvironments( { jobId => $myJobId } );
 }
 
-# For each of the dynamicEnvironmnets that are spun up, we will
+my $envsDebug = $myEnvs->findvalue("//value")->value();
+print "Before processing environments response: '$envsDebug'\n";
+
+# For each of the dynamicEnvironments that are spun up, we will
 # call tearDown
 #
 foreach my $myEnv ( $myEnvs->findnodes("//environment") ) {
@@ -110,28 +104,33 @@ foreach my $myEnv ( $myEnvs->findnodes("//environment") ) {
 	my $envProjectName = $myEnv->findvalue("projectName")->string_value;
 
 	# Check to make sure envName and envProjectName is not empty
-	if ( $envName ne "" and $envProjectName ne "" ) {
-		print "environmentName -> $envName environmentProjectName -> $envProjectName\n";
+	if ( $envName ne '' and $envProjectName ne '' ) {
+                # If the plugin is run in the context of a Pipeline do not create the jobStep
+                if ( $flowRuntimeId ne '' )
+                {
+                      print "Tearing down environment: '$envName' in project: '$envProjectName'\n";
+                      
+                      #Call the tearDown API
+                      $ec->tearDown({environmentName => $envName, projectName => $envProjectName});
+                }
+                else {
+                      print "In the context of job. Creating a job step that tearDown environment\n";
 
-  #Call the tearDown API
-  #$ec->tearDown({environmentName => $envName, projectName => $envProjectName});
-
-		# Create a Job step. This is more for visibility in the UI
-		$ec->createJobStep(
-			{
-				jobStepName => "Decommissioning Environment $envName",
-				command => "ectool tearDown --environmentName $envName --projectName $envProjectName"
-			}
-		);
+		              # Create a Job step. This is more for visibility in the UI
+		              $ec->createJobStep(
+		                  {
+				                jobStepName => "Decommissioning Environment $envName",
+				                command => "ectool tearDown --environmentName $envName --projectName $envProjectName"
+		                  }
+		              );
+                }
 
 		#Check the Error msg
-		$msg = $ec->getError();
+		my $msg = $ec->getError();
 		if ( $msg ne "" ) {
-			print "Error from Commander after tearDown call :\n$msg\n";
+		      print "Error from Commander after tearDown call :\n$msg\n";
 		}
-	}
-	else {
-		print
-		  "Skipping teardown as the required information is not available\n";
+	} else {
+		print  "Skipping teardown as the required information is not available\n";
 	}
 }
