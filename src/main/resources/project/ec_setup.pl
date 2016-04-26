@@ -49,9 +49,9 @@ if ( $promoteAction ne '' ) {
 				{
 					systemObjectName           => $type,
 					readPrivilege              => 'allow',
-					modifyPrivilege            => 'inherit',
+					modifyPrivilege            => 'allow',
 					executePrivilege           => 'allow',
-					changePermissionsPrivilege => 'inherit'
+					changePermissionsPrivilege => 'allow'
 				}
 			);
 		}
