@@ -2,10 +2,10 @@
 #           Decommission Environment - A new beginning
 #
 # This procedure will allow users to create a process step easily using
-# the new utility procedure which will tearDown all the dynamically
+# the new utility procedure that will tearDown all the dynamically
 # created environments.
 #
-# This procedure can work in the context of either Piepline or a Job
+# This procedure can work in the context of either Pipeline or a Job
 # (Process or Procedure).
 #
 # Copyright (c) 2006-2016 Electric Cloud, Inc.
