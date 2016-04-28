@@ -46,7 +46,8 @@ if ( $envList ne '' ) {
         my ($envProjectName, $envName) = (trim($1), trim($2));
 
         if($envProjectName eq '' or $envName eq '') {
-            printf "Skipping incorrect environment path: '$environment'\n";
+            printf "WARNING: Incorrect environment path specified: '$environment', skipping\n";
+            next;
         }
 
         print "Tearing down environment: '$envName' in project: '$envProjectName'\n";
