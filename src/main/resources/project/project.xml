@@ -538,6 +538,7 @@
             <errorHandling>failProcedure</errorHandling>
             <exclusiveMode>none</exclusiveMode>
             <parallel>0</parallel>
+            <postProcessor>postp</postProcessor>
             <releaseMode>none</releaseMode>
             <shell>ec-perl</shell>
             <timeLimitUnits>minutes</timeLimitUnits>
