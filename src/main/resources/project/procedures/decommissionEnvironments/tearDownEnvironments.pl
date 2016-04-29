@@ -41,9 +41,8 @@ if ( $envList ne '' ) {
     print "Environment list: $envList\n";
 	
 	foreach my $environment (split /,/, $envList) {
-        $environment = trim($environment);
-        $environment =~ /\/projects\/(.+)\/environments\/(.+)/;
-        my ($envProjectName, $envName) = (trim($1), trim($2));
+        my ($envProjectName, $envName) =
+            $environment =~ /\/projects\/(.+)\/environments\/(.+)/;
 
         if($envProjectName eq '' or $envName eq '') {
             printf "WARNING: Incorrect environment path specified: '$environment', skipping\n";
