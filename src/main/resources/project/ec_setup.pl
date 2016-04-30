@@ -26,7 +26,7 @@ if ( $promoteAction ne '' ) {
 			{ systemObjectName => $_ }
 		  )
 	} @objTypes;
-	
+
 	push @reqs, $query->getProperty('/server/ec_hooks/promote');
 	$query->submit();
 
@@ -55,7 +55,7 @@ if ( $promoteAction ne '' ) {
 				}
 			);
 		}
-		
+
 		@objTypes = ('projects');
 		foreach my $type (@objTypes) {
 			$batch->createAclEntry(
@@ -66,7 +66,7 @@ if ( $promoteAction ne '' ) {
 					readPrivilege              => 'allow',
 					modifyPrivilege            => 'allow',
 					executePrivilege           => 'allow',
-					changePermissionsPrivilege => 'inherit'
+					changePermissionsPrivilege => 'allow'
 				}
 			);
 		}
@@ -81,12 +81,12 @@ my %decommissionEnvironments = (
 	category => "Deploy"
 );
 
-#my %createScheduleToTriggerGate = (
-#  label       => "EF-Utilities - createScheduleToTriggerGate",
-#  procedure   => "createScheduleToTriggerGate",
-#  description => "Create a schedule that trigger a gate at a particular time and date",
-#  category    => "Deploy"
-#);
+my %createScheduleToTriggerGate = (
+  label       => "EF-Utilities - createScheduleToTriggerGate",
+  procedure   => "createScheduleToTriggerGate",
+  description => "Create a schedule that trigger a gate at a particular time and date",
+  category    => "Deploy"
+);
 
 #my %createSnapshot = (
 #  label       => "EF-Utilities - createSnapshot",
