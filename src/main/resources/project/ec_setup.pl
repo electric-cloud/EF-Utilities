@@ -75,10 +75,10 @@ if ( $promoteAction ne '' ) {
 
 # Data that drives the create step picker registration for this plugin.
 my %decommissionEnvironments = (
-	label     => "EF-Utilities - Decommission Environments",
-	procedure => "Decommission Environments",
+	label       => "EF-Utilities - Decommission Environments",
+	procedure   => "Decommission Environments",
 	description => "Decommission dynamic environments provisioned from pipeline, applications process or procedure",
-	category => "Deploy"
+	category    => "Deploy"
 );
 
 my %createScheduleToTriggerGate = (
@@ -95,4 +95,4 @@ my %createScheduleToTriggerGate = (
 #  category    => "Deploy"
 #);
 
-@::createStepPickerSteps = ( \%decommissionEnvironments );
+@::createStepPickerSteps = ( \%decommissionEnvironments \%createScheduleToTriggerGate);
