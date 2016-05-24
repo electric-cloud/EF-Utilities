@@ -82,9 +82,9 @@ my %decommissionEnvironments = (
 );
 
 my %createScheduleToTriggerGate = (
-  label       => "EF-Utilities - createScheduleToTriggerGate",
+  label       => "EF-Utilities - Create Schedule To Trigger Gate",
   procedure   => "createScheduleToTriggerGate",
-  description => "Create a schedule that trigger a gate at a particular time and date",
+  description => "Create a schedule that triggers a gate at a particular date and time",
   category    => "Deploy"
 );
 
