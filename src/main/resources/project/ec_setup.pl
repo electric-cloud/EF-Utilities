@@ -75,21 +75,21 @@ if ( $promoteAction ne '' ) {
 
 # Data that drives the create step picker registration for this plugin.
 my %decommissionEnvironments = (
-	label       => "EF-Utilities - Decommission Environments",
+	label       => "Flow Utilities - Decommission Environments",
 	procedure   => "Decommission Environments",
 	description => "Decommission dynamic environments provisioned from pipeline, applications process or procedure",
 	category    => "Deploy"
 );
 
 my %createScheduleToTriggerGate = (
-  label       => "EF-Utilities - Create Schedule To Trigger Gate",
+  label       => "Flow Utilities - Create Schedule To Trigger Gate",
   procedure   => "createScheduleToTriggerGate",
   description => "Create a schedule that triggers a gate at a particular date and time",
   category    => "Deploy"
 );
 
 #my %createSnapshot = (
-#  label       => "EF-Utilities - createSnapshot",
+#  label       => "Flow Utilities - Create Snapshot",
 #  procedure   => "createSnapshot",
 #  description => "create an environment snapshot",
 #  category    => "Deploy"
