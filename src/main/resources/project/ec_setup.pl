@@ -26,7 +26,7 @@ if ( $promoteAction ne '' ) {
 			{ systemObjectName => $_ }
 		  )
 	} @objTypes;
-	
+
 	push @reqs, $query->getProperty('/server/ec_hooks/promote');
 	$query->submit();
 
@@ -55,7 +55,7 @@ if ( $promoteAction ne '' ) {
 				}
 			);
 		}
-		
+
 		@objTypes = ('projects');
 		foreach my $type (@objTypes) {
 			$batch->createAclEntry(
@@ -66,7 +66,7 @@ if ( $promoteAction ne '' ) {
 					readPrivilege              => 'allow',
 					modifyPrivilege            => 'allow',
 					executePrivilege           => 'allow',
-					changePermissionsPrivilege => 'inherit'
+					changePermissionsPrivilege => 'allow'
 				}
 			);
 		}
@@ -75,24 +75,24 @@ if ( $promoteAction ne '' ) {
 
 # Data that drives the create step picker registration for this plugin.
 my %decommissionEnvironments = (
-	label     => "EF-Utilities - Decommission Environments",
-	procedure => "Decommission Environments",
+	label       => "Flow Utilities - Decommission Environments",
+	procedure   => "Decommission Environments",
 	description => "Decommission dynamic environments provisioned from pipeline, applications process or procedure",
-	category => "Deploy"
+	category    => "Deploy"
 );
 
-#my %createScheduleToTriggerGate = (
-#  label       => "EF-Utilities - createScheduleToTriggerGate",
-#  procedure   => "createScheduleToTriggerGate",
-#  description => "Create a schedule that trigger a gate at a particular time and date",
-#  category    => "Deploy"
-#);
+my %createScheduleToTriggerGate = (
+  label       => "Flow Utilities - Create Schedule To Trigger Gate",
+  procedure   => "createScheduleToTriggerGate",
+  description => "Create a schedule that triggers a gate at a particular date and time",
+  category    => "Deploy"
+);
 
 #my %createSnapshot = (
-#  label       => "EF-Utilities - createSnapshot",
+#  label       => "Flow Utilities - Create Snapshot",
 #  procedure   => "createSnapshot",
 #  description => "create an environment snapshot",
 #  category    => "Deploy"
 #);
 
-@::createStepPickerSteps = ( \%decommissionEnvironments );
+@::createStepPickerSteps = ( \%decommissionEnvironments \%createScheduleToTriggerGate);

@@ -32,7 +32,7 @@
                 <h3>Decommission Environments</h3>
 
                 <p>This procedure will allow users to create a process step easily using the new utility procedure which will tearDown all the dynamically created environments. This procedure can work
-                    in the context of either Piepline or a Job (Process or Procedure).
+                    in the context of either Pipeline or a Job (Process or Procedure).
                 </p>
                 <table class="grid">
                     <thead>
@@ -50,6 +50,51 @@
                     </tbody>
                 </table>
             </div>
+
+            <div id="Create Schedule To Trigger Gate">
+                <a name="Create Schedule To Trigger Gate" id="Create Schedule To Trigger Gate"></a>
+
+                <h3>Create Schedule To Trigger Gate</h3>
+
+                <p>This procedure will allow users to create a stage gate that is
+                  triggered by a schedule. This idea is to prevent a stage to
+                  start before a specific date and time.
+                </p>
+                <table class="grid">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="required">Date</td>
+                            <td>The date at which to trigger the gate. Format is
+                              "YYYY-MM-dd".</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Time</td>
+                            <td>The time at which to trigger the gate. Format is
+                              "HH:mm" (24 hours).</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Gate</td>
+                            <td>The name of the gate to trigger.</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Stage</td>
+                            <td>The name of the stage where the gate is located.
+                            Typically the next stage.</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Evidence</td>
+                            <td>Text to set on the approval of the gate.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </body>
 </html>
