@@ -20,6 +20,7 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   'createSchedule', "$[/myPipelineRuntime/projectName]", "$[stage]_$[/myPipelineRuntime]", {
     'beginDate' => "$[date]",
     'startTime' => "$[time]",
+    'timeZone' => "$[timeZone]"
     'procedureName' => "/plugins/EF-Utilities/project/procedures/triggerPipelineGateOnSchedule",
     'misfirePolicy' => "runOnce",
     actualParameter => [
@@ -33,4 +34,3 @@ my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
 
 
 $[/myProject/scripts/perlLibJSON]
-

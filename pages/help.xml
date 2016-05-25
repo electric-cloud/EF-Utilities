@@ -91,6 +91,11 @@
                             <td class="required">Evidence</td>
                             <td>Text to set on the approval of the gate.</td>
                         </tr>
+                        <tr>
+                            <td>timeZone</td>
+                            <td>Timezone to express the date and time. Default
+                              is the server timezone.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
