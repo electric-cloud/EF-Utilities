@@ -51,10 +51,10 @@
                 </table>
             </div>
 
-            <div id="Create Time Gate">
-                <a name="Create Time Gate" id="Create Time Gate"></a>
+            <div id="Create Schedule To Trigger Gate">
+                <a name="Create Schedule To Trigger Gate" id="Create Schedule To Trigger Gate"></a>
 
-                <h3>Create Time Gate</h3>
+                <h3>Create Schedule To Trigger Gate</h3>
 
                 <p>This procedure will allow users to create a stage gate that is
                   triggered by a schedule. This idea is to prevent a stage to
