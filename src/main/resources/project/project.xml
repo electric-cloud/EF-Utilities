@@ -41,7 +41,6 @@
             <expandable>0</expandable>
         </property>
     </propertySheet>
-<!-- Temporarily disabled, see CEV-10864
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>Create a schedule that trigger a gate at a particular time and date</description>
@@ -124,7 +123,7 @@
         <type>entry</type>
       </formalParameter>
       <formalParameter>
-        <formalParameterName>timeZone/formalParameterName>
+        <formalParameterName>timeZone</formalParameterName>
         <defaultValue/>
         <description/>
         <expansionDeferred>0</expansionDeferred>
@@ -496,7 +495,7 @@
           <credentialProtected>0</credentialProtected>
         </propertySheet>
       </step>
-    </procedure> -->
+    </procedure>
     <procedure>
         <procedureName>Decommission Environments</procedureName>
         <description>Decommission dynamic environments provisioned from pipeline, applications process or procedure</description>

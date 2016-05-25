@@ -16,18 +16,27 @@
 
 $[/myProject/scripts/perlHeaderJSON]
 
+my $tz='$[timeZone]';
+
+# convert some common TZ abbreviation into what we accept
+if    ($tz =~ /P[SD]T/i) { $tz='America/Los_Angeles' ;}
+elsif ($tz =~ /M[SD]T/i) { $tz='America/Denver'; }
+elsif ($tz =~ /C[SD]T/i) { $tz='America/Dallas'; }
+elsif ($tz =~ /E[SD]T/i) { $tz='America/New_York'; }
+elsif ($tz =~ /UTC/i)    { $tz='Other/UTC'; }
+
 my ($ok, $json, $errCode, $errMsg) = InvokeCommander("",
   'createSchedule', "$[/myPipelineRuntime/projectName]", "$[stage]_$[/myPipelineRuntime]", {
-    'beginDate' => "$[date]",
-    'startTime' => "$[time]",
-    'timeZone' => "$[timeZone]"
+    'beginDate'     => "$[date]",
+    'startTime'     => "$[time]",
+    'timeZone'      => $tz,
     'procedureName' => "/plugins/EF-Utilities/project/procedures/triggerPipelineGateOnSchedule",
     'misfirePolicy' => "runOnce",
     actualParameter => [
-        {actualParameterName => 'stageName', value => "$[stage]"},
-        {actualParameterName => 'taskName', value => "$[gate]"},
-        {actualParameterName => 'action', value => "approve"},
-        {actualParameterName => 'evidence', value => "$[evidence]"},
+        {actualParameterName => 'stageName',     value => "$[stage]"},
+        {actualParameterName => 'taskName',      value => "$[gate]"},
+        {actualParameterName => 'action',        value => "approve"},
+        {actualParameterName => 'evidence',      value => "$[evidence]"},
         {actualParameterName => 'flowRuntimeId', value => "$[/myPipelineRuntime/flowRuntimeId]"}
     ]
   });
