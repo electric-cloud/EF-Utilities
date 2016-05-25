@@ -95,4 +95,4 @@ my %createScheduleToTriggerGate = (
 #  category    => "Deploy"
 #);
 
-@::createStepPickerSteps = ( \%decommissionEnvironments \%createScheduleToTriggerGate);
+@::createStepPickerSteps = ( \%decommissionEnvironments, \%createScheduleToTriggerGate);
