@@ -91,6 +91,15 @@
                             <td class="required">Evidence</td>
                             <td>Text to set on the approval of the gate.</td>
                         </tr>
+                        <tr>
+                            <td>Timezone</td>
+                            <td>Timezone to express the date and time. Default
+                              is the server timezone. The format is the standard
+                              continent/city like "America/New_York". For
+                              convenience some abbreviations are converted
+                              automatically like "PST" to "America/Los_Angeles".
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
