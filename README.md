@@ -1,9 +1,6 @@
 # EF-Utilities
 
-EF-Utilities is a collection of common procedures to help you
-with your deploy projects. Its inception was sparked by repetitive actions required  
-during my Professional Services engagements. It has grown over the years to
-what it is now.
+EF-Utilities is a collection of procedures to address some of the common Deploy use-cases.
 
 ## Content
 
