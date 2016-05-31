@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta content="text/html; charset=us-ascii" http-equiv="content-type"/>
-        <title>EF-UtilitiesPlugin</title>
+        <title>Electric Flow Utilities Plugin</title>
         <link rel="stylesheet" href="../../plugins/@PLUGIN_NAME@/pluginhelp.css" type="text/css" media="screen"/>
     </head>
 
@@ -15,8 +15,8 @@
             <p>Plugin Version @PLUGIN_VERSION@</p>
             <hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade"/>
 
-            <p>EF-Utilities is a collection of common procedures to help you with your deploy projects. Its inception was sparked by repetitive actions required during my Professional Services
-                engagements. It has grown over the years to what it is now.
+            <h1>Overview</h1>
+            <p>EF-Utilities is a collection of procedures to address some of the common Deploy use-cases.
             </p>
 
             <h1>Plugin Procedures</h1>
@@ -31,8 +31,9 @@
 
                 <h3>Decommission Environments</h3>
 
-                <p>This procedure will allow users to create a process step easily using the new utility procedure which will tearDown all the dynamically created environments. This procedure can work
-                    in the context of either Pipeline or a Job (Process or Procedure).
+                <p>This procedure will allow users to create a process step easily using utility procedure which will tear down all the dynamically created environments. This procedure can work
+                    in the
+                    context of either Pipeline or a Job (Process or Procedure).
                 </p>
                 <table class="grid">
                     <thead>
@@ -43,8 +44,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Environment List</td>
-                            <td>Provide comma separated list of environments to teardown, in a form of '/projects/[Project Name]/environments/[Environment Name]'
+                            <td>EnvironmentList</td>
+                            <td>Provide comma separated list of environments to tear down, in a form of '/projects/[Project Name]/environments/[Environment Name]'.
                             </td>
                         </tr>
                     </tbody>
@@ -57,8 +58,8 @@
                 <h3>Create Schedule To Trigger Gate</h3>
 
                 <p>This procedure will allow users to create a stage gate that is
-                  triggered by a schedule. This idea is to prevent a stage to
-                  start before a specific date and time.
+                    triggered by a schedule. The idea is to prevent a stage to
+                    start before a specific date and time.
                 </p>
                 <table class="grid">
                     <thead>
@@ -71,12 +72,14 @@
                         <tr>
                             <td class="required">Date</td>
                             <td>The date at which to trigger the gate. Format is
-                              "YYYY-MM-dd".</td>
+                                "YYYY-MM-dd".
+                            </td>
                         </tr>
                         <tr>
                             <td class="required">Time</td>
                             <td>The time at which to trigger the gate. Format is
-                              "HH:mm" (24 hours).</td>
+                                "HH:mm" (24 hours).
+                            </td>
                         </tr>
                         <tr>
                             <td class="required">Gate</td>
@@ -85,7 +88,8 @@
                         <tr>
                             <td class="required">Stage</td>
                             <td>The name of the stage where the gate is located.
-                            Typically the next stage.</td>
+                                Typically the next stage.
+                            </td>
                         </tr>
                         <tr>
                             <td class="required">Evidence</td>
@@ -94,16 +98,22 @@
                         <tr>
                             <td>Timezone</td>
                             <td>Timezone to express the date and time. Default
-                              is the server timezone. The format is the standard
-                              continent/city like "America/New_York". For
-                              convenience some abbreviations are converted
-                              automatically like "PST" to "America/Los_Angeles".
+                                is the server timezone. The format is the standard
+                                continent/city like "America/New_York". For
+                                convenience some
+                                abbreviations are converted
+                                automatically like "PST" to "America/Los_Angeles".
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
+            <h1>Release Notes</h1>
+            <h2>EF-Utilities 1.0.2</h2>
+            <ul>
+                <li>Fix #24 Add changePermissions on the plugin for projects</li>
+                <li>Fix #26 add timeZone parameter to createScheduleToTriggerGate</li>
+            </ul>
         </div>
     </body>
 </html>

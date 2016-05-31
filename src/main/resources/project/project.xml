@@ -110,14 +110,14 @@
       </propertySheet>
       <formalParameter>
         <formalParameterName>date</formalParameterName>
-        <description>Date format: yyyy-mm-dd</description>
+        <description>The date at which to trigger the gate. Format is "YYYY-MM-dd".</description>
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
       </formalParameter>
       <formalParameter>
         <formalParameterName>evidence</formalParameterName>
         <defaultValue/>
-        <description/>
+        <description>Text to set on the approval of the gate.</description>
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
         <type>entry</type>
@@ -125,7 +125,7 @@
       <formalParameter>
         <formalParameterName>timeZone</formalParameterName>
         <defaultValue/>
-        <description/>
+        <description>Timezone to express the date and time. Default is the server timezone. The format is the standard continent/city like "America/New_York". For convenience some abbreviations are converted automatically like "PST" to "America/Los_Angeles".</description>
         <expansionDeferred>0</expansionDeferred>
 	<required>0</required>
         <type>entry</type>
@@ -133,7 +133,7 @@
       <formalParameter>
         <formalParameterName>gate</formalParameterName>
         <defaultValue/>
-        <description/>
+        <description>The name of the gate to trigger.</description>
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
         <type>entry</type>
@@ -141,14 +141,14 @@
       <formalParameter>
         <formalParameterName>stage</formalParameterName>
         <defaultValue/>
-        <description/>
+        <description>The name of the stage where the gate is located. Typically the next stage.</description>
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
         <type>entry</type>
       </formalParameter>
       <formalParameter>
         <formalParameterName>time</formalParameterName>
-        <description>Time format: hh:mm</description>
+        <description>The time at which to trigger the gate. Format is "HH:mm" (24 hours).</description>
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
       </formalParameter>
@@ -225,7 +225,8 @@
         </propertySheet>
       </step>
     </procedure>
-    <procedure>
+<!-- Temporarily disabled, see CEV-10864
+     <procedure>
       <procedureName>createSnapshot</procedureName>
       <description>Create an environment snapshot</description>
       <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]</jobNameTemplate>
@@ -495,7 +496,7 @@
           <credentialProtected>0</credentialProtected>
         </propertySheet>
       </step>
-    </procedure>
+    </procedure> -->
     <procedure>
         <procedureName>Decommission Environments</procedureName>
         <description>Decommission dynamic environments provisioned from pipeline, applications process or procedure</description>
@@ -531,7 +532,7 @@
         </propertySheet>
         <formalParameter>
             <formalParameterName>EnvironmentList</formalParameterName>
-            <description>Comma separated list of environments to teardown, in a form of '/projects/[Project Name]/environments/[Environment Name]'</description>
+            <description>Provide comma separated list of environments to tear down, in a form of '/projects/[Project Name]/environments/[Environment Name]'.</description>
             <expansionDeferred>0</expansionDeferred>
             <required>0</required>
             <type>entry</type>
