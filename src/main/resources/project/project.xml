@@ -43,7 +43,7 @@
     </propertySheet>
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
-      <description>Create a schedule that trigger a gate at a particular time and date</description>
+      <description>[Experimental] Create a schedule that trigger a gate at a particular time and date</description>
       <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]
       </jobNameTemplate>
       <resourceName/>
