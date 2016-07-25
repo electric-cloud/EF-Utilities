@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
      Copyright 2016 Electric Cloud, Inc.
@@ -17,19 +17,14 @@
 
 -->
 <plugin>
-  <key>@PLUGIN_KEY@</key>
-  <version>@PLUGIN_VERSION@</version>
-  <label>@PLUGIN_KEY@</label>
+  <key>EF-Utilities</key>
+  <version>1.0.3</version>
+  <label>EF-Utilities</label>
   <description>A set of common procedures for Deploy use-cases</description>
   <help>help.xml</help>
   <author>Electric Cloud</author>
   <authorUrl>http://electric-cloud.com/support</authorUrl>
-
   <commander-version min="6.2"/>
-
-  <!-- Specify a category for this plugin; this is used in filtered lists in the Plugin Manager.
-       Typically, it is set to System or Step.
-   -->
   <category>Utility</category>
   <depends>EC-Core</depends>
 </plugin>
