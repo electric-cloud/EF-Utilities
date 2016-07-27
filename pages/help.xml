@@ -109,6 +109,10 @@
                 </table>
             </div>
             <h1>Release Notes</h1>
+            <h2>EF-Utilities 1.0.3</h2>
+            <ul>
+                <li>Added 'Create Snapshot' procedure.</li>
+            </ul>
             <h2>EF-Utilities 1.0.2</h2>
             <ul>
                 <li>Fix #24 Add changePermissions on the plugin for projects</li>

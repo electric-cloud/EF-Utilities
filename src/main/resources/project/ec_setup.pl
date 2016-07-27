@@ -88,11 +88,11 @@ my %createScheduleToTriggerGate = (
   category    => "Deploy"
 );
 
-#my %createSnapshot = (
-#  label       => "Flow Utilities - Create Snapshot",
-#  procedure   => "createSnapshot",
-#  description => "create an environment snapshot",
-#  category    => "Deploy"
-#);
+my %createSnapshot = (
+  label       => "Flow Utilities - Create Snapshot",
+  procedure   => "createSnapshot",
+  description => "Create an environment snapshot",
+  category    => "Deploy"
+);
 
-@::createStepPickerSteps = ( \%decommissionEnvironments, \%createScheduleToTriggerGate);
+@::createStepPickerSteps = ( \%decommissionEnvironments, \%createScheduleToTriggerGate, \%createSnapshot);
