@@ -4,11 +4,6 @@
 
 		exposeToPlugin = '1'
 		
-		property 'stepPicker', {
-			label = 'Flow Utilities - Decommission Environments'
-		}
-		
-		
 		formalParameter 'EnvironmentList', defaultValue: null, {
 		  description = 'Provide comma separated list of environments to tear down, in a form of \'/projects/[Project Name]/environments/[Environment Name]\'.'
 		  expansionDeferred = '0'
