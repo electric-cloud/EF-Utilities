@@ -225,7 +225,6 @@
         </propertySheet>
       </step>
     </procedure>
-<!-- Temporarily disabled, see CEV-10864
      <procedure>
       <procedureName>createSnapshot</procedureName>
       <description>Create an environment snapshot</description>
@@ -411,7 +410,8 @@
         </propertySheet>
       </step>
     </procedure>
-    <procedure>
+<!-- Temporarily disabled, see CEV-10864
+     <procedure>
       <procedureName>triggerPipelineGateOnSchedule</procedureName>
       <description>Trigger a pipeline gate with a schedule</description>
       <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]</jobNameTemplate>
