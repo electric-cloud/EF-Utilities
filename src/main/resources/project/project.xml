@@ -41,6 +41,7 @@
             <expandable>0</expandable>
         </property>
     </propertySheet>
+<!-- Temporarily disabled, see EFUTILITIE-2
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>[Experimental] Create a schedule that trigger a gate at a particular time and date</description>
@@ -224,7 +225,7 @@
           <credentialProtected>0</credentialProtected>
         </propertySheet>
       </step>
-    </procedure>
+    </procedure> -->
      <procedure>
       <procedureName>createSnapshot</procedureName>
       <description>Create an environment snapshot</description>

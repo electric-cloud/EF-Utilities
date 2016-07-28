@@ -52,7 +52,7 @@
                 </table>
             </div>
 
-            <div id="Create Schedule To Trigger Gate">
+<!--             <div id="Create Schedule To Trigger Gate">
                 <a name="Create Schedule To Trigger Gate" id="Create Schedule To Trigger Gate"></a>
 
                 <h3>Create Schedule To Trigger Gate [Experimental]</h3>
@@ -107,8 +107,12 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div>  -->
             <h1>Release Notes</h1>
+            <h2>EF-Utilities 1.0.4</h2>
+            <ul>
+                <li>Temporarily disabled 'createScheduleToTriggerGate' procedure.</li>
+            </ul>
             <h2>EF-Utilities 1.0.3</h2>
             <ul>
                 <li>Added 'Create Snapshot' procedure.</li>
