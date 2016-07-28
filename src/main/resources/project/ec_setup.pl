@@ -73,6 +73,10 @@ if ( $promoteAction ne '' ) {
 	}
 }
 
+$batch->deleteProperty("/server/ec_customEditors/pickerStep/Flow Utilities - Decommission Environments");
+$batch->deleteProperty("/server/ec_customEditors/pickerStep/Flow Utilities - Create Snapshot");
+$batch->deleteProperty("/server/ec_customEditors/pickerStep/Flow Utilities - Create Schedule To Trigger Gate");
+
 # Data that drives the create step picker registration for this plugin.
 my %decommissionEnvironments = (
 	label       => "Flow Utilities - Decommission Environments",
@@ -81,12 +85,12 @@ my %decommissionEnvironments = (
 	category    => "Deploy"
 );
 
-my %createScheduleToTriggerGate = (
-  label       => "Flow Utilities - Create Schedule To Trigger Gate",
-  procedure   => "createScheduleToTriggerGate",
-  description => "Create a schedule that triggers a gate at a particular date and time",
-  category    => "Deploy"
-);
+#my %createScheduleToTriggerGate = (
+#  label       => "Flow Utilities - Create Schedule To Trigger Gate",
+#  procedure   => "createScheduleToTriggerGate",
+#  description => "Create a schedule that triggers a gate at a particular date and time",
+#  category    => "Deploy"
+#);
 
 my %createSnapshot = (
   label       => "Flow Utilities - Create Snapshot",
@@ -95,4 +99,4 @@ my %createSnapshot = (
   category    => "Deploy"
 );
 
-@::createStepPickerSteps = ( \%decommissionEnvironments, \%createScheduleToTriggerGate, \%createSnapshot);
+@::createStepPickerSteps = ( \%decommissionEnvironments, \%createSnapshot);
