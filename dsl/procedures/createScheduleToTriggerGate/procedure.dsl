@@ -6,6 +6,12 @@
 		
 		exposeToPlugin = '1'
 
+		property 'stepPicker', {
+			label = "Flow Utilities - Create Schedule To Trigger Gate"
+			category = 'Deploy'
+			description = 'Create a schedule that triggers a gate at a particular date and time'
+		}
+
 		formalParameter 'date', {
 		  description = 'The date at which to trigger the gate. Format is "YYYY-MM-dd".'
 		  expansionDeferred = '0'
@@ -73,10 +79,3 @@
 		  timeLimitUnits = 'minutes'
 		}
 	}
-	
-	stepPicker ('Flow Utilities - Create Schedule To Trigger Gate', 
-			pluginKey,
-			'createScheduleToTriggerGate', 
-			'Deploy', 
-			'Create a schedule that triggers a gate at a particular date and time')
-

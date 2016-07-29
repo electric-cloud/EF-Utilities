@@ -5,7 +5,13 @@
     timeLimitUnits = 'minutes'
 
 	exposeToPlugin = '1'
-	
+
+	property 'stepPicker', {
+		label = "Flow Utilities - Create Snapshot"
+		category = 'Deploy'
+		description = 'Create an environment snapshot'
+	}
+			
     formalParameter 'appName', defaultValue: '$[/myApplication/applicationName]', {
       description = 'Name of the application'
       expansionDeferred = '0'
@@ -52,9 +58,3 @@
 
   }
   
-  stepPicker ('Flow Utilities - Create Snapshot', 
-			pluginKey,
-			'createSnapshot', 
-			'Deploy', 
-			'Create an environment snapshot')
-

@@ -36,6 +36,24 @@ abstract class BasePlugin extends DslDelegatingScript {
 				  }
 				}
 			}
+			/*
+			def addStepPicker = true
+			def stepPicker = getProperty("/projects/${pluginName}/procedures/${proc.procedureName}/stepPicker", suppressNoSuchPropertyException: true)
+			if (stepPicker) {
+				def createStepPicker = getProperty("/projects/${pluginName}/procedures/${proc.procedureName}/stepPicker/create", suppressNoSuchPropertyException: true)
+				if (createStepPicker == 'false') {
+					addStepPicker = false	
+				}
+			}
+			
+			if (addStepPicker) {
+				def label = getStringProp("/projects/${pluginName}/procedures/${proc.procedureName}/stepPicker/label") ?: "$pluginKey - $procedureName"
+				def category = getStringProp("/projects/${pluginName}/procedures/${proc.procedureName}/stepPicker/category") ?: "TODO:Plugin Category"
+				def description = getStringProp("/projects/${pluginName}/procedures/${proc.procedureName}/stepPicker/description") ?: "TODO:Proc description"
+				
+				stepPicker (label, 'TODO: pluginKey', proc.procedureName, category, description)
+			}
+			*/
 		}
 	}
 	

@@ -9,7 +9,7 @@ if(defined $ENV{'QUERY_STRING'}) { # Promotion through UI
 	$logfile = "$ENV{'TEMP'}/ec_setup.log";
 }
 open(my $fh, '>', $logfile) or die "Could not open file '$logfile' $!";
-print $fh "** Plugin Name: $pluginName\n";
+print $fh "Plugin Name: $pluginName\n";
 print $fh "Current directory: $dir\n";
 
 # Evaluate promote.groovy or demote.groovy based on whether plugin is being promoted or demoted ($promoteAction)
