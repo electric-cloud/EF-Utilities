@@ -228,7 +228,7 @@
     </procedure> -->
      <procedure>
       <procedureName>createSnapshot</procedureName>
-      <description>Create an environment snapshot</description>
+      <description>Create a snapshot for either an application or an environment.</description>
       <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]</jobNameTemplate>
       <resourceName/>
       <timeLimit/>
@@ -299,7 +299,37 @@
                   </propertySheet>
                 </property>
                 <property>
-                  <propertyName>proj</propertyName>
+                  <propertyName>compVersions</propertyName>
+                  <propertySheet>
+                      <credentialProtected>0</credentialProtected>
+                      <property>
+                          <propertyName>checkedValue</propertyName>
+                          <counter>0</counter>
+                          <expandable>1</expandable>
+                          <value>true</value>
+                      </property>
+                      <property>
+                          <propertyName>formType</propertyName>
+                          <counter>0</counter>
+                          <expandable>1</expandable>
+                          <value>standard</value>
+                      </property>
+                      <property>
+                          <propertyName>initiallyChecked</propertyName>
+                          <counter>0</counter>
+                          <expandable>1</expandable>
+                          <value>0</value>
+                      </property>
+                      <property>
+                          <propertyName>uncheckedValue</propertyName>
+                          <counter>0</counter>
+                          <expandable>1</expandable>
+                          <value>false</value>
+                      </property>
+                  </propertySheet>
+              </property>
+                <property>
+                  <propertyName>envProjName</propertyName>
                   <propertySheet>
                     <credentialProtected>0</credentialProtected>
                     <property>
@@ -347,6 +377,14 @@
         </property>
       </propertySheet>
       <formalParameter>
+         <formalParameterName>snapName</formalParameterName>
+         <defaultValue/>
+         <description>Name of the snapshot to create</description>
+         <expansionDeferred>0</expansionDeferred>
+         <required>1</required>
+         <type>entry</type>
+      </formalParameter>
+      <formalParameter>
         <formalParameterName>appName</formalParameterName>
         <defaultValue>$[/myApplication/applicationName]</defaultValue>
         <description>Name of the application</description>
@@ -355,38 +393,46 @@
         <type>entry</type>
       </formalParameter>
       <formalParameter>
+         <formalParameterName>projName</formalParameterName>
+         <defaultValue>$[/myParent/projectName]</defaultValue>
+         <description>Name of the project</description>
+         <expansionDeferred>0</expansionDeferred>
+         <required>1</required>
+         <type>entry</type>
+      </formalParameter>
+      <formalParameter>
         <formalParameterName>envName</formalParameterName>
         <defaultValue>$[/myEnvironment/environmentName]</defaultValue>
-        <description/>
+        <description>Name of the environment</description>
         <expansionDeferred>0</expansionDeferred>
         <required>0</required>
         <type>entry</type>
       </formalParameter>
       <formalParameter>
-        <formalParameterName>force</formalParameterName>
-        <defaultValue>false</defaultValue>
-        <description/>
-        <expansionDeferred>0</expansionDeferred>
-        <required>0</required>
-        <type>checkbox</type>
+         <formalParameterName>envProjName</formalParameterName>
+         <defaultValue/>
+         <description>Name of the environment project</description>
+         <expansionDeferred>0</expansionDeferred>
+         <required>0</required>
+         <type>entry</type>
       </formalParameter>
       <formalParameter>
-        <formalParameterName>projName</formalParameterName>
-        <defaultValue>$[/myParent/projectName]</defaultValue>
-        <description>Name of the project</description>
-        <expansionDeferred>0</expansionDeferred>
-        <required>1</required>
-        <type>entry</type>
+         <formalParameterName>force</formalParameterName>
+         <defaultValue>false</defaultValue>
+         <description>If checked, any existing snapshot with the same name will be deleted before creating the snapshot</description>
+         <expansionDeferred>0</expansionDeferred>
+         <required>0</required>
+         <type>checkbox</type>
       </formalParameter>
       <formalParameter>
-        <formalParameterName>snapName</formalParameterName>
-        <defaultValue/>
-        <description>Name of the snapshot to create</description>
-        <expansionDeferred>0</expansionDeferred>
-        <required>0</required>
-        <type>entry</type>
+         <formalParameterName>compVersions</formalParameterName>
+         <defaultValue>false</defaultValue>
+         <description/>
+         <expansionDeferred>0</expansionDeferred>
+         <required>0</required>
+         <type>checkbox</type>
       </formalParameter>
-      <step>
+         <step>
         <stepName>snapshot</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
