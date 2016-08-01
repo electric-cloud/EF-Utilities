@@ -228,7 +228,7 @@
     </procedure> -->
      <procedure>
       <procedureName>createSnapshot</procedureName>
-      <description>Create a snapshot for either an application or an environment.</description>
+      <description>Create a snapshot for an application.</description>
       <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]</jobNameTemplate>
       <resourceName/>
       <timeLimit/>
@@ -387,7 +387,7 @@
       <formalParameter>
         <formalParameterName>appName</formalParameterName>
         <defaultValue>$[/myApplication/applicationName]</defaultValue>
-        <description>Name of the application</description>
+        <description>Name of the application for which the snapshot needs to be created.</description>
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
         <type>entry</type>
@@ -395,7 +395,7 @@
       <formalParameter>
          <formalParameterName>projName</formalParameterName>
          <defaultValue>$[/myParent/projectName]</defaultValue>
-         <description>Name of the project</description>
+         <description>Name of the project that the application belongs to.</description>
          <expansionDeferred>0</expansionDeferred>
          <required>1</required>
          <type>entry</type>
@@ -403,7 +403,7 @@
       <formalParameter>
         <formalParameterName>envName</formalParameterName>
         <defaultValue>$[/myEnvironment/environmentName]</defaultValue>
-        <description>Name of the environment</description>
+        <description>Name of the environment on which the application is deployed.</description>
         <expansionDeferred>0</expansionDeferred>
         <required>0</required>
         <type>entry</type>
@@ -411,7 +411,7 @@
       <formalParameter>
          <formalParameterName>envProjName</formalParameterName>
          <defaultValue/>
-         <description>Name of the environment project</description>
+         <description>Specify the name of the project that the environment belongs to, if different from the application project.</description>
          <expansionDeferred>0</expansionDeferred>
          <required>0</required>
          <type>entry</type>
