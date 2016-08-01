@@ -109,6 +109,10 @@
                 </table>
             </div>  -->
             <h1>Release Notes</h1>
+            <h2>EF-Utilities 1.0.5</h2>
+            <ul>
+                <li>Optionally handle quoted environment paths in DecommissionEnvironments procedure.</li>
+            </ul>
             <h2>EF-Utilities 1.0.4</h2>
             <ul>
                 <li>Temporarily disabled 'createScheduleToTriggerGate' procedure.</li>

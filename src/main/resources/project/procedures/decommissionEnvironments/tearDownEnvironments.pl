@@ -34,7 +34,7 @@ sub getPropertyValue {
 	return $ec->getProperty($propertyName)->findvalue("//value")->value();
 }
 
-my $envList = trim("$[EnvironmentList]");
+my $envList = trim(q{$[EnvironmentList]});
 
 #Check to see EnvironmentList is passed in
 if ( $envList ne '' ) {
@@ -42,7 +42,7 @@ if ( $envList ne '' ) {
 	
 	foreach my $environment (split /,/, $envList) {
         my ($envProjectName, $envName) =
-            $environment =~ /\/projects\/(.+)\/environments\/(.+)/;
+            $environment =~ /['"]?\/projects\/(.+)\/environments\/([^'"]+)['"]?/;
 
         if($envProjectName eq '' or $envName eq '') {
             printf "WARNING: Incorrect environment path specified: '$environment', skipping\n";
