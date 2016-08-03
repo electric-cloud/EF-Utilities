@@ -92,11 +92,11 @@ my %decommissionEnvironments = (
 #  category    => "Deploy"
 #);
 
-my %createSnapshot = (
-  label       => "Flow Utilities - Create Snapshot",
-  procedure   => "createSnapshot",
-  description => "Create an environment snapshot",
-  category    => "Deploy"
-);
+#my %createSnapshot = (
+#  label       => "Flow Utilities - Create Snapshot",
+#  procedure   => "createSnapshot",
+#  description => "Create an environment snapshot",
+#  category    => "Deploy"
+#);
 
-@::createStepPickerSteps = ( \%decommissionEnvironments, \%createSnapshot);
+@::createStepPickerSteps = ( \%decommissionEnvironments);
