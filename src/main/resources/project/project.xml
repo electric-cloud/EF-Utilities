@@ -41,7 +41,7 @@
             <expandable>0</expandable>
         </property>
     </propertySheet>
-<!-- Temporarily disabled, see EFUTILITIE-2
+<!-- Temporarily disabled, see EFUTILITIE-2, EFUTILITIE-5, CEV-10864 
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>[Experimental] Create a schedule that trigger a gate at a particular time and date</description>
@@ -225,7 +225,7 @@
           <credentialProtected>0</credentialProtected>
         </propertySheet>
       </step>
-    </procedure> -->
+    </procedure>
      <procedure>
       <procedureName>createSnapshot</procedureName>
       <description>Create an environment snapshot</description>
@@ -411,7 +411,6 @@
         </propertySheet>
       </step>
     </procedure>
-<!-- Temporarily disabled, see CEV-10864
      <procedure>
       <procedureName>triggerPipelineGateOnSchedule</procedureName>
       <description>Trigger a pipeline gate with a schedule</description>
