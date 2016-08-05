@@ -120,7 +120,7 @@ foreach my $myEnv ( $myEnvs->findnodes("//environment") ) {
 		              $ec->createJobStep(
 		                  {
 				                jobStepName => "Decommissioning Environment $envName",
-				                command => "ectool tearDown --environmentName $envName --projectName $envProjectName"
+				                command => "ectool tearDown --environmentName \"$envName\" --projectName \"$envProjectName\""
 		                  }
 		              );
                 }
