@@ -19,16 +19,16 @@ $[/myProject/scripts/perlHeaderJSON]
 #
 # required parameters
 #
-my $proj    = "$[projName]";
-my $app     = "$[appName]";
-my $snap    = "$[snapName]";
+my $proj    = "$[ProjectName]";
+my $app     = "$[ApplicationName]";
+my $snap    = "$[SnapshotName]";
 #
 # optional parameters
 #
-my $force          = "$[force]";
-my $env            = "$[envName]";
-my $envProj        = "$[envProjName]";
-my $compVersions   = "$[compVersions]"; # ec_comp1-version=1.1 ec_comp2-version=1.5
+my $force          = "$[Overwrite]";
+my $env            = "$[EnvironmentName]";
+my $envProj        = "$[EnvironmentProjectName]";
+my $compVersions   = "$[ComponentVersions]"; # ec_comp1-version=1.1 ec_comp2-version=1.5
 
 # delete a snapshot with the same name if force mode is on
 if (($force eq "true") || ($force eq "1")) {

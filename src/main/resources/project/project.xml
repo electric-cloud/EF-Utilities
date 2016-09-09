@@ -128,7 +128,7 @@
         <defaultValue/>
         <description>Timezone to express the date and time. Default is the server timezone. The format is the standard continent/city like "America/New_York". For convenience some abbreviations are converted automatically like "PST" to "America/Los_Angeles".</description>
         <expansionDeferred>0</expansionDeferred>
-	<required>0</required>
+        <required>0</required>
         <type>entry</type>
       </formalParameter>
       <formalParameter>
@@ -225,7 +225,7 @@
           <credentialProtected>0</credentialProtected>
         </propertySheet>
       </step>
-    </procedure>
+    </procedure> -->
      <procedure>
       <procedureName>createSnapshot</procedureName>
       <description>Create a snapshot for an application.</description>
@@ -243,131 +243,131 @@
             <property>
               <propertyName>parameters</propertyName>
               <propertySheet>
-                <credentialProtected>0</credentialProtected>
-                <property>
-                  <propertyName>appName</propertyName>
-                  <propertySheet>
-                    <credentialProtected>0</credentialProtected>
-                    <property>
-                      <propertyName>formType</propertyName>
-                      <counter>0</counter>
-                      <expandable>1</expandable>
-                      <value>standard</value>
-                    </property>
-                  </propertySheet>
-                </property>
-                <property>
-                  <propertyName>envName</propertyName>
-                  <propertySheet>
-                    <credentialProtected>0</credentialProtected>
-                    <property>
-                      <propertyName>formType</propertyName>
-                      <counter>0</counter>
-                      <expandable>1</expandable>
-                      <value>standard</value>
-                    </property>
-                  </propertySheet>
-                </property>
-                <property>
-                  <propertyName>force</propertyName>
-                  <propertySheet>
-                    <credentialProtected>0</credentialProtected>
-                    <property>
-                      <propertyName>checkedValue</propertyName>
-                      <counter>0</counter>
-                      <expandable>1</expandable>
-                      <value>true</value>
-                    </property>
-                    <property>
-                      <propertyName>formType</propertyName>
-                      <counter>0</counter>
-                      <expandable>1</expandable>
-                      <value>standard</value>
-                    </property>
-                    <property>
-                      <propertyName>initiallyChecked</propertyName>
-                      <counter>0</counter>
-                      <expandable>1</expandable>
-                      <value>0</value>
-                    </property>
-                    <property>
-                      <propertyName>uncheckedValue</propertyName>
-                      <counter>0</counter>
-                      <expandable>1</expandable>
-                      <value>false</value>
-                    </property>
-                  </propertySheet>
-                </property>
-                <property>
-                  <propertyName>compVersions</propertyName>
-                  <propertySheet>
-                      <credentialProtected>0</credentialProtected>
-                      <property>
-                          <propertyName>checkedValue</propertyName>
-                          <counter>0</counter>
-                          <expandable>1</expandable>
-                          <value>true</value>
-                      </property>
-                      <property>
-                          <propertyName>formType</propertyName>
-                          <counter>0</counter>
-                          <expandable>1</expandable>
-                          <value>standard</value>
-                      </property>
-                      <property>
-                          <propertyName>initiallyChecked</propertyName>
-                          <counter>0</counter>
-                          <expandable>1</expandable>
-                          <value>0</value>
-                      </property>
-                      <property>
-                          <propertyName>uncheckedValue</propertyName>
-                          <counter>0</counter>
-                          <expandable>1</expandable>
-                          <value>false</value>
-                      </property>
-                  </propertySheet>
-              </property>
-                <property>
-                  <propertyName>envProjName</propertyName>
-                  <propertySheet>
-                    <credentialProtected>0</credentialProtected>
-                    <property>
-                      <propertyName>formType</propertyName>
-                      <counter>0</counter>
-                      <expandable>1</expandable>
-                      <value>standard</value>
-                    </property>
-                  </propertySheet>
-                </property>
-                <property>
-                  <propertyName>projName</propertyName>
-                  <propertySheet>
-                    <credentialProtected>0</credentialProtected>
-                    <property>
-                      <propertyName>formType</propertyName>
-                      <counter>0</counter>
-                      <expandable>1</expandable>
-                      <value>standard</value>
-                    </property>
-                  </propertySheet>
-                </property>
-                <property>
-                  <propertyName>snapName</propertyName>
-                  <propertySheet>
-                    <credentialProtected>0</credentialProtected>
-                    <property>
-                      <propertyName>formType</propertyName>
-                      <counter>0</counter>
-                      <expandable>1</expandable>
-                      <value>standard</value>
-                    </property>
-                  </propertySheet>
-                </property>
+                  <credentialProtected>0</credentialProtected>
+                  <property>
+                      <propertyName>ApplicationName</propertyName>
+                      <propertySheet>
+                          <credentialProtected>0</credentialProtected>
+                          <property>
+                              <propertyName>formType</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>standard</value>
+                          </property>
+                      </propertySheet>
+                  </property>
+                  <property>
+                      <propertyName>EnvironmentName</propertyName>
+                      <propertySheet>
+                          <credentialProtected>0</credentialProtected>
+                          <property>
+                              <propertyName>formType</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>standard</value>
+                          </property>
+                      </propertySheet>
+                  </property>
+                  <property>
+                      <propertyName>Overwrite</propertyName>
+                      <propertySheet>
+                          <credentialProtected>0</credentialProtected>
+                          <property>
+                              <propertyName>checkedValue</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>true</value>
+                          </property>
+                          <property>
+                              <propertyName>formType</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>standard</value>
+                          </property>
+                          <property>
+                              <propertyName>initiallyChecked</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>0</value>
+                          </property>
+                          <property>
+                              <propertyName>uncheckedValue</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>false</value>
+                          </property>
+                      </propertySheet>
+                  </property>
+                  <property>
+                      <propertyName>ComponentVersions</propertyName>
+                      <propertySheet>
+                          <credentialProtected>0</credentialProtected>
+                          <property>
+                              <propertyName>checkedValue</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>true</value>
+                          </property>
+                          <property>
+                              <propertyName>formType</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>standard</value>
+                          </property>
+                          <property>
+                              <propertyName>initiallyChecked</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>0</value>
+                          </property>
+                          <property>
+                              <propertyName>uncheckedValue</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>false</value>
+                          </property>
+                      </propertySheet>
+                  </property>
+                  <property>
+                      <propertyName>EnvironmentProjectName</propertyName>
+                      <propertySheet>
+                          <credentialProtected>0</credentialProtected>
+                          <property>
+                              <propertyName>formType</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>standard</value>
+                          </property>
+                      </propertySheet>
+                  </property>
+                  <property>
+                      <propertyName>ProjectName</propertyName>
+                      <propertySheet>
+                          <credentialProtected>0</credentialProtected>
+                          <property>
+                              <propertyName>formType</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>standard</value>
+                          </property>
+                      </propertySheet>
+                  </property>
+                  <property>
+                      <propertyName>SnapshotName</propertyName>
+                      <propertySheet>
+                          <credentialProtected>0</credentialProtected>
+                          <property>
+                              <propertyName>formType</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>standard</value>
+                          </property>
+                      </propertySheet>
+                  </property>
               </propertySheet>
-            </property>
-          </propertySheet>
-        </property>
+          </property>
+      </propertySheet>
+  </property>
         <property>
           <propertyName>exposeToPlugin</propertyName>
           <counter>0</counter>
@@ -377,7 +377,7 @@
         </property>
       </propertySheet>
       <formalParameter>
-         <formalParameterName>snapName</formalParameterName>
+         <formalParameterName>SnapshotName</formalParameterName>
          <defaultValue/>
          <description>Name of the snapshot to create</description>
          <expansionDeferred>0</expansionDeferred>
@@ -385,7 +385,7 @@
          <type>entry</type>
       </formalParameter>
       <formalParameter>
-        <formalParameterName>appName</formalParameterName>
+        <formalParameterName>ApplicationName</formalParameterName>
         <defaultValue>$[/myApplication/applicationName]</defaultValue>
         <description>Name of the application for which the snapshot needs to be created.</description>
         <expansionDeferred>0</expansionDeferred>
@@ -393,7 +393,7 @@
         <type>entry</type>
       </formalParameter>
       <formalParameter>
-         <formalParameterName>projName</formalParameterName>
+         <formalParameterName>ProjectName</formalParameterName>
          <defaultValue>$[/myParent/projectName]</defaultValue>
          <description>Name of the project that the application belongs to.</description>
          <expansionDeferred>0</expansionDeferred>
@@ -401,7 +401,7 @@
          <type>entry</type>
       </formalParameter>
       <formalParameter>
-        <formalParameterName>envName</formalParameterName>
+        <formalParameterName>EnvironmentName</formalParameterName>
         <defaultValue>$[/myEnvironment/environmentName]</defaultValue>
         <description>Name of the environment on which the application is deployed.</description>
         <expansionDeferred>0</expansionDeferred>
@@ -409,7 +409,7 @@
         <type>entry</type>
       </formalParameter>
       <formalParameter>
-         <formalParameterName>envProjName</formalParameterName>
+         <formalParameterName>EnvironmentProjectName</formalParameterName>
          <defaultValue/>
          <description>Specify the name of the project that the environment belongs to, if different from the application project.</description>
          <expansionDeferred>0</expansionDeferred>
@@ -417,7 +417,7 @@
          <type>entry</type>
       </formalParameter>
       <formalParameter>
-         <formalParameterName>force</formalParameterName>
+         <formalParameterName>Overwrite</formalParameterName>
          <defaultValue>false</defaultValue>
          <description>If checked, any existing snapshot with the same name will be deleted before creating the snapshot</description>
          <expansionDeferred>0</expansionDeferred>
@@ -425,14 +425,14 @@
          <type>checkbox</type>
       </formalParameter>
       <formalParameter>
-         <formalParameterName>compVersions</formalParameterName>
+         <formalParameterName>ComponentVersions</formalParameterName>
          <defaultValue>false</defaultValue>
          <description/>
          <expansionDeferred>0</expansionDeferred>
          <required>0</required>
          <type>checkbox</type>
       </formalParameter>
-         <step>
+      <step>
         <stepName>snapshot</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
@@ -456,7 +456,8 @@
           <credentialProtected>0</credentialProtected>
         </propertySheet>
       </step>
-    </procedure>
+  </procedure>
+  <!-- temprorary disabled procedures
      <procedure>
       <procedureName>triggerPipelineGateOnSchedule</procedureName>
       <description>Trigger a pipeline gate with a schedule</description>

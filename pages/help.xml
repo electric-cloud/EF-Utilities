@@ -124,31 +124,31 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="required">snapName</td>
+                            <td class="required">SnapshotName</td>
                             <td>Name of the snapshot to create</td>
                         </tr>
 						<tr>
-                            <td class="required">appName</td>
+                            <td class="required">ApplicationName</td>
                             <td>Name of the application for which the snapshot needs to be created.</td>
                         </tr>
 						<tr>
-                            <td class="required">projName</td>
+                            <td class="required">ProjectName</td>
                             <td>Name of the project that the application belongs to.</td>
                         </tr>
                         <tr>
-                            <td>envName</td>
+                            <td>EnvironmentName</td>
                             <td>Name of the environment on which the application is deployed.</td>
                         </tr>
 						<tr>
-                            <td>envProjName</td>
+                            <td>EnvironmentProjectName</td>
                             <td>Name of the project that the environment belongs to, if different from the application project.</td>
                         </tr>
 						<tr>
-                            <td>force</td>
+                            <td>Overwrite</td>
                             <td>If checked, delete any existing snapshot with the same name before creating the snapshot</td>
                         </tr>
 						<tr>
-                            <td>compVersions</td>
+                            <td>ComponentVersions</td>
                             <td></td>
                         </tr>
                     </tbody>
