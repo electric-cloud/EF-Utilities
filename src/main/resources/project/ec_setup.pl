@@ -95,7 +95,7 @@ my %decommissionEnvironments = (
 
 my %createSnapshot = (
     label       => "Flow Utilities - Create Snapshot",
-    procedure   => "createSnapshot",
+    procedure   => "Create Snapshot",
     description => "Create an environment snapshot",
     # category    => "Deploy",
     category    => "Utility"
