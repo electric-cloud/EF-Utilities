@@ -426,11 +426,11 @@
       </formalParameter>
       <formalParameter>
          <formalParameterName>ComponentVersions</formalParameterName>
-         <defaultValue>false</defaultValue>
-         <description/>
+         <defaultValue></defaultValue>
+         <description>Space-delimited component names and version to be used for snapshot. Use keyword 'LATEST' to indicate latest version. E.g., ec_comp1-version=1.1 ec_comp2-version=LATEST</description>
          <expansionDeferred>0</expansionDeferred>
          <required>0</required>
-         <type>checkbox</type>
+         <type>textarea</type>
       </formalParameter>
       <step>
         <stepName>snapshot</stepName>
