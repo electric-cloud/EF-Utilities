@@ -82,7 +82,6 @@ my %decommissionEnvironments = (
 	label       => "Flow Utilities - Decommission Environments",
 	procedure   => "Decommission Environments",
 	description => "Decommission dynamic environments provisioned from pipeline, applications process or procedure",
-	# category    => "Deploy"
     category    => "Utility"
 );
 
@@ -97,7 +96,6 @@ my %createSnapshot = (
     label       => "Flow Utilities - Create Snapshot",
     procedure   => "Create Snapshot",
     description => "Create an environment snapshot",
-    # category    => "Deploy",
     category    => "Utility"
 );
 
