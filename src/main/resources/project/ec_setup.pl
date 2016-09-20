@@ -82,7 +82,7 @@ my %decommissionEnvironments = (
 	label       => "Flow Utilities - Decommission Environments",
 	procedure   => "Decommission Environments",
 	description => "Decommission dynamic environments provisioned from pipeline, applications process or procedure",
-    category    => "Utility"
+    category    => "Deploy"
 );
 
 #my %createScheduleToTriggerGate = (
@@ -96,7 +96,7 @@ my %createSnapshot = (
     label       => "Flow Utilities - Create Snapshot",
     procedure   => "Create Snapshot",
     description => "Create an environment snapshot",
-    category    => "Utility"
+    category    => "Deploy"
 );
 
 @::createStepPickerSteps = (
