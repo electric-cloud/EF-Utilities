@@ -438,7 +438,7 @@
         <broadcast>0</broadcast>
         <command/>
         <condition/>
-        <description/>
+        <description>This step is creates snapshot.</description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName/>

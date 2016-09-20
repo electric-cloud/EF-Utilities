@@ -42,8 +42,8 @@
     <xpath>//project/procedure[procedureName=&quot;createScheduleToTriggerGate&quot;]/step[stepName=&quot;addPermission&quot;]/command</xpath>
   </file>
   <file>
-    <path>procedures/createSnapshot/steps/snapshot.pl</path>
-    <xpath>//project/procedure[procedureName=&quot;createSnapshot&quot;]/step[stepName=&quot;snapshot&quot;]/command</xpath>
+    <path>procedures/CreateSnapshot/steps/snapshot.pl</path>
+    <xpath>//project/procedure[procedureName=&quot;CreateSnapshot&quot;]/step[stepName=&quot;snapshot&quot;]/command</xpath>
   </file>
   <file>
     <path>procedures/triggerPipelineGateOnSchedule/steps/Trigger.pl</path>
