@@ -44,6 +44,10 @@
   <file>
     <path>procedures/createSnapshot/steps/snapshot.pl</path>
     <xpath>//project/procedure[procedureName=&quot;Create Snapshot&quot;]/step[stepName=&quot;snapshot&quot;]/command</xpath>
+  </file>  
+  <file>
+    <path>parameterForms/CreateSnapshot.xml</path>
+    <xpath>//procedure[procedureName=&quot;Create Snapshot&quot;]/propertySheet/property[propertyName=&quot;ec_parameterForm&quot;]/value</xpath>
   </file>
   <file>
     <path>procedures/triggerPipelineGateOnSchedule/steps/Trigger.pl</path>
