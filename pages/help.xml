@@ -149,7 +149,7 @@
                         </tr>
 						<tr>
                             <td>ComponentVersions</td>
-                            <td></td>
+                            <td>This option applies only when the environment name is not specified. For an application snapshot, provide a Space-delimited list of component names and versions to be used. Use keyword 'LATEST' to indicate latest version. E.g., ec_comp1-version=1.1 ec_comp2-version=LATEST.</td>
                         </tr>
                     </tbody>
                 </table>
