@@ -24,7 +24,6 @@
         <documentation>Name of the application for the snapshot.</documentation>
         <required>1</required>
         <value>$[/myApplication/applicationName]</value>
-
     </formElement>
 
     <formElement>
@@ -33,6 +32,7 @@
         <property>ProjectName</property>
         <documentation>Name of the project that contains the application.</documentation>
         <required>1</required>
+        <value>$[/myApplication/projectName]</value>
     </formElement>
 
     <formElement>
@@ -58,6 +58,7 @@
         <property>EnvironmentProjectName</property>
         <documentation>Name of the project that contains the environment, if different from the application project.</documentation>
         <required>0</required>
+        <value>$[/myEnvironment/projectName]</value>
     </formElement>
 
     <formElement>
@@ -67,12 +68,15 @@
         <documentation>This option applies only when the environment name is not specified. For an application snapshot, provide a Space-delimited list of component names and versions to be used. Use keyword 'LATEST' to indicate latest version. E.g., ec_comp1-version=1.1 ec_comp2-version=LATEST.</documentation>
         <required>0</required>
     </formElement>
+
     <formElement>
         <type>checkbox</type>
         <label>Overwrite:</label>
         <property>Overwrite</property>
         <documentation>If checked, any existing snapshot with the same name will be overwritten.</documentation>
         <required>0</required>
+        <checkedValue>true</checkedValue>
+        <uncheckedValue>false</uncheckedValue>
     </formElement>
    
 </editor>
