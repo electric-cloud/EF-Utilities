@@ -235,6 +235,11 @@
       <timeLimitUnits>minutes</timeLimitUnits>
       <workspaceName/>
       <propertySheet>
+        <property>
+          <propertyName>ec_parameterForm</propertyName>
+          <expandable>0</expandable>
+          <value></value>
+        </property>
         <credentialProtected>0</credentialProtected>
         <property>
           <propertyName>ec_customEditorData</propertyName>
@@ -394,7 +399,7 @@
       </formalParameter>
       <formalParameter>
          <formalParameterName>ProjectName</formalParameterName>
-         <defaultValue>$[/myParent/projectName]</defaultValue>
+         <defaultValue></defaultValue>
          <description>Name of the project that the application belongs to.</description>
          <expansionDeferred>0</expansionDeferred>
          <required>1</required>
@@ -453,6 +458,16 @@
         <workingDirectory/>
         <workspaceName/>
         <propertySheet>
+          <property>
+              <propertyName>ec_customEditorData</propertyName>
+              <propertySheet>
+                  <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>command</value>
+                  </property>
+              </propertySheet>
+          </property>
           <credentialProtected>0</credentialProtected>
         </propertySheet>
       </step>
