@@ -41,7 +41,7 @@
             <expandable>0</expandable>
         </property>
     </propertySheet>
-<!-- Temporarily disabled, see EFUTILITIE-2, EFUTILITIE-5, CEV-10864 
+<!-- Temporarily disabled, see EFUTILITIE-2, EFUTILITIE-5, CEV-10864
     <procedure>
       <procedureName>createScheduleToTriggerGate</procedureName>
       <description>[Experimental] Create a schedule that trigger a gate at a particular time and date</description>
@@ -262,6 +262,18 @@
                       </propertySheet>
                   </property>
                   <property>
+                      <propertyName>ServiceName</propertyName>
+                      <propertySheet>
+                          <credentialProtected>0</credentialProtected>
+                          <property>
+                              <propertyName>formType</propertyName>
+                              <counter>0</counter>
+                              <expandable>1</expandable>
+                              <value>standard</value>
+                          </property>
+                      </propertySheet>
+                  </property>
+                  <property>
                       <propertyName>EnvironmentName</propertyName>
                       <propertySheet>
                           <credentialProtected>0</credentialProtected>
@@ -394,7 +406,15 @@
         <defaultValue>$[/myApplication/applicationName]</defaultValue>
         <description>Name of the application for which the snapshot needs to be created.</description>
         <expansionDeferred>0</expansionDeferred>
-        <required>1</required>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>ServiceName</formalParameterName>
+        <defaultValue>$[/myService/serviceName]</defaultValue>
+        <description>Name of the service for which the snapshot needs to be created.</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
         <type>entry</type>
       </formalParameter>
       <formalParameter>
@@ -443,7 +463,7 @@
         <broadcast>0</broadcast>
         <command/>
         <condition/>
-        <description>This step is creates snapshot.</description>
+        <description>This step creates snapshot.</description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName/>

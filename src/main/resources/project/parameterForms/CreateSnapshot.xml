@@ -16,21 +16,29 @@
 
 -->
 <editor>
-    
+
     <formElement>
         <type>entry</type>
         <label>Application Name:</label>
         <property>ApplicationName</property>
-        <documentation>Name of the application for the snapshot.</documentation>
-        <required>1</required>
+        <documentation>Name of the application for the snapshot. Either application name or service name should be provided.</documentation>
+        <required>0</required>
         <value>$[/myApplication/applicationName]</value>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Service Name:</label>
+        <property>ServiceName</property>
+        <documentation>Name of the service for the snapshot. Either application name or service name should be provided.</documentation>
+        <required>0</required>
+        <value>$[/myService/serviceName]</value>
     </formElement>
 
     <formElement>
         <type>entry</type>
         <label>Project Name:</label>
         <property>ProjectName</property>
-        <documentation>Name of the project that contains the application.</documentation>
+        <documentation>Name of the project that contains the application or service.</documentation>
         <required>1</required>
         <value>$[/myApplication/projectName]</value>
     </formElement>
@@ -47,7 +55,7 @@
         <type>entry</type>
         <label>Environment Name:</label>
         <property>EnvironmentName</property>
-        <documentation>For an environment snapshot, specify the name of the environment where the application is deployed.</documentation>
+        <documentation>For an environment snapshot, specify the name of the environment where the application or service is deployed.</documentation>
         <required>0</required>
         <value>$[/myEnvironment/environmentName]</value>
     </formElement>
@@ -56,7 +64,7 @@
         <type>entry</type>
         <label>Environment Project Name:</label>
         <property>EnvironmentProjectName</property>
-        <documentation>Name of the project that contains the environment, if different from the application project.</documentation>
+        <documentation>Name of the project that contains the environment, if different from the application or service project.</documentation>
         <required>0</required>
         <value>$[/myEnvironment/projectName]</value>
     </formElement>
@@ -78,6 +86,6 @@
         <checkedValue>true</checkedValue>
         <uncheckedValue>false</uncheckedValue>
     </formElement>
-   
+
 </editor>
 

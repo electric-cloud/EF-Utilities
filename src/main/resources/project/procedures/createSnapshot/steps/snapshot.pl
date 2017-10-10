@@ -21,7 +21,18 @@ $[/myProject/scripts/perlHeaderJSON]
 #
 my $proj    = "$[ProjectName]";
 my $app     = "$[ApplicationName]";
+my $serviceName = eval { $ec->getProperty('ServiceName')->findvalue('//value') } ;
+$serviceName ||= '';
 my $snap    = "$[SnapshotName]";
+
+if (!$app && !$serviceName) {
+    die 'Either Service Name or Application Name should be provided';
+}
+elsif($app && $serviceName) {
+    die 'Either Service Name or Application Name should be provided, but not both.';
+}
+
+
 #
 # optional parameters
 #
@@ -59,7 +70,20 @@ if ($compVersions) {
 }
 
 # create snapshot
-$ec->createSnapshot($proj, $app, $snap, {%optionalArgs});
+# $ec->createSnapshot($proj, $app, $snap, {%optionalArgs});
+my %opts = %optionalArgs;
+$opts{projectName} = $proj;
+$opts{snapshotName} = $snap;
+if ($app) {
+    $opts{applicationName} = $app;
+}
+else {
+    $opts{serviceName} = $serviceName;
+}
+for my $key (sort keys %opts) {
+    print qq{Got parameter "$key" with the value "$opts{$key}"\n};
+}
+$ec->createSnapshot({%opts});
 printf("Created snapshot $snap\n");
 
 
