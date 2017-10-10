@@ -167,6 +167,7 @@
             <ul>
                 <li>Minor changes in documentation.</li>
             </ul>
+            <h2>EF-Utilities 1.0.6</h2>
             <ul>
                 <li>Renamed createSnapshot procedure to Create Snapshot</li>
                 <li>Re-enabled Create Snapshot procedure after fixes.</li>
