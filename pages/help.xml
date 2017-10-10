@@ -127,21 +127,25 @@
                             <td class="required">SnapshotName</td>
                             <td>Name of the snapshot to create</td>
                         </tr>
+                        <tr>
+                            <td>ApplicationName</td>
+                            <td>Name of the application for which the snapshot needs to be created. Either this parameter or ServiceName parameter should be provided.</td>
+                        </tr>
 						<tr>
-                            <td class="required">ApplicationName</td>
-                            <td>Name of the application for which the snapshot needs to be created.</td>
+                            <td>ServiceName</td>
+                            <td>Name of the service for which the snapshot needs to be created. Either this parameter or ApplicationName parameter should be provided.</td>
                         </tr>
 						<tr>
                             <td class="required">ProjectName</td>
-                            <td>Name of the project that the application belongs to.</td>
+                            <td>Name of the project that the application or service belongs to.</td>
                         </tr>
                         <tr>
                             <td>EnvironmentName</td>
-                            <td>Name of the environment on which the application is deployed.</td>
+                            <td>Name of the environment on which the application or service is deployed.</td>
                         </tr>
 						<tr>
                             <td>EnvironmentProjectName</td>
-                            <td>Name of the project that the environment belongs to, if different from the application project.</td>
+                            <td>Name of the project that the environment belongs to, if different from the application or service project.</td>
                         </tr>
 						<tr>
                             <td>Overwrite</td>
@@ -153,9 +157,16 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>  
+            </div>
             <h1>Release Notes</h1>
-            <h2>EF-Utilities 1.0.6</h2>
+            <h2>EF-Utilities 1.1.7</h2>
+            <ul>
+                <li>Microservice suppport for Create Snapshot was added.</li>
+            </ul>
+            <h2>EF-Utilities 1.0.7</h2>
+            <ul>
+                <li>Minor changes in documentation.</li>
+            </ul>
             <ul>
                 <li>Renamed createSnapshot procedure to Create Snapshot</li>
                 <li>Re-enabled Create Snapshot procedure after fixes.</li>
