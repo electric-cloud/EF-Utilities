@@ -43,10 +43,17 @@ my $compVersions   = "$[ComponentVersions]"; # ec_comp1-version=1.1 ec_comp2-ver
 
 # delete a snapshot with the same name if force mode is on
 if (($force eq "true") || ($force eq "1")) {
-	my ($ok) = InvokeCommander("IgnoreError", 'getSnapshot', $proj, $app, $snap);
+    my %opts = (projectName => $proj, snapshotName => $snap);
+    if ($app) {
+        $opts{applicationName} = $app;
+    }
+    else {
+        $opts{serviceName} = $serviceName;
+    }
+    my ($ok) = InvokeCommander("IgnoreError", 'getSnapshot', {%opts});
     if ($ok) {
-     	printf("Deleting snapshot $snap\n");
-    	$ec->deleteSnapshot($proj, $app, $snap);
+        printf("Deleting snapshot $snap\n");
+        $ec->deleteSnapshot({ %opts });
     }
 }
 
@@ -70,7 +77,6 @@ if ($compVersions) {
 }
 
 # create snapshot
-# $ec->createSnapshot($proj, $app, $snap, {%optionalArgs});
 my %opts = %optionalArgs;
 $opts{projectName} = $proj;
 $opts{snapshotName} = $snap;
@@ -80,9 +86,7 @@ if ($app) {
 else {
     $opts{serviceName} = $serviceName;
 }
-for my $key (sort keys %opts) {
-    print qq{Got parameter "$key" with the value "$opts{$key}"\n};
-}
+
 $ec->createSnapshot({%opts});
 printf("Created snapshot $snap\n");
 
