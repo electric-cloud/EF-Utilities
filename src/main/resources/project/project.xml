@@ -228,7 +228,7 @@
     </procedure> -->
      <procedure>
       <procedureName>Create Snapshot</procedureName>
-      <description>Create a snapshot for an application.</description>
+      <description>Create a snapshot for an application or a microservice.</description>
       <jobNameTemplate>EF-Utilities:$[/myProcedure/procedureName]_$[/increment /server/ec_counters/EF-Utilties/jobCounter]</jobNameTemplate>
       <resourceName/>
       <timeLimit/>
