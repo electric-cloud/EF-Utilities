@@ -21,7 +21,7 @@
         <type>entry</type>
         <label>Application Name:</label>
         <property>ApplicationName</property>
-        <documentation>Name of the application for the snapshot. Either application name or service name should be provided.</documentation>
+        <documentation>Name of the application for the snapshot. Either this parameter or the service name parameter should be provided.</documentation>
         <required>0</required>
         <value>$[/myApplication/applicationName]</value>
     </formElement>
@@ -29,9 +29,8 @@
         <type>entry</type>
         <label>Service Name:</label>
         <property>ServiceName</property>
-        <documentation>Name of the service for the snapshot. Either application name or service name should be provided.</documentation>
+        <documentation>Name of the service for the snapshot. Either this parameter or the application name parameter should be provided.</documentation>
         <required>0</required>
-        <value>$[/myService/serviceName]</value>
     </formElement>
 
     <formElement>

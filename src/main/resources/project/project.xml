@@ -411,7 +411,7 @@
       </formalParameter>
       <formalParameter>
         <formalParameterName>ServiceName</formalParameterName>
-        <defaultValue>$[/myService/serviceName]</defaultValue>
+        <defaultValue/>
         <description>Name of the service for which the snapshot needs to be created.</description>
         <expansionDeferred>0</expansionDeferred>
         <required>0</required>
