@@ -31,5 +31,6 @@
        Typically, it is set to System or Step.
    -->
   <category>Utility</category>
+  <ecSupportLevel>10</ecSupportLevel>
   <depends>EC-Core</depends>
 </plugin>

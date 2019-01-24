@@ -159,6 +159,8 @@
                 </table>
             </div>
             <h1>Release Notes</h1>
+            <h2>EF-Utilities 1.1.9</h2>
+            <ul><li>Added metadata that is required for 9.0 release.</li></ul>
             <h2>EF-Utilities 1.1.8</h2>
             <ul>
                 <li>Removed default value for <i>ServiceName</i> parameter in <i>Create Snapshot</i> procedure.</li>
