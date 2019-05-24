@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-     Copyright 2016 Electric Cloud, Inc.
+     Copyright 2016 CloudBees, Inc.
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
   <label>@PLUGIN_KEY@</label>
   <description>A set of common procedures for Deploy use-cases</description>
   <help>help.xml</help>
-  <author>Electric Cloud</author>
+  <author>CloudBees</author>
   <authorUrl>http://electric-cloud.com/support</authorUrl>
 
   <commander-version min="6.2"/>
