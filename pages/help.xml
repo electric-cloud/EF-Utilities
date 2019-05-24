@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta content="text/html; charset=us-ascii" http-equiv="content-type"/>
-        <title>Electric Flow Utilities Plugin</title>
+        <title>CloudBees Flow Utilities Plugin</title>
         <link rel="stylesheet" href="../../plugins/@PLUGIN_NAME@/pluginhelp.css" type="text/css" media="screen"/>
     </head>
 
@@ -13,6 +13,7 @@
 
             <h1>EF-Utilities</h1>
             <p>Plugin Version @PLUGIN_VERSION@</p>
+            <p>Revised on May 24, 2019</p>
             <hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade"/>
 
             <h1>Overview</h1>
@@ -108,7 +109,7 @@
                     </tbody>
                 </table>
             </div>  -->
-			<div id="CreateSnapshot">
+            <div id="CreateSnapshot">
                 <a name="CreateSnapshot" id="CreateSnapshot"></a>
 
                 <h3>Create Snapshot</h3>
@@ -131,11 +132,11 @@
                             <td>ApplicationName</td>
                             <td>Name of the application for which the snapshot needs to be created. Either this parameter or ServiceName parameter should be provided.</td>
                         </tr>
-						<tr>
+                        <tr>
                             <td>ServiceName</td>
                             <td>Name of the service for which the snapshot needs to be created. Either this parameter or ApplicationName parameter should be provided.</td>
                         </tr>
-						<tr>
+                        <tr>
                             <td class="required">ProjectName</td>
                             <td>Name of the project that the application or service belongs to.</td>
                         </tr>
@@ -143,15 +144,15 @@
                             <td>EnvironmentName</td>
                             <td>Name of the environment on which the application or service is deployed.</td>
                         </tr>
-						<tr>
+                        <tr>
                             <td>EnvironmentProjectName</td>
                             <td>Name of the project that the environment belongs to, if different from the application or service project.</td>
                         </tr>
-						<tr>
+                        <tr>
                             <td>Overwrite</td>
                             <td>If checked, delete any existing snapshot with the same name before creating the snapshot</td>
                         </tr>
-						<tr>
+                        <tr>
                             <td>ComponentVersions</td>
                             <td>This option applies only when the environment name is not specified. For an application snapshot, provide a Space-delimited list of component names and versions to be used. Use keyword 'LATEST' to indicate latest version. E.g., ec_comp1-version=1.1 ec_comp2-version=LATEST.</td>
                         </tr>
@@ -159,6 +160,10 @@
                 </table>
             </div>
             <h1>Release Notes</h1>
+
+    <h2 id="1.1.10">@PLUGIN_KEY@ 1.1.10</h2>
+    <p>Renaming from "Electric Cloud" to "CloudBees"</p>
+
             <h2>EF-Utilities 1.1.9</h2>
             <ul><li>Added metadata that is required for 9.0 release.</li></ul>
             <h2>EF-Utilities 1.1.8</h2>
