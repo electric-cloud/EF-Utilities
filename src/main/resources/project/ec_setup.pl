@@ -77,9 +77,13 @@ $batch->deleteProperty("/server/ec_customEditors/pickerStep/Flow Utilities - Dec
 $batch->deleteProperty("/server/ec_customEditors/pickerStep/Flow Utilities - Create Snapshot");
 $batch->deleteProperty("/server/ec_customEditors/pickerStep/Flow Utilities - Create Schedule To Trigger Gate");
 
+$batch->deleteProperty("/server/ec_customEditors/pickerStep/CD Utilities - Decommission Environments");
+$batch->deleteProperty("/server/ec_customEditors/pickerStep/CD Utilities - Create Snapshot");
+$batch->deleteProperty("/server/ec_customEditors/pickerStep/CD Utilities - Create Schedule To Trigger Gate");
+
 # Data that drives the create step picker registration for this plugin.
 my %decommissionEnvironments = (
-	label       => "Flow Utilities - Decommission Environments",
+	label       => "CD Utilities - Decommission Environments",
 	procedure   => "Decommission Environments",
 	description => "Decommission dynamic environments provisioned from pipeline, applications process or procedure",
     category    => "Deploy"
@@ -93,7 +97,7 @@ my %decommissionEnvironments = (
 #);
 
 my %createSnapshot = (
-    label       => "Flow Utilities - Create Snapshot",
+    label       => "CD Utilities - Create Snapshot",
     procedure   => "Create Snapshot",
     description => "Create an environment snapshot",
     category    => "Deploy"
