@@ -33,4 +33,6 @@
   <category>Utility</category>
   <ecSupportLevel>10</ecSupportLevel>
   <depends>EC-Core</depends>
+<hasAdoc>true</hasAdoc>
+  <catalogLabel>Deploy Utilities</catalogLabel>
 </plugin>

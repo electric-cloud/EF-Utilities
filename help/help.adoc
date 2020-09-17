@@ -1,0 +1,96 @@
+
+Plugin Version @PLUGIN_VERSION@
+
+Revised on May 24, 2019
+
+'''''
+
+== Overview
+
+EF-Utilities is a collection of procedures to address some of the common Deploy use-cases.
+
+== Plugin procedures
+
+IMPORTANT: For all parameter descriptions below, required parameters are shown in [.required]#bold italics# .
+
+[[Decommission_Environments]]
+
+
+== Decommission environments
+
+This procedure will allow users to create a process step easily using utility procedure which will tear down all the dynamically created environments. This procedure can work in the context of either Pipeline or a Job (Process or Procedure).
+
+[cols=",",options="header",]
+|===
+|Parameter |Description
+|EnvironmentList |Provide comma separated list of environments to tear down, in a form of '/projects/[Project Name]/environments/[Environment Name]'.
+|===
+
+[[CreateSnapshot]]
+
+
+== Create snapshot
+
+This procedure allows the users to create an application snapshot.
+
+[cols=",",options="header",]
+|===
+|Parameter |Description
+|SnapshotName |Name of the snapshot to create
+|ApplicationName |Name of the application for which the snapshot needs to be created. Either this parameter or ServiceName parameter should be provided.
+|ServiceName |Name of the service for which the snapshot needs to be created. Either this parameter or ApplicationName parameter should be provided.
+|ProjectName |Name of the project that the application or service belongs to.
+|EnvironmentName |Name of the environment on which the application or service is deployed.
+|EnvironmentProjectName |Name of the project that the environment belongs to, if different from the application or service project.
+|Overwrite |If checked, delete any existing snapshot with the same name before creating the snapshot
+|ComponentVersions |This option applies only when the environment name is not specified. For an application snapshot, provide a Space-delimited list of component names and versions to be used. Use keyword 'LATEST' to indicate latest version. E.g., ec_comp1-version=1.1 ec_comp2-version=LATEST.
+|===
+
+== Release notes
+
+=== EF-Utilities 1.1.12
+
+* The documentation has been migrated to the main documentation site.
+
+=== EF-Utilities 1.1.10
+
+Renaming from "Electric Cloud" to "CloudBees"
+
+=== EF-Utilities 1.1.9
+
+* Added metadata that is required for 9.0 release.
+
+=== EF-Utilities 1.1.8
+
+* Removed default value for _ServiceName_ parameter in _Create Snapshot_ procedure.
+
+=== EF-Utilities 1.1.7
+
+* Microservice suppport for Create Snapshot was added.
+
+=== EF-Utilities 1.0.7
+
+* Minor changes in documentation.
+
+=== EF-Utilities 1.0.6
+
+* Renamed createSnapshot procedure to Create Snapshot
+* Re-enabled Create Snapshot procedure after fixes.
+
+=== EF-Utilities 1.0.5
+
+* Optionally handle quoted environment paths in DecommissionEnvironments procedure.
+* Temporarily disabled 'createSnapshot' procedure.
+
+=== EF-Utilities 1.0.4
+
+* Temporarily disabled 'createScheduleToTriggerGate' procedure.
+
+=== EF-Utilities 1.0.3
+
+* Added 'Create Snapshot' procedure.
+
+=== EF-Utilities 1.0.2
+
+* Fix #24 Add changePermissions on the plugin for projects
+* Fix #26 add timeZone parameter to createScheduleToTriggerGate
