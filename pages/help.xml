@@ -1,206 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta content="text/html; charset=us-ascii" http-equiv="content-type"/>
-        <title>CloudBees CD Utilities Plugin</title>
-        <link rel="stylesheet" href="../../plugins/@PLUGIN_NAME@/pluginhelp.css" type="text/css" media="screen"/>
+        <title>@PLUGIN_KEY@</title>
+        <link rel="stylesheet" href="../../plugins/@PLUGIN_KEY@/pluginhelp.css" type="text/css" media="screen" />
     </head>
-
     <body>
         <div class="help">
-
-            <h1>EF-Utilities</h1>
-            <p>Plugin Version @PLUGIN_VERSION@</p>
-            <p>Revised on May 24, 2019</p>
-            <hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade"/>
-
-            <h1>Overview</h1>
-            <p>EF-Utilities is a collection of procedures to address some of the common Deploy use-cases.
-            </p>
-
-            <h1>Plugin Procedures</h1>
+            <h1>@PLUGIN_KEY@</h1>
             <p>
-                IMPORTANT: For all parameter descriptions below, required parameters are shown in
-                <span class="required">bold italics</span>
-                .
+                Version @PLUGIN_VERSION@
             </p>
-
-            <div id="Decommission Environments">
-                <a name="Decommission Environments" id="Decommission Environments"></a>
-
-                <h3>Decommission Environments</h3>
-
-                <p>This procedure will allow users to create a process step easily using utility procedure which will tear down all the dynamically created environments. This procedure can work
-                    in the
-                    context of either Pipeline or a Job (Process or Procedure).
-                </p>
-                <table class="grid">
-                    <thead>
-                        <tr>
-                            <th>Parameter</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>EnvironmentList</td>
-                            <td>Provide comma separated list of environments to tear down, in a form of '/projects/[Project Name]/environments/[Environment Name]'.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-<!--             <div id="Create Schedule To Trigger Gate">
-                <a name="Create Schedule To Trigger Gate" id="Create Schedule To Trigger Gate"></a>
-
-                <h3>Create Schedule To Trigger Gate [Experimental]</h3>
-
-                <p>This procedure will allow users to create a stage gate that is
-                    triggered by a schedule. The idea is to prevent a stage to
-                    start before a specific date and time.
-                </p>
-                <table class="grid">
-                    <thead>
-                        <tr>
-                            <th>Parameter</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="required">Date</td>
-                            <td>The date at which to trigger the gate. Format is
-                                "YYYY-MM-dd".
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="required">Time</td>
-                            <td>The time at which to trigger the gate. Format is
-                                "HH:mm" (24 hours).
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="required">Gate</td>
-                            <td>The name of the gate to trigger.</td>
-                        </tr>
-                        <tr>
-                            <td class="required">Stage</td>
-                            <td>The name of the stage where the gate is located.
-                                Typically the next stage.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="required">Evidence</td>
-                            <td>Text to set on the approval of the gate.</td>
-                        </tr>
-                        <tr>
-                            <td>Timezone</td>
-                            <td>Timezone to express the date and time. Default
-                                is the server timezone. The format is the standard
-                                continent/city like "America/New_York". For
-                                convenience some
-                                abbreviations are converted
-                                automatically like "PST" to "America/Los_Angeles".
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>  -->
-            <div id="CreateSnapshot">
-                <a name="CreateSnapshot" id="CreateSnapshot"></a>
-
-                <h3>Create Snapshot</h3>
-
-                <p>This procedure allows the users to create an application snapshot.
-                </p>
-                <table class="grid">
-                    <thead>
-                        <tr>
-                            <th>Parameter</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="required">SnapshotName</td>
-                            <td>Name of the snapshot to create</td>
-                        </tr>
-                        <tr>
-                            <td>ApplicationName</td>
-                            <td>Name of the application for which the snapshot needs to be created. Either this parameter or ServiceName parameter should be provided.</td>
-                        </tr>
-                        <tr>
-                            <td>ServiceName</td>
-                            <td>Name of the service for which the snapshot needs to be created. Either this parameter or ApplicationName parameter should be provided.</td>
-                        </tr>
-                        <tr>
-                            <td class="required">ProjectName</td>
-                            <td>Name of the project that the application or service belongs to.</td>
-                        </tr>
-                        <tr>
-                            <td>EnvironmentName</td>
-                            <td>Name of the environment on which the application or service is deployed.</td>
-                        </tr>
-                        <tr>
-                            <td>EnvironmentProjectName</td>
-                            <td>Name of the project that the environment belongs to, if different from the application or service project.</td>
-                        </tr>
-                        <tr>
-                            <td>Overwrite</td>
-                            <td>If checked, delete any existing snapshot with the same name before creating the snapshot</td>
-                        </tr>
-                        <tr>
-                            <td>ComponentVersions</td>
-                            <td>This option applies only when the environment name is not specified. For an application snapshot, provide a Space-delimited list of component names and versions to be used. Use keyword 'LATEST' to indicate latest version. E.g., ec_comp1-version=1.1 ec_comp2-version=LATEST.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <h1>Release Notes</h1>
-
-    <h2 id="1.1.10">@PLUGIN_KEY@ 1.1.10</h2>
-    <p>Renaming from "Electric Cloud" to "CloudBees"</p>
-
-            <h2>EF-Utilities 1.1.9</h2>
-            <ul><li>Added metadata that is required for 9.0 release.</li></ul>
-            <h2>EF-Utilities 1.1.8</h2>
-            <ul>
-                <li>Removed default value for <i>ServiceName</i> parameter in <i>Create Snapshot</i> procedure.</li>
-            </ul>
-            <h2>EF-Utilities 1.1.7</h2>
-            <ul>
-                <li>Microservice suppport for Create Snapshot was added.</li>
-            </ul>
-            <h2>EF-Utilities 1.0.7</h2>
-            <ul>
-                <li>Minor changes in documentation.</li>
-            </ul>
-            <h2>EF-Utilities 1.0.6</h2>
-            <ul>
-                <li>Renamed createSnapshot procedure to Create Snapshot</li>
-                <li>Re-enabled Create Snapshot procedure after fixes.</li>
-            </ul>
-            <h2>EF-Utilities 1.0.5</h2>
-            <ul>
-                <li>Optionally handle quoted environment paths in DecommissionEnvironments procedure.</li>
-                <li>Temporarily disabled 'createSnapshot' procedure.</li>
-            </ul>
-            <h2>EF-Utilities 1.0.4</h2>
-            <ul>
-                <li>Temporarily disabled 'createScheduleToTriggerGate' procedure.</li>
-            </ul>
-            <h2>EF-Utilities 1.0.3</h2>
-            <ul>
-                <li>Added 'Create Snapshot' procedure.</li>
-            </ul>
-            <h2>EF-Utilities 1.0.2</h2>
-            <ul>
-                <li>Fix #24 Add changePermissions on the plugin for projects</li>
-                <li>Fix #26 add timeZone parameter to createScheduleToTriggerGate</li>
-            </ul>
+            <p>
+                Documentation for this plugin is now  available <a href="https://docs.cloudbees.com/docs/cloudbees-cd/latest/plugins/ef-utilities" target="_blank">here</a>.
+            </p>
         </div>
-    </body>
+        </body>
 </html>
+
