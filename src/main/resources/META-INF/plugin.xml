@@ -33,6 +33,13 @@
   <category>Utility</category>
   <ecSupportLevel>10</ecSupportLevel>
   <depends>EC-Core</depends>
-<hasAdoc>true</hasAdoc>
+  <hasAdoc>true</hasAdoc>
   <catalogLabel>Deploy Utilities</catalogLabel>
+  <detailedDescription>The EC-Utilities  plugin provides CloudBees CD procedures you can use to perform the following operations:
+
+    * Decommission environments: This procedure allows users to create a process step easily using utility procedure which will tear down all the dynamically created environments. This procedure can work in the context of either Pipeline or a Job (Process or Procedure).
+    * Create a schedule to trigger gate: This procedure allows users to
+    create a stage gate that is triggered by a schedule. The idea is to
+    prevent a stage to start before a specific date and time.
+  </detailedDescription>
 </plugin>

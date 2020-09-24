@@ -1,13 +1,6 @@
 
 Plugin Version @PLUGIN_VERSION@
-
 Revised on May 24, 2019
-
-'''''
-
-== Overview
-
-EF-Utilities is a collection of procedures to address some of the common Deploy use-cases.
 
 == Plugin procedures
 
@@ -54,7 +47,7 @@ This procedure allows the users to create an application snapshot.
 
 === EF-Utilities 1.1.10
 
-Renaming from "Electric Cloud" to "CloudBees"
+Renaming  to "CloudBees"
 
 === EF-Utilities 1.1.9
 
