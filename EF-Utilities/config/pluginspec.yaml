@@ -1,0 +1,133 @@
+---
+pluginInfo:
+  pluginName: "EF-Utilities"
+  version: "2.0.0"
+  description: "A set of common procedures for Deploy use-cases"
+  author: "CloudBees"
+  supportUrl: "http://www.electric-cloud.com/support"
+  category: "Fill me"
+  shell: "ec-perl"
+
+properties:
+- propertyName: ec_component_plugin
+  properties:
+    - propertyName: operations
+      properties:
+        - propertyName: Fetch content
+          value: NoOpArtifact
+    - propertyName: pluginType
+      value: Repository
+
+- propertyName: "scripts"
+  properties:
+  - propertyName: "perlHeaderJSON"
+    value:
+      path: "dsl/properties/scripts/perlHeaderJSON.pl"
+  - propertyName: "perlLibJSON"
+    value:
+      path: "dsl/properties/scripts/perlLibJSON.pl"
+
+procedures:
+- name: NoOpArtifact
+  # description: No-op retrieval procedure
+  shell: ec-perl
+  parameters:
+    - name: artifact
+      required: true
+      value: test
+    - name: version
+      required: false
+      value: '1.0'
+
+- name: Seed environment inventory
+  shell: ec-perl
+  parameters:
+  -
+    name: regexp
+    documentation: Regular expression to scan output
+    required: false
+    type: entry
+    label: Regular expresion
+  - name: output
+    documentation: Output from a third-party deployment system, to search for artifact names in.
+    type: textarea
+    label: Deployment output
+  - name: artifactNames
+    label: Artifact names
+    documentation: Artifact names to seed into inventory
+
+
+- name: "Create Snapshot"
+  description: "Create a snapshot for an application or a microservice."
+  parameters:
+  - name: "ApplicationName"
+    type: "entry"
+    required: false
+    documentation: "Name of the application for the snapshot. Either this parameter\
+      \ or the service name parameter should be provided."
+    label: "Application Name:"
+    value: "$[/myApplication/applicationName]"
+  - name: "ServiceName"
+    type: "entry"
+    required: false
+    documentation: "Name of the service for the snapshot. Either this parameter\
+      \ or the application name parameter should be provided."
+    label: "Service Name:"
+  - name: "ProjectName"
+    type: "entry"
+    required: true
+    documentation: "Name of the project that contains the application or service."
+    label: "Project Name:"
+    value: "$[/myApplication/projectName]"
+  - name: "SnapshotName"
+    type: "entry"
+    required: true
+    documentation: "Name of the snapshot to be created."
+    label: "Snapshot Name:"
+  - name: "EnvironmentName"
+    type: "entry"
+    required: false
+    documentation: "For an environment snapshot, specify the name of the environment\
+      \ where the application or service is deployed."
+    label: "Environment Name:"
+    value: "$[/myEnvironment/environmentName]"
+  - name: "EnvironmentProjectName"
+    type: "entry"
+    required: false
+    documentation: "Name of the project that contains the environment, if different\
+      \ from the application or service project."
+    label: "Environment Project Name:"
+    value: "$[/myEnvironment/projectName]"
+  - name: "ComponentVersions"
+    type: "textarea"
+    required: false
+    documentation: "This option applies only when the environment name is not specified.\
+      \ For an application snapshot, provide a Space-delimited list of component\
+      \ names and versions to be used. Use keyword 'LATEST' to indicate latest version.\
+      \ E.g., ec_comp1-version=1.1 ec_comp2-version=LATEST."
+    label: "Component Versions:"
+  - name: "Overwrite"
+    type: "checkbox"
+    required: false
+    documentation: "If checked, any existing snapshot with the same name will be\
+      \ overwritten."
+    label: "Overwrite:"
+    checkedValue: "true"
+    uncheckedValue: "false"
+  shell: "ec-perl"
+  properties:
+  - propertyName: "exposeToPlugin"
+    value: "1"
+- name: "Decommission Environments"
+  description: "Decommission dynamic environments provisioned from pipeline, applications\
+    \ process or procedure"
+  parameters:
+  - name: "EnvironmentList"
+    type: "entry"
+    required: false
+    documentation: "Provide comma separated list of environments to tear down, in\
+      \ a form of '/projects/[Project Name]/environments/[Environment Name]'."
+  shell: "ec-perl"
+  properties:
+  - propertyName: "exposeToPlugin"
+    value: "1"
