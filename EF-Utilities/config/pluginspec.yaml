@@ -5,7 +5,7 @@ pluginInfo:
   description: "A set of common procedures for Deploy use-cases"
   author: "CloudBees"
   supportUrl: "http://www.electric-cloud.com/support"
-  category: "Fill me"
+  category: Utility
   shell: "ec-perl"
 
 properties:
@@ -54,7 +54,9 @@ procedures:
     label: Deployment output
   - name: artifactNames
     label: Artifact names
-    documentation: Artifact names to seed into inventory
+    documentation: |
+      Artifact names to seed into inventory, in JSON form or separated by a :, e.g. {"artifact": "1.0.0"} or artifact:1.0.0.
+    type: textarea
 
 
 - name: "Create Snapshot"

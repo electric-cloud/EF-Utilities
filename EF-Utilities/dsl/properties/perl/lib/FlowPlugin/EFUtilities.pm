@@ -32,11 +32,8 @@ sub zeroArtifactRetrieval {
     logInfo("Current context is: ", $context->getRunContext());
     logInfo("Step parameters are: ", $p);
 
-    my $configValues = $context->getConfigValues();
-    logInfo("Config values are: ", $configValues);
 
-    $sr->setJobStepOutcome('warning');
-    $sr->setJobSummary("This is a job summary.");
+    $sr->setJobSummary("No op artifact retrieval procedure");
 }
 # Auto-generated method for the procedure Create Snapshot/Create Snapshot
 # Add your code into this method and it will be called when step runs
@@ -65,6 +62,8 @@ sub createSnapshot {
     $sr->setJobStepOutcome('warning');
     $sr->setJobSummary("This is a job summary.");
 }
+
+
 # Auto-generated method for the procedure Decommission Environments/Decommission Environments
 # Add your code into this method and it will be called when step runs
 # $self - reference to the plugin object
@@ -127,9 +126,16 @@ sub seedEnvironmentInventory {
     my $appProjectName = $ec->getPropertyValue('/myApplication/projectName');
     my $appName = $ec->getPropertyValue('/myApplication/name');
     my $envName = $ec->getPropertyValue('/myEnvironment/name');
-    my $procName = $ec->getPropertyValue('/myProcess/name');
+    my $procName = $ec->getPropertyValue('/myJob/processName');
     my $resName = $ec->getPropertyValue('/myResource/name');
     my $componentName = $ec->getPropertyValue('/myComponent/name');
+
+    logInfo "Application project: $appProjectName";
+    logInfo "Application name: $appName";
+    logInfo "Environment name: $envName";
+    logInfo "Process name: $procName";
+    logInfo "Resource name: $resName";
+    logInfo "Component name: $componentName";
 
     my %params = (
       projectName => $appProjectName,
