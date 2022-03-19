@@ -115,8 +115,6 @@ sub seedEnvironmentInventory {
     my ($self, $p, $sr) = @_;
 
     my $context = $self->getContext();
-    logInfo("Current context is: ", $context->getRunContext());
-    logInfo("Step parameters are: ", $p);
 
     my $ec = ElectricCommander->new();
     my $regexp = $p->{regexp};
@@ -147,18 +145,41 @@ sub seedEnvironmentInventory {
       componentName => $componentName,
     );
 
+    eval {
+        my $releaseName = $ec->getPropertyValue('/myRelease/name');
+        $params{releaseName} = $releaseName;
+        my $releaseProjectName = $ec->getPropertyValue('/myRelease/projectName');
+        $params{releaseProjectName} = $releaseProjectName;
+    };
+
+    eval {
+        my $stageName = $ec->getPropertyValue('/myStage/name');
+        $params{stageName} = $stageName;
+    };
+
+    logInfo "Seed params", \%params;
+
     if ($regexp && $output) {
-        while($output =~ m/$regexp/cg) {
+        my $found = 0;
+        while($output =~ m/$regexp/cgms) {
             my $name = $1;
             my $version = $2;
             if ($name && $version) {
-                print "Found artifact $name, $version\n";
+                $found = 1;
+                logInfo "Found artifact $name, $version";
                 my $result = $ec->seedEnvironmentInventory({
                     %params,
                     artifactName => $name,
-                    artifactVersion => $version
+                    artifactVersion => $version,
+                    seeded => 'false',
+                    artifactSource => 'N/A',
                 });
+                print $result->{_xml};
+                logInfo "Saved inventory item $name:$version";
             }
+        }
+        unless($found) {
+            logInfo "No artifacts found for the regular expression";
         }
     }
 
@@ -176,8 +197,11 @@ sub seedEnvironmentInventory {
                 my $result = $ec->seedEnvironmentInventory({
                     %params,
                     artifactName => $name,
-                    artifactVersion => $version
+                    artifactVersion => $version,
+                    seeded => 'false',
+                    artifactSource => 'N/A',
                 });
+                print $result->{_xml};
             }
         };
 
