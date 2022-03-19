@@ -7,6 +7,19 @@ pluginInfo:
   supportUrl: "http://www.electric-cloud.com/support"
   category: Utility
   shell: "ec-perl"
+  supportLevel: 10
+  hasAdoc: true
+  help: https://docs.cloudbees.com/plugins/cd/ef-utilities
+  label: Deploy Utilities
+  detailedDescription: |
+    The EC-Utilities  plugin provides CloudBees CD procedures you can use to perform the following operations:
+
+      <ul><li>Decommission environments: This procedure allows users to create a process step easily using utility procedure which will tear down all the dynamically created environments. This procedure can work in the context of either Pipeline or a Job (Process or Procedure).</li>
+      <li>Create a schedule to trigger gate: This procedure allows users to
+      create a stage gate that is triggered by a schedule. The idea is to
+      prevent a stage to start before a specific date and time.</li>
+      </ul>
+
 
 properties:
 - propertyName: ec_component_plugin
