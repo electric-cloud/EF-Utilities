@@ -129,6 +129,8 @@ sub seedEnvironmentInventory {
     my $procName = $ec->getPropertyValue('/myJob/processName');
     my $resName = $ec->getPropertyValue('/myResource/name');
     my $componentName = $ec->getPropertyValue('/myComponent/name');
+    my $envProjectName = $ec->getPropertyValue('/myEnvironment/projectName');
+    my $appTierName = $ec->getPropertyValue('/myApplicationTier/name');
 
     logInfo "Application project: $appProjectName";
     logInfo "Application name: $appName";
@@ -136,6 +138,8 @@ sub seedEnvironmentInventory {
     logInfo "Process name: $procName";
     logInfo "Resource name: $resName";
     logInfo "Component name: $componentName";
+    logInfo "Env project name: $envProjectName";
+    logInfo "App tier name: $appTierName";
 
     my %params = (
       projectName => $appProjectName,
@@ -145,19 +149,42 @@ sub seedEnvironmentInventory {
       status        => 'success',
       resourceNames => $resName,
       componentName => $componentName,
+      seeded => 'false',
+      artifactSource => 'N/A',
+      environmentProjectName => $envProjectName,
     );
+
+
+    eval {
+        my $releaseName = $ec->getPropertyValue('/myRelease/name');
+        $params{releaseName} = $releaseName;
+        logInfo "Release name: $releaseName\n";
+        my $releaseProjectName = $ec->getPropertyValue('/myRelease/projectName');
+        $params{releaseProjectName} = $releaseProjectName;
+        1;
+    } or do {
+        logInfo "Failed to get release name: $@";
+    };
+
+    eval {
+        my $stageName = $ec->getPropertyValue('/myStage/name');
+        $params{stageName} = $stageName;
+    };
+
 
     if ($regexp && $output) {
         while($output =~ m/$regexp/cg) {
             my $name = $1;
             my $version = $2;
             if ($name && $version) {
-                print "Found artifact $name, $version\n";
+                logInfo "Found artifact $name, $version\n";
                 my $result = $ec->seedEnvironmentInventory({
                     %params,
                     artifactName => $name,
                     artifactVersion => $version
                 });
+                logInfo $result->{_xml};
+                logInfo "Saved artifact $name:$version";
             }
         }
     }
@@ -172,12 +199,14 @@ sub seedEnvironmentInventory {
             my @lines = split(/\n+/ => $artifactNames);
             for (@lines) {
                 my ($name, $version) = split(/:/, $_);
-                print "Seeding artifact version: $name:$version\n";
+                logInfo "Seeding artifact version: $name:$version\n";
                 my $result = $ec->seedEnvironmentInventory({
                     %params,
                     artifactName => $name,
                     artifactVersion => $version
                 });
+                logInfo $result->{_xml};
+                logInfo "Saved artifact $name:$version";
             }
         };
 
