@@ -25,7 +25,7 @@
   <author>CloudBees</author>
   <authorUrl>http://electric-cloud.com/support</authorUrl>
 
-  <commander-version min="6.2"/>
+  <commander-version min="10.3"/>
 
   <!-- Specify a category for this plugin; this is used in filtered lists in the Plugin Manager.
        Typically, it is set to System or Step.
