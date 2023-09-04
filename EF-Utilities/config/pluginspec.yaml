@@ -1,12 +1,12 @@
 ---
 pluginInfo:
   pluginName: "EF-Utilities"
-  version: "2.0.0"
+  version: "3.0.0"
   description: "A set of common procedures for Deploy use-cases"
   author: "CloudBees"
   supportUrl: "http://www.electric-cloud.com/support"
   category: Utility
-  shell: "ec-perl"
+  shell: "cb-perl"
 
 properties:
 - propertyName: ec_component_plugin
@@ -30,7 +30,7 @@ properties:
 procedures:
 - name: NoOpArtifact
   # description: No-op retrieval procedure
-  shell: ec-perl
+  shell: cb-perl
   parameters:
     - name: artifact
       required: true
@@ -40,7 +40,7 @@ procedures:
       value: '1.0'
 
 - name: Seed environment inventory
-  shell: ec-perl
+  shell: cb-perl
   parameters:
   -
     name: regexp
@@ -116,7 +116,7 @@ procedures:
     label: "Overwrite:"
     checkedValue: "true"
     uncheckedValue: "false"
-  shell: "ec-perl"
+  shell: "cb-perl"
   properties:
   - propertyName: "exposeToPlugin"
     value: "1"
@@ -129,7 +129,7 @@ procedures:
     required: false
     documentation: "Provide comma separated list of environments to tear down, in\
       \ a form of '/projects/[Project Name]/environments/[Environment Name]'."
-  shell: "ec-perl"
+  shell: "cb-perl"
   properties:
   - propertyName: "exposeToPlugin"
     value: "1"

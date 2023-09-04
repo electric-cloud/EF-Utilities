@@ -41,6 +41,10 @@ This procedure allows the users to create an application snapshot.
 
 == Release notes
 
+=== EF-Utilities 3.0.0
+
+* Upgraded from Perl 5.8 to Perl 5.32. The plugin is not backward compatible with {PRODUCT} versions prior to 10.3. Starting from this release, a new agent is required to run plugin procedures.
+
 === EF-Utilities 1.1.12
 
 * The documentation has been migrated to the main documentation site.
