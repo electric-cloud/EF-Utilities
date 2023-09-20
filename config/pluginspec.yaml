@@ -7,6 +7,7 @@ pluginInfo:
   supportUrl: "http://www.electric-cloud.com/support"
   category: Utility
   shell: "cb-perl"
+  minCommanderVersion: 10.3
   supportLevel: 10
   hasAdoc: true
   help: https://docs.cloudbees.com/plugins/cd/ef-utilities
