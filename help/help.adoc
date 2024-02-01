@@ -41,6 +41,10 @@ This procedure allows the users to create an application snapshot.
 
 == Release notes
 
+=== EF-Utilities 3.0.1
+
+* Improved SSL/TLS certificate validation to ensure that when the *Ignore SSL issues* parameter is selected that SSL/TLS validation is properly disabled.
+
 === EF-Utilities 3.0.0
 
 * Upgraded from Perl 5.8 to Perl 5.32. The plugin is not backward compatible with {PRODUCT} versions prior to 10.3. Starting from this release, a new agent is required to run plugin procedures.
