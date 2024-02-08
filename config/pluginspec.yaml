@@ -1,7 +1,7 @@
 ---
 pluginInfo:
   pluginName: "EF-Utilities"
-  version: "3.0.0"
+  version: "3.0.1"
   description: "A set of common procedures for Deploy use-cases"
   author: "CloudBees"
   supportUrl: "http://www.electric-cloud.com/support"
